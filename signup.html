@@ -1,0 +1,738 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>SignUp | Bit Markets</title>
+  <link rel="icon" href="assets/img/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- toastr js -->
+    <link rel="stylesheet" href="assets/css/toastr.min.css">
+
+    <script src="js/signup.js" defer></script>
+    
+    
+    <script src="../code.tidio.co_443/wipo005kp2ezotjfeszu7wygfrgqfyiq.js" async></script>
+    
+     <style>
+    #loader{
+      position: fixed;
+      text-align:center;
+      width: 100%;
+      height: 100%;
+      top: 50%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 10000;
+      cursor: pointer;
+      display:none;
+      justify-content: center;
+      margin-top:-50px;
+    }
+    
+     #overlay{
+      position: fixed;
+      text-align:center;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: black;
+      opacity: 0.6;
+      z-index: 1000;
+      cursor: not-allowed;
+      display:none;
+      justify-content: center;
+    }
+    
+     #loader2{
+      position: fixed;
+      text-align:center;
+      width: 100%;
+      height: 100%;
+      top: 50%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 10000;
+      cursor: pointer;
+      display:none;
+      justify-content: center;
+      margin-top:-50px;
+    }
+    
+     #overlay2{
+      position: fixed;
+      text-align:center;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: black;
+      opacity: 0.6;
+      z-index: 1000;
+      cursor: not-allowed;
+      display:none;
+      justify-content: center;
+    }
+    </style>
+    
+    
+ 
+</head>
+
+<body id="dark">
+
+ <div id="loader">
+            <img src="assets/css/ajax-loader.gif" alt="" width=".1em">
+        </div>
+        
+ <div id="loader2">
+            <img src="assets/css/ajax-loader.gif" alt="" width=".1em">
+        </div>
+        
+        <div id="overlay">
+        </div>
+        
+        <div id="overlay2">
+        </div>
+        
+        <div class="notification-alert">
+            <div class="notice-list">
+                
+            </div>
+        </div>
+
+        <!-- preloader begin-->
+        <div class="preloader">
+            <img src="assets/img/tenor.html" alt="">
+        </div>
+        <!-- preloader end -->
+
+  <header class="dark-bb">
+    <nav class="navbar navbar-expand-lg">
+      <a class="navbar-brand" href="exchange.html"><img src="assets/img/logo-dark.png" alt="logo"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#headerMenu"
+        aria-controls="headerMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="icon ion-md-menu"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="headerMenu">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              Home
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="index-2.html">Home Page</a>
+            </div>
+          </li>
+          
+           <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              Dashboard
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="signin.html">Profile</a>
+              <a class="dropdown-item" href="wallet">Wallet</a>
+              <a class="dropdown-item" href="signin.html">Settings</a>
+            </div>
+          </li>
+          
+           <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              Trading
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="trade">Trade Crypto</a>
+              <a class="dropdown-item" href="signin.html">Trade Stock</a>
+            </div>
+          </li>
+          
+         
+
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item header-custom-icon">
+            <a class="nav-link" href="#" id="clickFullscreen">
+              <i class="icon ion-md-expand"></i>
+            </a>
+          </li>
+          
+          <li class="nav-item dropdown header-img-icon">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              <img src="assets/img/avatar.svg" alt="avatar">
+            </a>
+            <div class="dropdown-menu">
+              <div class="dropdown-header d-flex flex-column align-items-center">
+                <div class="figure mb-3"> <img src="assets/img/avatar.svg" alt="" style="width:60px; height: 60px; border-radius: 30px;">
+                </div>
+                <div class="info text-center">
+                  <p class="name font-weight-bold mb-0">User</p>
+                  <p class="email text-muted mb-3">user@email.com</p>
+                </div>
+              </div>
+              <div class="dropdown-body">
+                <ul class="profile-nav">
+                  <li class="nav-item">
+                    <a href="signin.html" class="nav-link">
+                      <i class="icon ion-md-person"></i>
+                      <span>Profile</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="wallet" class="nav-link">
+                      <i class="icon ion-md-wallet"></i>
+                      <span>My Wallet</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="signin.html" class="nav-link">
+                      <i class="icon ion-md-settings"></i>
+                      <span>Settings</span>
+                    </a>
+                  </li>
+                  <li class="nav-item" id="changeThemeLight">
+                    <a href="#!" class="nav-link">
+                      <i class="icon ion-md-sunny"></i>
+                      <span>Theme</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="signin.html" class="nav-link red">
+                      <i class="icon ion-md-power"></i>
+                      <span>Log Out</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  
+  
+<!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <script type="text/javascript" src="../s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+  {
+  "symbols": [
+    {
+      "proName": "FX_IDC:EURUSD",
+      "title": "EUR/USD"
+    },
+    {
+      "proName": "BITSTAMP:BTCUSD",
+      "title": "BTC/USD"
+    },
+    {
+      "proName": "BITSTAMP:ETHUSD",
+      "title": "ETH/USD"
+    },
+    {
+      "description": "DOGE/USD",
+      "proName": "BITFINEX:DOGEUSD"
+    },
+    {
+      "description": "BCH/USD",
+      "proName": "COINBASE:BCHUSD"
+    }
+  ],
+  "showSymbolLogo": true,
+  "colorTheme": "light",
+  "isTransparent": true,
+  "displayMode": "adaptive",
+  "locale": "en"
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->
+  <div style="height: 70vh" class="d-flex justify-content-center">
+    <div class="form-access my-auto">
+      <form>
+        <span>Create Account</span>
+        <div class="form-group">
+          <input id="name" type="text" class="form-control" placeholder="Full Name">
+        </div>
+        
+        <div class="form-group">
+          <input id="email" type="email" class="form-control" placeholder="Email Address">
+        </div>
+       
+        <div class="form-group">
+          <input id="password" type="password" class="form-control" placeholder="Password">
+        </div>
+
+        <div class="form-group">
+            <input id="street" type="text" class="form-control" placeholder="Address">
+          </div>
+
+          <div class="form-group">
+            <input id="city" type="text" class="form-control" placeholder="City">
+          </div>
+
+          <div class="form-group">
+            <input id="state" type="text" class="form-control" placeholder="State">
+          </div>
+
+
+          <div class="form-group">
+            <input id="zip_code" type="text" class="form-control" placeholder="Zip code">
+          </div>
+
+          
+
+        
+        <div class="form-group">
+            <select id="country" class="form-control">
+    <option value="" selected>Select a country</option>
+    <option value="--">Not Specified</option>
+    <option value="AF">Afghanistan</option>
+    <option value="AL">Albania</option>
+    <option value="DZ">Algeria</option>
+    <option value="AS">American Samoa</option>
+    <option value="AD">Andorra</option>
+    <option value="AO">Angola</option>
+    <option value="AI">Anguilla</option>
+    <option value="AQ">Antarctica</option>
+    <option value="AG">Antigua and Barbuda</option>
+    <option value="AR">Argentina</option>
+    <option value="AM">Armenia</option>
+    <option value="AW">Aruba</option>
+    <option value="AU">Australia</option>
+    <option value="AT">Austria</option>
+    <option value="AZ">Azerbaijan</option>
+    <option value="BS">Bahamas</option>
+    <option value="BH">Bahrain</option>
+    <option value="BD">Bangladesh</option>
+    <option value="BB">Barbados</option>
+    <option value="BY">Belarus</option>
+    <option value="BE">Belgium</option>
+    <option value="BZ">Belize</option>
+    <option value="BJ">Benin</option>
+    <option value="BM">Bermuda</option>
+    <option value="BT">Bhutan</option>
+    <option value="BO">Bolivia</option>
+    <option value="BA">Bosnia and Herzegowina</option>
+    <option value="BW">Botswana</option>
+    <option value="BV">Bouvet Island</option>
+    <option value="BR">Brazil</option>
+    <option value="IO">British Indian Ocean Territory</option>
+    <option value="BN">Brunei Darussalam</option>
+    <option value="BG">Bulgaria</option>
+    <option value="BF">Burkina Faso</option>
+    <option value="BI">Burundi</option>
+    <option value="KH">Cambodia</option>
+    <option value="CM">Cameroon</option>
+    <option value="CA">Canada</option>
+    <option value="CV">Cape Verde</option>
+    <option value="KY">Cayman Islands</option>
+    <option value="CF">Central African Republic</option>
+    <option value="TD">Chad</option>
+    <option value="CL">Chile</option>
+    <option value="CN">China</option>
+    <option value="CX">Christmas Island</option>
+    <option value="CC">Cocos (Keeling) Islands</option>
+    <option value="CO">Colombia</option>
+    <option value="KM">Comoros</option>
+    <option value="CG">Congo</option>
+    <option value="CD">Congo, the Democratic Republic of the</option>
+    <option value="CK">Cook Islands</option>
+    <option value="CR">Costa Rica</option>
+    <option value="CI">Cote d'Ivoire</option>
+    <option value="HR">Croatia (Hrvatska)</option>
+    <option value="CU">Cuba</option>
+    <option value="CY">Cyprus</option>
+    <option value="CZ">Czech Republic</option>
+    <option value="DK">Denmark</option>
+    <option value="DJ">Djibouti</option>
+    <option value="DM">Dominica</option>
+    <option value="DO">Dominican Republic</option>
+    <option value="TP">East Timor</option>
+    <option value="EC">Ecuador</option>
+    <option value="EG">Egypt</option>
+    <option value="SV">El Salvador</option>
+    <option value="GQ">Equatorial Guinea</option>
+    <option value="ER">Eritrea</option>
+    <option value="EE">Estonia</option>
+    <option value="ET">Ethiopia</option>
+    <option value="FK">Falkland Islands (Malvinas)</option>
+    <option value="FO">Faroe Islands</option>
+    <option value="FJ">Fiji</option>
+    <option value="FI">Finland</option>
+    <option value="FR">France</option>
+    <option value="FX">France, Metropolitan</option>
+    <option value="GF">French Guiana</option>
+    <option value="PF">French Polynesia</option>
+    <option value="TF">French Southern Territories</option>
+    <option value="GA">Gabon</option>
+    <option value="GM">Gambia</option>
+    <option value="GE">Georgia</option>
+    <option value="DE">Germany</option>
+    <option value="GH">Ghana</option>
+    <option value="GI">Gibraltar</option>
+    <option value="GR">Greece</option>
+    <option value="GL">Greenland</option>
+    <option value="GD">Grenada</option>
+    <option value="GP">Guadeloupe</option>
+    <option value="GU">Guam</option>
+    <option value="GT">Guatemala</option>
+    <option value="GN">Guinea</option>
+    <option value="GW">Guinea-Bissau</option>
+    <option value="GY">Guyana</option>
+    <option value="HT">Haiti</option>
+    <option value="HM">Heard and Mc Donald Islands</option>
+    <option value="VA">Holy See (Vatican City State)</option>
+    <option value="HN">Honduras</option>
+    <option value="HK">Hong Kong</option>
+    <option value="HU">Hungary</option>
+    <option value="IS">Iceland</option>
+    <option value="IN">India</option>
+    <option value="ID">Indonesia</option>
+    <option value="IR">Iran (Islamic Republic of)</option>
+    <option value="IQ">Iraq</option>
+    <option value="IE">Ireland</option>
+    <option value="IL">Israel</option>
+    <option value="IT">Italy</option>
+    <option value="JM">Jamaica</option>
+    <option value="JP">Japan</option>
+    <option value="JO">Jordan</option>
+    <option value="KZ">Kazakhstan</option>
+    <option value="KE">Kenya</option>
+    <option value="KI">Kiribati</option>
+    <option value="KP">Korea, Democratic People's Republic of</option>
+    <option value="KR">Korea, Republic of</option>
+    <option value="KW">Kuwait</option>
+    <option value="KG">Kyrgyzstan</option>
+    <option value="LA">Lao People's Democratic Republic</option>
+    <option value="LV">Latvia</option>
+    <option value="LB">Lebanon</option>
+    <option value="LS">Lesotho</option>
+    <option value="LR">Liberia</option>
+    <option value="LY">Libyan Arab Jamahiriya</option>
+    <option value="LI">Liechtenstein</option>
+    <option value="LT">Lithuania</option>
+    <option value="LU">Luxembourg</option>
+    <option value="MO">Macau</option>
+    <option value="MK">Macedonia, The Former Yugoslav Republic of</option>
+    <option value="MG">Madagascar</option>
+    <option value="MW">Malawi</option>
+    <option value="MY">Malaysia</option>
+    <option value="MV">Maldives</option>
+    <option value="ML">Mali</option>
+    <option value="MT">Malta</option>
+    <option value="MH">Marshall Islands</option>
+    <option value="MQ">Martinique</option>
+    <option value="MR">Mauritania</option>
+    <option value="MU">Mauritius</option>
+    <option value="YT">Mayotte</option>
+    <option value="MX">Mexico</option>
+    <option value="FM">Micronesia, Federated States of</option>
+    <option value="MD">Moldova, Republic of</option>
+    <option value="MC">Monaco</option>
+    <option value="MN">Mongolia</option>
+    <option value="MS">Montserrat</option>
+    <option value="MA">Morocco</option>
+    <option value="MZ">Mozambique</option>
+    <option value="MM">Myanmar</option>
+    <option value="NA">Namibia</option>
+    <option value="NR">Nauru</option>
+    <option value="NP">Nepal</option>
+    <option value="NL">Netherlands</option>
+    <option value="AN">Netherlands Antilles</option>
+    <option value="NC">New Caledonia</option>
+    <option value="NZ">New Zealand</option>
+    <option value="NI">Nicaragua</option>
+    <option value="NE">Niger</option>
+    <option value="NG">Nigeria</option>
+    <option value="NU">Niue</option>
+    <option value="NF">Norfolk Island</option>
+    <option value="MP">Northern Mariana Islands</option>
+    <option value="NO">Norway</option>
+    <option value="OM">Oman</option>
+    <option value="PK">Pakistan</option>
+    <option value="PW">Palau</option>
+    <option value="PA">Panama</option>
+    <option value="PG">Papua New Guinea</option>
+    <option value="PY">Paraguay</option>
+    <option value="PE">Peru</option>
+    <option value="PH">Philippines</option>
+    <option value="PN">Pitcairn</option>
+    <option value="PL">Poland</option>
+    <option value="PT">Portugal</option>
+    <option value="PR">Puerto Rico</option>
+    <option value="QA">Qatar</option>
+    <option value="RE">Reunion</option>
+    <option value="RO">Romania</option>
+    <option value="RU">Russian Federation</option>
+    <option value="RW">Rwanda</option>
+    <option value="KN">Saint Kitts and Nevis</option> 
+    <option value="LC">Saint LUCIA</option>
+    <option value="VC">Saint Vincent and the Grenadines</option>
+    <option value="WS">Samoa</option>
+    <option value="SM">San Marino</option>
+    <option value="ST">Sao Tome and Principe</option> 
+    <option value="SA">Saudi Arabia</option>
+    <option value="SN">Senegal</option>
+    <option value="SC">Seychelles</option>
+    <option value="SL">Sierra Leone</option>
+    <option value="SG">Singapore</option>
+    <option value="SK">Slovakia (Slovak Republic)</option>
+    <option value="SI">Slovenia</option>
+    <option value="SB">Solomon Islands</option>
+    <option value="SO">Somalia</option>
+    <option value="ZA">South Africa</option>
+    <option value="GS">South Georgia and the South Sandwich Islands</option>
+    <option value="ES">Spain</option>
+    <option value="LK">Sri Lanka</option>
+    <option value="SH">St. Helena</option>
+    <option value="PM">St. Pierre and Miquelon</option>
+    <option value="SD">Sudan</option>
+    <option value="SR">Suriname</option>
+    <option value="SJ">Svalbard and Jan Mayen Islands</option>
+    <option value="SZ">Swaziland</option>
+    <option value="SE">Sweden</option>
+    <option value="CH">Switzerland</option>
+    <option value="SY">Syrian Arab Republic</option>
+    <option value="TW">Taiwan, Province of China</option>
+    <option value="TJ">Tajikistan</option>
+    <option value="TZ">Tanzania, United Republic of</option>
+    <option value="TH">Thailand</option>
+    <option value="TG">Togo</option>
+    <option value="TK">Tokelau</option>
+    <option value="TO">Tonga</option>
+    <option value="TT">Trinidad and Tobago</option>
+    <option value="TN">Tunisia</option>
+    <option value="TR">Turkey</option>
+    <option value="TM">Turkmenistan</option>
+    <option value="TC">Turks and Caicos Islands</option>
+    <option value="TV">Tuvalu</option>
+    <option value="UG">Uganda</option>
+    <option value="UA">Ukraine</option>
+    <option value="AE">United Arab Emirates</option>
+    <option value="GB">United Kingdom</option>
+    <option value="US">United States</option>
+    <option value="UM">United States Minor Outlying Islands</option>
+    <option value="UY">Uruguay</option>
+    <option value="UZ">Uzbekistan</option>
+    <option value="VU">Vanuatu</option>
+    <option value="VE">Venezuela</option>
+    <option value="VN">Viet Nam</option>
+    <option value="VG">Virgin Islands (British)</option>
+    <option value="VI">Virgin Islands (U.S.)</option>
+    <option value="WF">Wallis and Futuna Islands</option>
+    <option value="EH">Western Sahara</option>
+    <option value="YE">Yemen</option>
+    <option value="YU">Yugoslavia</option>
+    <option value="ZM">Zambia</option>
+    <option value="ZW">Zimbabwe</option>
+            </select>
+        </div>
+        <div class="form-group">
+          <input id="promo" type="text" class="form-control" placeholder="I have a promo code">
+        </div>
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="form-checkbox">
+          <label class="custom-control-label" for="form-checkbox">I agree to the <a href="#!">Terms &
+              Conditions</a></label>
+        </div>
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="form-checkbox2">
+          <label class="custom-control-label" for="form-checkbox2">I understand that the data I provided above shall be used for my account verification</a></label>
+        </div>
+        <button id="sbmt" type="submit" class="btn btn-primary">Create Account</button>
+      </form>
+      <h2>Already have an account? <a href="signin.html">Sign in here</a></h2>
+    </div>
+  </div>
+
+  <script src="assets/js/jquery-3.4.1.min.js"></script>
+  <script src="assets/js/popper.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/custom.js"></script>
+  <!-- toastr js -->
+<script src="assets/js/toastr.min.js"></script>
+
+
+<!-- <script language=javascript>
+ 
+ function checkform() {
+     
+ if ($("#fullname").val()==="") {
+    toastr["warning"]("Please enter your full name!");
+    $("#fullname").focus();
+    return false;
+  }
+
+if ($("#username").val()==="") {
+    toastr["warning"]("Please enter your username");
+    $("#username").focus();
+    return false;
+  }
+  
+  if (!$("#username").val().match(/^[A-Za-z0-9_\-]+$/)) {
+     toastr["warning"]("For username you should use English letters and digits only!");
+    $("#username").focus();
+    return false;
+  }
+  
+ if ($("#email").val() == '') {
+    toastr["warning"]("Please enter your e-mail address!");
+    $("#email").focus();
+    return false;
+  }
+  
+  if (!$("#email").val().match(/^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i)) {
+     toastr["warning"]("Invalid email address!");
+    $("#username").focus();
+    return false;
+  }
+ 
+ if ($("#phone").val()==="") {
+    toastr["warning"]("Please enter phone number");
+    $("#phone").focus();
+    return false;
+  }
+ 
+  if ($("#pass").val()==="") {
+     toastr["warning"]("Please enter your password!");
+    $("#pass").focus();
+    return false;
+  }
+  if ($("#pass").val() != $("#pass2").val() || $("#pass2").val()== "") {
+    toastr["warning"]("Please check your password!");
+    $("#pass2").focus();
+    return false;
+  }
+ 
+ 
+  if ($("#country").val() == '') {
+    toastr["warning"]("Please select a valid country");
+    $("#country").focus();
+    return false;
+  }
+  
+
+  if (!$("#form-checkbox").is(":checked")) {
+    toastr["warning"]("You have to agree with the Terms and Conditions!");
+    return false;
+  }
+  
+  if (!$("#form-checkbox2").is(":checked")) {
+    toastr["warning"]("You understand that these info will be used to verify your account");
+    return false;
+  }
+
+  return true;
+ }
+
+ function isNumeric(sText) {
+  var ValidChars = "0123456789";
+  var IsNumber=true;
+  var Char;
+  if (sText == '') return false;
+  for (i = 0; i < sText.length && IsNumber == true; i++) { 
+    Char = sText.charAt(i); 
+    if (ValidChars.indexOf(Char) == -1) {
+      IsNumber = false;
+    }
+  }
+  return IsNumber;
+ }
+ </script> -->
+ 
+
+<!-- <script>
+    $(function(){
+        var overlay= $("#overlay");
+        var loader= $("#loader");
+        
+        function loadOn(){
+            overlay.css('display', 'block');
+            loader.css('display', 'block');
+        }
+        function loadOff(){
+            overlay.css('display', 'none');
+            loader.css('display', 'none');
+        }
+        
+        var site_domain= "bitmarkets.ca";
+        
+        
+        $("#sbmt").click(function(){
+           event.preventDefault();
+           var username= $("#username").val();
+           var email= $("#email").val();
+           var fullname =$("#fullname").val();
+           var pass= $("#pass").val();
+           var promo= $("#promo").val();
+           var phone= $("#phone").val();
+           var country= $("#country").val();
+           
+           if(checkform() == true){
+               loadOn();
+               $.post('ajax', {
+                   signup: "set",
+                   username: username,
+                   email: email,
+                   fullname: fullname,
+                   pass: pass,
+                   country: country,
+                   promo: promo,
+                   phone: phone
+               }, function(data, status){
+                   loadOff();
+                   
+                   if(data.err== 0){
+                       toastr["success"](data.msg);
+                       $("input").val('');
+                       window.location.href="https://"+site_domain+"/signin"
+                   }else{
+                       toastr["error"](data.msg);
+                   }
+               }, "JSON")
+           }
+       })
+       
+       
+       
+       
+        
+        
+    })
+</script> -->
+
+
+'
+<script>
+//     var username= "1";
+//     var email= "1";
+
+// document.tidioIdentify = {
+//   email: email, // visitor email
+//   name: username
+// };
+</script>
+ 
+
+</body>
+
+
+</html>
