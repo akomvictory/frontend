@@ -1,860 +1,1056 @@
-
 <!DOCTYPE html>
 <html lang="en">
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="msapplication-TileImage" content="assets/img/favicon.png" />
+    <title>Coipecko Markets | Trade Forex & CFDs with Market Leaders</title>
+    <link rel="icon" href="assets/img/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="icon" href="assets/img/favicon.png" sizes="32x32" />
+    <link rel="icon" href="assets/img/favicon.png" sizes="192x192" />
 
+    <link
+      rel="stylesheet"
+      href="assets-plans/templates/coinpecko_gold/css/main.css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets-plans/templates/coinpecko_gold/css/custom.css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets-plans/templates/coinpecko_gold/css/color9bce9bce.css?color=CCA354&amp;secondColor=000000"
+    />
 
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="msapplication-TileImage" content="assets/img/favicon.png" />
-  <title>Bit Markets | Trade Forex & CFDs with Market Leaders</title>
-  <link rel="icon" href="assets/img/favicon.png" type="image/x-icon">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="icon" href="assets/img/favicon.png" sizes="32x32" />
-<link rel="icon" href="assets/img/favicon.png" sizes="192x192" />
-  
-    
-        <link rel="stylesheet" href="assets-plans/templates/bit_gold/css/main.css">
-  <link rel="stylesheet" href="assets-plans/templates/bit_gold/css/custom.css">
-  <link rel="stylesheet" href="assets-plans/templates/bit_gold/css/color9bce9bce.css?color=CCA354&amp;secondColor=000000">
-    
-      <script src="../ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="../code.tidio.co_443/wipo005kp2ezotjfeszu7wygfrgqfyiq.js" async></script>
-  
-   <style>
-    #loader{
-      position: fixed;
-      text-align:center;
-      width: 100%;
-      height: 60%;
-      top: 20%;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 10000;
-      cursor: pointer;
-      justify-content: center;
-      margin-top:-50px;
-      display: none;
-    }
-    
-     #overlay{
-      position: fixed;
-      text-align:center;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: white;
-      opacity: 0.9;
-      z-index: 1000;
-      cursor: pointer;
-      justify-content: center;
-      display:none;
-    }
-    
-    .sticky_footer{
+    <script src="../ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      src="../code.tidio.co_443/wipo005kp2ezotjfeszu7wygfrgqfyiq.js"
+      async
+    ></script>
+
+    <style>
+      #loader {
         position: fixed;
-       left: 0;
-       bottom: 0;
-       width: 100%;
-       background-color: red;
-       color: white;
-       text-align: center;
-    }
+        text-align: center;
+        width: 100%;
+        height: 60%;
+        top: 20%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 10000;
+        cursor: pointer;
+        justify-content: center;
+        margin-top: -50px;
+        display: none;
+      }
+
+      #overlay {
+        position: fixed;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: white;
+        opacity: 0.9;
+        z-index: 1000;
+        cursor: pointer;
+        justify-content: center;
+        display: none;
+      }
+
+      .sticky_footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: red;
+        color: white;
+        text-align: center;
+      }
     </style>
-  
-  <script>
-      $(window).on('load', function() {
-         $("#overlay").css('display', 'none')
-         $("#loader").css('display', 'none')
-        });
-  </script>
-  
-  
-</head>
 
-<body id="dark" >
-<div class="sticky_footer">
-  <script src="../widgets.coingecko.com/coingecko-coin-price-marquee-widget.js"></script>
-<coingecko-coin-price-marquee-widget  coin-ids="bitcoin,ethereum,eos,ripple,litecoin" currency="usd" background-color="#ffffff" locale="en" font-color="#000000"></coingecko-coin-price-marquee-widget>
-</div>
+    <script>
+      $(window).on("load", function () {
+        $("#overlay").css("display", "none");
+        $("#loader").css("display", "none");
+      });
+    </script>
+  </head>
+
+  <body id="dark">
+    <div class="sticky_footer">
+      <script src="../widgets.coingecko.com/coingecko-coin-price-marquee-widget.js"></script>
+      <coingecko-coin-price-marquee-widget
+        coin-ids="coinpeckocoin,ethereum,eos,ripple,litecoin"
+        currency="usd"
+        background-color="#ffffff"
+        locale="en"
+        font-color="#000000"
+      ></coingecko-coin-price-marquee-widget>
+    </div>
     <div id="overlay"></div>
-    <img id="loader" src="assets/img/loader.html">
-  <header class="dark-bb">
-    <nav class="navbar navbar-expand-lg">
-      <a class="navbar-brand" href="exchange.html"><img src="assets/img/logo-dark.png" alt="logo"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#headerMenu"
-        aria-controls="headerMenu" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="icon ion-md-menu"></i>
-      </button>
+    <img id="loader" src="assets/img/loader.html" />
+    <header class="dark-bb">
+      <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="index.html"
+          ><img src="assets/img/logo-dark.png" alt="logo"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#headerMenu"
+          aria-controls="headerMenu"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="icon ion-md-menu"></i>
+        </button>
 
-      <div class="collapse navbar-collapse" id="headerMenu">
-         <ul class="navbar-nav mr-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">
-              Home
-            </a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="index-2.html">Home Page</a>
-              <a class="dropdown-item" href="faqs.html">FAQs</a>
-              <a class="dropdown-item" href="terms.html">Terms & Conditions</a>
-            </div>
-          </li>
-          
-           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">
-              Dashboard
-            </a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="signin.html">Profile</a>
-              <a class="dropdown-item" href="signin.html">Wallet</a>
-              <a class="dropdown-item" href="signin.html">Settings</a>
-            </div>
-          </li>
-          
-           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">
-              Trade
-            </a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="signin.html">Trade Now</a>
-            </div>
-          </li>
-          
-        </ul>
-        <ul class="navbar-nav ml-auto">
-          <a href="signin.html" class="btn-1">Sign In</a>
-          <a href="signup.html" class="btn-2">Get Started</a>
-        </ul>
-      </div>
-    </nav>
-  </header>
+        <div class="collapse navbar-collapse" id="headerMenu">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Home
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="index.html">Home Page</a>
+                <a class="dropdown-item" href="faqs.html">FAQs</a>
+                <a class="dropdown-item" href="terms.html"
+                  >Terms & Conditions</a
+                >
+              </div>
+            </li>
 
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Dashboard
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="signin.html">Profile</a>
+                <a class="dropdown-item" href="signin.html">Wallet</a>
+                <a class="dropdown-item" href="signin.html">Settings</a>
+              </div>
+            </li>
 
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Trade
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="signin.html">Trade Now</a>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <a href="signin.html" class="btn-1">Sign In</a>
+            <a href="signup.html" class="btn-2">Get Started</a>
+          </ul>
+        </div>
+      </nav>
+    </header>
 
-  <div class="landing-hero">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <h2>A trusted and secure Cryptocurrency, Stock and Forex Market.</h2>
-          <p>Bit Markets combines state of the art technology with low cost pricing and a huge product offering to create a genuine destination for all types of traders. Bit Markets being the home of the most satisfied clients 5years running. Choose from our wide range of online platforms including MetaTrader  and ExpaTrader or monitor your portfolio on the go from any mobile device.</p>
-          <div class="input-group">
-            
-            <div class="input-group-append" >
-              <a href="signup.html" class="btn-2">Get Started</a>
+    <div class="landing-hero">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h2>
+              A trusted and secure Cryptocurrency, Stock and Forex Market.
+            </h2>
+            <p>
+              coinpecko Markets combines state of the art technology with low
+              cost pricing and a huge product offering to create a genuine
+              destination for all types of traders. coinpecko Markets being the
+              home of the most satisfied clients 5years running. Choose from our
+              wide range of online platforms including MetaTrader and ExpaTrader
+              or monitor your portfolio on the go from any mobile device.
+            </p>
+            <div class="input-group">
+              <div class="input-group-append">
+                <a href="signup.html" class="btn-2">Get Started</a>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="offset-md-1 col-md-5">
-          <!-- TradingView Widget BEGIN -->
-<div class="tradingview-widget-container">
-  <div class="tradingview-widget-container__widget"></div>
-  <script type="text/javascript" src="../s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
-  {
-  "interval": "1m",
-  "width": "100%",
-  "isTransparent": true,
-  "height": 450,
-  "symbol": "NASDAQ:TSLA",
-  "showIntervalTabs": true,
-  "locale": "en",
-  "colorTheme": "dark"
-}
-  </script>
-</div>
-<!-- TradingView Widget END -->
+          <div class="offset-md-1 col-md-5">
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+              <div class="tradingview-widget-container__widget"></div>
+              <script
+                type="text/javascript"
+                src="../s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js"
+                async
+              >
+                  {
+                  "interval": "1m",
+                  "width": "100%",
+                  "isTransparent": true,
+                  "height": 450,
+                  "symbol": "NASDAQ:TSLA",
+                  "showIntervalTabs": true,
+                  "locale": "en",
+                  "colorTheme": "dark"
+                }
+              </script>
+            </div>
+            <!-- TradingView Widget END -->
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="container-fluid no-fluid">
-    <div class="row sm-gutters">
-     <!-- TradingView Widget BEGIN -->
-<div class="tradingview-widget-container">
-  <div class="tradingview-widget-container__widget"></div>
-  <script type="text/javascript" src="../s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
-  {
-  "width": "100%",
-  "height": "500",
-  "defaultColumn": "overview",
-  "screener_type": "crypto_mkt",
-  "displayCurrency": "USD",
-  "colorTheme": "dark",
-  "locale": "en",
-  "isTransparent": true
-}
-  </script>
-</div>
-<!-- TradingView Widget END -->
+    <div class="container-fluid no-fluid">
+      <div class="row sm-gutters">
+        <!-- TradingView Widget BEGIN -->
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script
+            type="text/javascript"
+            src="../s3.tradingview.com/external-embedding/embed-widget-screener.js"
+            async
+          >
+              {
+              "width": "100%",
+              "height": "500",
+              "defaultColumn": "overview",
+              "screener_type": "crypto_mkt",
+              "displayCurrency": "USD",
+              "colorTheme": "dark",
+              "locale": "en",
+              "isTransparent": true
+            }
+          </script>
+        </div>
+        <!-- TradingView Widget END -->
+      </div>
     </div>
-  </div>
-  
+
     <div class="landing-feature">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h2>Here are a few reasons why <br> you should choose Bit Markets</h2>
-        </div>
-        <div class="col-md-4">
-          <div class="landing-feature-item">
-            <img src="assets/img/landing/stroge.svg" alt="">
-            <h3>Secure storage</h3>
-            <p>Bit Markets is hosted on its own servers and as such, we have at our disposal every tools to keep this program up and running.</p>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2>
+              Here are a few reasons why <br />
+              you should choose coinpecko Markets
+            </h2>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="landing-feature-item">
-            <img src="assets/img/landing/backup.svg" alt="">
-            <h3>Protected by insurance</h3>
-            <p>Bit Markets has gone through all formal preliminaries to get this program set up which includes an insured amount. This simply means your assets can never get lost with us.</p>
+          <div class="col-md-4">
+            <div class="landing-feature-item">
+              <img src="assets/img/landing/stroge.svg" alt="" />
+              <h3>Secure storage</h3>
+              <p>
+                coinpecko Markets is hosted on its own servers and as such, we
+                have at our disposal every tools to keep this program up and
+                running.
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="landing-feature-item">
-            <img src="assets/img/landing/managment.svg" alt="">
-            <h3>Industry best practices</h3>
-            <p>All signals given are directly from our hand-picked table of trading professionals. We might not be 100% accurate but we nudge towards 90%+ :)</p>
+          <div class="col-md-4">
+            <div class="landing-feature-item">
+              <img src="assets/img/landing/backup.svg" alt="" />
+              <h3>Protected by insurance</h3>
+              <p>
+                coinpecko Markets has gone through all formal preliminaries to
+                get this program set up which includes an insured amount. This
+                simply means your assets can never get lost with us.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="landing-feature-item">
+              <img src="assets/img/landing/managment.svg" alt="" />
+              <h3>Industry best practices</h3>
+              <p>
+                All signals given are directly from our hand-picked table of
+                trading professionals. We might not be 100% accurate but we
+                nudge towards 90%+ :)
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  
-  
-  <div class="col-md-">
-    <div class="container">
-      <div class="row">
-       <img src="assets/img/dolls.jpg" alt="">
+
+    <div class="col-md-">
+      <div class="container">
+        <div class="row">
+          <img src="assets/img/dolls.jpg" alt="" />
+        </div>
       </div>
     </div>
-  </div>
 
+    <div class="landing-feature landing-coin-price bt-none">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2>
+              Trade your favorite coins <br />
+              with ease
+            </h2>
+          </div>
+          <div class="col-md-3 mb30">
+            <!-- TradingView Widget BEGIN -->
+            <div
+              class="tradingview-widget-container"
+              style="width: 100%; height: 220px"
+            >
+              <iframe
+                scrolling="no"
+                allowtransparency="true"
+                frameborder="0"
+                src="https://s.tradingview.com/embed-widget/mini-symbol-overview/?locale=en#%7B%22symbol%22%3A%22BINANCE%3ABTCUSDT%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A220%2C%22dateRange%22%3A%2212M%22%2C%22colorTheme%22%3A%22dark%22%2C%22trendLineColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%201)%22%2C%22underLineColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200.3)%22%2C%22underLineBottomColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200)%22%2C%22isTransparent%22%3Afalse%2C%22autosize%22%3Afalse%2C%22largeChartUrl%22%3A%22%22%2C%22utm_source%22%3A%22crypo.netlify.app%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22mini-symbol-overview%22%7D"
+                style="box-sizing: border-box; height: 220px; width: 100%"
+              ></iframe>
 
-  <div class="landing-feature landing-coin-price bt-none">
-    <div class="container">
-<div class="row">
-        <div class="col-md-12">
-          <h2>Trade your favorite coins <br> with ease</h2>
+              <style>
+                .tradingview-widget-copyright {
+                  font-size: 13px !important;
+                  line-height: 32px !important;
+                  text-align: center !important;
+                  vertical-align: middle !important;
+                  font-family: "Trebuchet MS", Arial, sans-serif !important;
+                  color: #9db2bd !important;
+                }
+
+                .tradingview-widget-copyright .blue-text {
+                  color: #2962ff !important;
+                }
+
+                .tradingview-widget-copyright a {
+                  text-decoration: none !important;
+                  color: #9db2bd !important;
+                }
+
+                .tradingview-widget-copyright a:visited {
+                  color: #9db2bd !important;
+                }
+
+                .tradingview-widget-copyright a:hover .blue-text {
+                  color: #1e53e5 !important;
+                }
+
+                .tradingview-widget-copyright a:active .blue-text {
+                  color: #1848cc !important;
+                }
+
+                .tradingview-widget-copyright a:visited .blue-text {
+                  color: #2962ff !important;
+                }
+              </style>
+            </div>
+            <!-- TradingView Widget END -->
+          </div>
+          <div class="col-md-3 mb30">
+            <!-- TradingView Widget BEGIN -->
+            <div
+              class="tradingview-widget-container"
+              style="width: 100%; height: 220px"
+            >
+              <iframe
+                scrolling="no"
+                allowtransparency="true"
+                frameborder="0"
+                src="https://s.tradingview.com/embed-widget/mini-symbol-overview/?locale=en#%7B%22symbol%22%3A%22BINANCE%3AETHUSDT%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A220%2C%22dateRange%22%3A%2212M%22%2C%22colorTheme%22%3A%22dark%22%2C%22trendLineColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%201)%22%2C%22underLineColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200.3)%22%2C%22underLineBottomColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200)%22%2C%22isTransparent%22%3Afalse%2C%22autosize%22%3Afalse%2C%22largeChartUrl%22%3A%22%22%2C%22utm_source%22%3A%22crypo.netlify.app%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22mini-symbol-overview%22%7D"
+                style="box-sizing: border-box; height: 220px; width: 100%"
+              ></iframe>
+
+              <style>
+                .tradingview-widget-copyright {
+                  font-size: 13px !important;
+                  line-height: 32px !important;
+                  text-align: center !important;
+                  vertical-align: middle !important;
+                  font-family: "Trebuchet MS", Arial, sans-serif !important;
+                  color: #9db2bd !important;
+                }
+
+                .tradingview-widget-copyright .blue-text {
+                  color: #2962ff !important;
+                }
+
+                .tradingview-widget-copyright a {
+                  text-decoration: none !important;
+                  color: #9db2bd !important;
+                }
+
+                .tradingview-widget-copyright a:visited {
+                  color: #9db2bd !important;
+                }
+
+                .tradingview-widget-copyright a:hover .blue-text {
+                  color: #1e53e5 !important;
+                }
+
+                .tradingview-widget-copyright a:active .blue-text {
+                  color: #1848cc !important;
+                }
+
+                .tradingview-widget-copyright a:visited .blue-text {
+                  color: #2962ff !important;
+                }
+              </style>
+            </div>
+            <!-- TradingView Widget END -->
+          </div>
+          <div class="col-md-3 mb30">
+            <!-- TradingView Widget BEGIN -->
+            <div
+              class="tradingview-widget-container"
+              style="width: 100%; height: 220px"
+            >
+              <iframe
+                scrolling="no"
+                allowtransparency="true"
+                frameborder="0"
+                src="https://s.tradingview.com/embed-widget/mini-symbol-overview/?locale=en#%7B%22symbol%22%3A%22BINANCE%3AXRPUSDT%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A220%2C%22dateRange%22%3A%2212M%22%2C%22colorTheme%22%3A%22dark%22%2C%22trendLineColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%201)%22%2C%22underLineColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200.3)%22%2C%22underLineBottomColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200)%22%2C%22isTransparent%22%3Afalse%2C%22autosize%22%3Afalse%2C%22largeChartUrl%22%3A%22%22%2C%22utm_source%22%3A%22crypo.netlify.app%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22mini-symbol-overview%22%7D"
+                style="box-sizing: border-box; height: 220px; width: 100%"
+              ></iframe>
+
+              <style>
+                .tradingview-widget-copyright {
+                  font-size: 13px !important;
+                  line-height: 32px !important;
+                  text-align: center !important;
+                  vertical-align: middle !important;
+                  font-family: "Trebuchet MS", Arial, sans-serif !important;
+                  color: #9db2bd !important;
+                }
+
+                .tradingview-widget-copyright .blue-text {
+                  color: #2962ff !important;
+                }
+
+                .tradingview-widget-copyright a {
+                  text-decoration: none !important;
+                  color: #9db2bd !important;
+                }
+
+                .tradingview-widget-copyright a:visited {
+                  color: #9db2bd !important;
+                }
+
+                .tradingview-widget-copyright a:hover .blue-text {
+                  color: #1e53e5 !important;
+                }
+
+                .tradingview-widget-copyright a:active .blue-text {
+                  color: #1848cc !important;
+                }
+
+                .tradingview-widget-copyright a:visited .blue-text {
+                  color: #2962ff !important;
+                }
+              </style>
+            </div>
+            <!-- TradingView Widget END -->
+          </div>
+          <div class="col-md-3 mb30">
+            <!-- TradingView Widget BEGIN -->
+            <div
+              class="tradingview-widget-container"
+              style="width: 100%; height: 220px"
+            >
+              <iframe
+                scrolling="no"
+                allowtransparency="true"
+                frameborder="0"
+                src="https://s.tradingview.com/embed-widget/mini-symbol-overview/?locale=en#%7B%22symbol%22%3A%22BINANCE%3ABNBUSDT%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A220%2C%22dateRange%22%3A%2212M%22%2C%22colorTheme%22%3A%22dark%22%2C%22trendLineColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%201)%22%2C%22underLineColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200.3)%22%2C%22underLineBottomColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200)%22%2C%22isTransparent%22%3Afalse%2C%22autosize%22%3Afalse%2C%22largeChartUrl%22%3A%22%22%2C%22utm_source%22%3A%22crypo.netlify.app%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22mini-symbol-overview%22%7D"
+                style="box-sizing: border-box; height: 220px; width: 100%"
+              ></iframe>
+
+              <style>
+                .tradingview-widget-copyright {
+                  font-size: 13px !important;
+                  line-height: 32px !important;
+                  text-align: center !important;
+                  vertical-align: middle !important;
+                  font-family: "Trebuchet MS", Arial, sans-serif !important;
+                  color: #9db2bd !important;
+                }
+
+                .tradingview-widget-copyright .blue-text {
+                  color: #2962ff !important;
+                }
+
+                .tradingview-widget-copyright a {
+                  text-decoration: none !important;
+                  color: #9db2bd !important;
+                }
+
+                .tradingview-widget-copyright a:visited {
+                  color: #9db2bd !important;
+                }
+
+                .tradingview-widget-copyright a:hover .blue-text {
+                  color: #1e53e5 !important;
+                }
+
+                .tradingview-widget-copyright a:active .blue-text {
+                  color: #1848cc !important;
+                }
+
+                .tradingview-widget-copyright a:visited .blue-text {
+                  color: #2962ff !important;
+                }
+              </style>
+            </div>
+            <!-- TradingView Widget END -->
+          </div>
+          <div class="col-md-3 mb30">
+            <!-- TradingView Widget BEGIN -->
+            <div
+              class="tradingview-widget-container"
+              style="width: 100%; height: 220px"
+            >
+              <iframe
+                scrolling="no"
+                allowtransparency="true"
+                frameborder="0"
+                src="https://s.tradingview.com/embed-widget/mini-symbol-overview/?locale=en#%7B%22symbol%22%3A%22BINANCE%3AADAUSDT%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A220%2C%22dateRange%22%3A%2212M%22%2C%22colorTheme%22%3A%22dark%22%2C%22trendLineColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%201)%22%2C%22underLineColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200.3)%22%2C%22underLineBottomColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200)%22%2C%22isTransparent%22%3Afalse%2C%22autosize%22%3Afalse%2C%22largeChartUrl%22%3A%22%22%2C%22utm_source%22%3A%22crypo.netlify.app%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22mini-symbol-overview%22%7D"
+                style="box-sizing: border-box; height: 220px; width: 100%"
+              ></iframe>
+
+              <style>
+                .tradingview-widget-copyright {
+                  font-size: 13px !important;
+                  line-height: 32px !important;
+                  text-align: center !important;
+                  vertical-align: middle !important;
+                  font-family: "Trebuchet MS", Arial, sans-serif !important;
+                  color: #9db2bd !important;
+                }
+
+                .tradingview-widget-copyright .blue-text {
+                  color: #2962ff !important;
+                }
+
+                .tradingview-widget-copyright a {
+                  text-decoration: none !important;
+                  color: #9db2bd !important;
+                }
+
+                .tradingview-widget-copyright a:visited {
+                  color: #9db2bd !important;
+                }
+
+                .tradingview-widget-copyright a:hover .blue-text {
+                  color: #1e53e5 !important;
+                }
+
+                .tradingview-widget-copyright a:active .blue-text {
+                  color: #1848cc !important;
+                }
+
+                .tradingview-widget-copyright a:visited .blue-text {
+                  color: #2962ff !important;
+                }
+              </style>
+            </div>
+            <!-- TradingView Widget END -->
+          </div>
+          <div class="col-md-3 mb30">
+            <!-- TradingView Widget BEGIN -->
+            <div
+              class="tradingview-widget-container"
+              style="width: 100%; height: 220px"
+            >
+              <iframe
+                scrolling="no"
+                allowtransparency="true"
+                frameborder="0"
+                src="https://s.tradingview.com/embed-widget/mini-symbol-overview/?locale=en#%7B%22symbol%22%3A%22BINANCE%3ADOGEUSDT%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A220%2C%22dateRange%22%3A%2212M%22%2C%22colorTheme%22%3A%22dark%22%2C%22trendLineColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%201)%22%2C%22underLineColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200.3)%22%2C%22underLineBottomColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200)%22%2C%22isTransparent%22%3Afalse%2C%22autosize%22%3Afalse%2C%22largeChartUrl%22%3A%22%22%2C%22utm_source%22%3A%22crypo.netlify.app%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22mini-symbol-overview%22%7D"
+                style="box-sizing: border-box; height: 220px; width: 100%"
+              ></iframe>
+
+              <style>
+                .tradingview-widget-copyright {
+                  font-size: 13px !important;
+                  line-height: 32px !important;
+                  text-align: center !important;
+                  vertical-align: middle !important;
+                  font-family: "Trebuchet MS", Arial, sans-serif !important;
+                  color: #9db2bd !important;
+                }
+
+                .tradingview-widget-copyright .blue-text {
+                  color: #2962ff !important;
+                }
+
+                .tradingview-widget-copyright a {
+                  text-decoration: none !important;
+                  color: #9db2bd !important;
+                }
+
+                .tradingview-widget-copyright a:visited {
+                  color: #9db2bd !important;
+                }
+
+                .tradingview-widget-copyright a:hover .blue-text {
+                  color: #1e53e5 !important;
+                }
+
+                .tradingview-widget-copyright a:active .blue-text {
+                  color: #1848cc !important;
+                }
+
+                .tradingview-widget-copyright a:visited .blue-text {
+                  color: #2962ff !important;
+                }
+              </style>
+            </div>
+            <!-- TradingView Widget END -->
+          </div>
+          <div class="col-md-3 mb30">
+            <!-- TradingView Widget BEGIN -->
+            <div
+              class="tradingview-widget-container"
+              style="width: 100%; height: 220px"
+            >
+              <iframe
+                scrolling="no"
+                allowtransparency="true"
+                frameborder="0"
+                src="https://s.tradingview.com/embed-widget/mini-symbol-overview/?locale=en#%7B%22symbol%22%3A%22BINANCE%3ADOTUSDT%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A220%2C%22dateRange%22%3A%2212M%22%2C%22colorTheme%22%3A%22dark%22%2C%22trendLineColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%201)%22%2C%22underLineColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200.3)%22%2C%22underLineBottomColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200)%22%2C%22isTransparent%22%3Afalse%2C%22autosize%22%3Afalse%2C%22largeChartUrl%22%3A%22%22%2C%22utm_source%22%3A%22crypo.netlify.app%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22mini-symbol-overview%22%7D"
+                style="box-sizing: border-box; height: 220px; width: 100%"
+              ></iframe>
+
+              <style>
+                .tradingview-widget-copyright {
+                  font-size: 13px !important;
+                  line-height: 32px !important;
+                  text-align: center !important;
+                  vertical-align: middle !important;
+                  font-family: "Trebuchet MS", Arial, sans-serif !important;
+                  color: #9db2bd !important;
+                }
+
+                .tradingview-widget-copyright .blue-text {
+                  color: #2962ff !important;
+                }
+
+                .tradingview-widget-copyright a {
+                  text-decoration: none !important;
+                  color: #9db2bd !important;
+                }
+
+                .tradingview-widget-copyright a:visited {
+                  color: #9db2bd !important;
+                }
+
+                .tradingview-widget-copyright a:hover .blue-text {
+                  color: #1e53e5 !important;
+                }
+
+                .tradingview-widget-copyright a:active .blue-text {
+                  color: #1848cc !important;
+                }
+
+                .tradingview-widget-copyright a:visited .blue-text {
+                  color: #2962ff !important;
+                }
+              </style>
+            </div>
+            <!-- TradingView Widget END -->
+          </div>
+          <div class="col-md-3 mb30">
+            <!-- TradingView Widget BEGIN -->
+            <div
+              class="tradingview-widget-container"
+              style="width: 100%; height: 220px"
+            >
+              <iframe
+                scrolling="no"
+                allowtransparency="true"
+                frameborder="0"
+                src="https://s.tradingview.com/embed-widget/mini-symbol-overview/?locale=en#%7B%22symbol%22%3A%22BINANCE%3ASOLUSDT%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A220%2C%22dateRange%22%3A%2212M%22%2C%22colorTheme%22%3A%22dark%22%2C%22trendLineColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%201)%22%2C%22underLineColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200.3)%22%2C%22underLineBottomColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200)%22%2C%22isTransparent%22%3Afalse%2C%22autosize%22%3Afalse%2C%22largeChartUrl%22%3A%22%22%2C%22utm_source%22%3A%22crypo.netlify.app%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22mini-symbol-overview%22%7D"
+                style="box-sizing: border-box; height: 220px; width: 100%"
+              ></iframe>
+
+              <style>
+                .tradingview-widget-copyright {
+                  font-size: 13px !important;
+                  line-height: 32px !important;
+                  text-align: center !important;
+                  vertical-align: middle !important;
+                  font-family: "Trebuchet MS", Arial, sans-serif !important;
+                  color: #9db2bd !important;
+                }
+
+                .tradingview-widget-copyright .blue-text {
+                  color: #2962ff !important;
+                }
+
+                .tradingview-widget-copyright a {
+                  text-decoration: none !important;
+                  color: #9db2bd !important;
+                }
+
+                .tradingview-widget-copyright a:visited {
+                  color: #9db2bd !important;
+                }
+
+                .tradingview-widget-copyright a:hover .blue-text {
+                  color: #1e53e5 !important;
+                }
+
+                .tradingview-widget-copyright a:active .blue-text {
+                  color: #1848cc !important;
+                }
+
+                .tradingview-widget-copyright a:visited .blue-text {
+                  color: #2962ff !important;
+                }
+              </style>
+            </div>
+            <!-- TradingView Widget END -->
+          </div>
         </div>
-        <div class="col-md-3 mb30">
-          <!-- TradingView Widget BEGIN -->
-          <div class="tradingview-widget-container" style="width: 100%; height: 220px;">
-            <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://s.tradingview.com/embed-widget/mini-symbol-overview/?locale=en#%7B%22symbol%22%3A%22BINANCE%3ABTCUSDT%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A220%2C%22dateRange%22%3A%2212M%22%2C%22colorTheme%22%3A%22dark%22%2C%22trendLineColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%201)%22%2C%22underLineColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200.3)%22%2C%22underLineBottomColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200)%22%2C%22isTransparent%22%3Afalse%2C%22autosize%22%3Afalse%2C%22largeChartUrl%22%3A%22%22%2C%22utm_source%22%3A%22crypo.netlify.app%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22mini-symbol-overview%22%7D" style="box-sizing: border-box; height: 220px; width: 100%;"></iframe>
-            
-          <style>
-	.tradingview-widget-copyright {
-		font-size: 13px !important;
-		line-height: 32px !important;
-		text-align: center !important;
-		vertical-align: middle !important;
-		font-family: 'Trebuchet MS', Arial, sans-serif !important;
-		color: #9db2bd !important;
-	}
+      </div>
+    </div>
 
-	.tradingview-widget-copyright .blue-text {
-		color: #2962FF !important;
-	}
-
-	.tradingview-widget-copyright a {
-		text-decoration: none !important;
-		color: #9db2bd !important;
-	}
-
-	.tradingview-widget-copyright a:visited {
-		color: #9db2bd !important;
-	}
-
-	.tradingview-widget-copyright a:hover .blue-text {
-		color: #1E53E5 !important;
-	}
-
-	.tradingview-widget-copyright a:active .blue-text {
-		color: #1848CC !important;
-	}
-
-	.tradingview-widget-copyright a:visited .blue-text {
-		color: #2962FF !important;
-	}
-	</style></div>
-          <!-- TradingView Widget END -->
-        </div>
-        <div class="col-md-3 mb30">
-          <!-- TradingView Widget BEGIN -->
-          <div class="tradingview-widget-container" style="width: 100%; height: 220px;">
-            <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://s.tradingview.com/embed-widget/mini-symbol-overview/?locale=en#%7B%22symbol%22%3A%22BINANCE%3AETHUSDT%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A220%2C%22dateRange%22%3A%2212M%22%2C%22colorTheme%22%3A%22dark%22%2C%22trendLineColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%201)%22%2C%22underLineColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200.3)%22%2C%22underLineBottomColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200)%22%2C%22isTransparent%22%3Afalse%2C%22autosize%22%3Afalse%2C%22largeChartUrl%22%3A%22%22%2C%22utm_source%22%3A%22crypo.netlify.app%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22mini-symbol-overview%22%7D" style="box-sizing: border-box; height: 220px; width: 100%;"></iframe>
-            
-          <style>
-	.tradingview-widget-copyright {
-		font-size: 13px !important;
-		line-height: 32px !important;
-		text-align: center !important;
-		vertical-align: middle !important;
-		font-family: 'Trebuchet MS', Arial, sans-serif !important;
-		color: #9db2bd !important;
-	}
-
-	.tradingview-widget-copyright .blue-text {
-		color: #2962FF !important;
-	}
-
-	.tradingview-widget-copyright a {
-		text-decoration: none !important;
-		color: #9db2bd !important;
-	}
-
-	.tradingview-widget-copyright a:visited {
-		color: #9db2bd !important;
-	}
-
-	.tradingview-widget-copyright a:hover .blue-text {
-		color: #1E53E5 !important;
-	}
-
-	.tradingview-widget-copyright a:active .blue-text {
-		color: #1848CC !important;
-	}
-
-	.tradingview-widget-copyright a:visited .blue-text {
-		color: #2962FF !important;
-	}
-	</style></div>
-          <!-- TradingView Widget END -->
-        </div>
-        <div class="col-md-3 mb30">
-          <!-- TradingView Widget BEGIN -->
-          <div class="tradingview-widget-container" style="width: 100%; height: 220px;">
-            <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://s.tradingview.com/embed-widget/mini-symbol-overview/?locale=en#%7B%22symbol%22%3A%22BINANCE%3AXRPUSDT%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A220%2C%22dateRange%22%3A%2212M%22%2C%22colorTheme%22%3A%22dark%22%2C%22trendLineColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%201)%22%2C%22underLineColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200.3)%22%2C%22underLineBottomColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200)%22%2C%22isTransparent%22%3Afalse%2C%22autosize%22%3Afalse%2C%22largeChartUrl%22%3A%22%22%2C%22utm_source%22%3A%22crypo.netlify.app%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22mini-symbol-overview%22%7D" style="box-sizing: border-box; height: 220px; width: 100%;"></iframe>
-            
-          <style>
-	.tradingview-widget-copyright {
-		font-size: 13px !important;
-		line-height: 32px !important;
-		text-align: center !important;
-		vertical-align: middle !important;
-		font-family: 'Trebuchet MS', Arial, sans-serif !important;
-		color: #9db2bd !important;
-	}
-
-	.tradingview-widget-copyright .blue-text {
-		color: #2962FF !important;
-	}
-
-	.tradingview-widget-copyright a {
-		text-decoration: none !important;
-		color: #9db2bd !important;
-	}
-
-	.tradingview-widget-copyright a:visited {
-		color: #9db2bd !important;
-	}
-
-	.tradingview-widget-copyright a:hover .blue-text {
-		color: #1E53E5 !important;
-	}
-
-	.tradingview-widget-copyright a:active .blue-text {
-		color: #1848CC !important;
-	}
-
-	.tradingview-widget-copyright a:visited .blue-text {
-		color: #2962FF !important;
-	}
-	</style></div>
-          <!-- TradingView Widget END -->
-        </div>
-        <div class="col-md-3 mb30">
-          <!-- TradingView Widget BEGIN -->
-          <div class="tradingview-widget-container" style="width: 100%; height: 220px;">
-            <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://s.tradingview.com/embed-widget/mini-symbol-overview/?locale=en#%7B%22symbol%22%3A%22BINANCE%3ABNBUSDT%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A220%2C%22dateRange%22%3A%2212M%22%2C%22colorTheme%22%3A%22dark%22%2C%22trendLineColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%201)%22%2C%22underLineColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200.3)%22%2C%22underLineBottomColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200)%22%2C%22isTransparent%22%3Afalse%2C%22autosize%22%3Afalse%2C%22largeChartUrl%22%3A%22%22%2C%22utm_source%22%3A%22crypo.netlify.app%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22mini-symbol-overview%22%7D" style="box-sizing: border-box; height: 220px; width: 100%;"></iframe>
-            
-          <style>
-	.tradingview-widget-copyright {
-		font-size: 13px !important;
-		line-height: 32px !important;
-		text-align: center !important;
-		vertical-align: middle !important;
-		font-family: 'Trebuchet MS', Arial, sans-serif !important;
-		color: #9db2bd !important;
-	}
-
-	.tradingview-widget-copyright .blue-text {
-		color: #2962FF !important;
-	}
-
-	.tradingview-widget-copyright a {
-		text-decoration: none !important;
-		color: #9db2bd !important;
-	}
-
-	.tradingview-widget-copyright a:visited {
-		color: #9db2bd !important;
-	}
-
-	.tradingview-widget-copyright a:hover .blue-text {
-		color: #1E53E5 !important;
-	}
-
-	.tradingview-widget-copyright a:active .blue-text {
-		color: #1848CC !important;
-	}
-
-	.tradingview-widget-copyright a:visited .blue-text {
-		color: #2962FF !important;
-	}
-	</style></div>
-          <!-- TradingView Widget END -->
-        </div>
-        <div class="col-md-3 mb30">
-          <!-- TradingView Widget BEGIN -->
-          <div class="tradingview-widget-container" style="width: 100%; height: 220px;">
-            <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://s.tradingview.com/embed-widget/mini-symbol-overview/?locale=en#%7B%22symbol%22%3A%22BINANCE%3AADAUSDT%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A220%2C%22dateRange%22%3A%2212M%22%2C%22colorTheme%22%3A%22dark%22%2C%22trendLineColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%201)%22%2C%22underLineColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200.3)%22%2C%22underLineBottomColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200)%22%2C%22isTransparent%22%3Afalse%2C%22autosize%22%3Afalse%2C%22largeChartUrl%22%3A%22%22%2C%22utm_source%22%3A%22crypo.netlify.app%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22mini-symbol-overview%22%7D" style="box-sizing: border-box; height: 220px; width: 100%;"></iframe>
-            
-          <style>
-	.tradingview-widget-copyright {
-		font-size: 13px !important;
-		line-height: 32px !important;
-		text-align: center !important;
-		vertical-align: middle !important;
-		font-family: 'Trebuchet MS', Arial, sans-serif !important;
-		color: #9db2bd !important;
-	}
-
-	.tradingview-widget-copyright .blue-text {
-		color: #2962FF !important;
-	}
-
-	.tradingview-widget-copyright a {
-		text-decoration: none !important;
-		color: #9db2bd !important;
-	}
-
-	.tradingview-widget-copyright a:visited {
-		color: #9db2bd !important;
-	}
-
-	.tradingview-widget-copyright a:hover .blue-text {
-		color: #1E53E5 !important;
-	}
-
-	.tradingview-widget-copyright a:active .blue-text {
-		color: #1848CC !important;
-	}
-
-	.tradingview-widget-copyright a:visited .blue-text {
-		color: #2962FF !important;
-	}
-	</style></div>
-          <!-- TradingView Widget END -->
-        </div>
-        <div class="col-md-3 mb30">
-          <!-- TradingView Widget BEGIN -->
-          <div class="tradingview-widget-container" style="width: 100%; height: 220px;">
-            <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://s.tradingview.com/embed-widget/mini-symbol-overview/?locale=en#%7B%22symbol%22%3A%22BINANCE%3ADOGEUSDT%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A220%2C%22dateRange%22%3A%2212M%22%2C%22colorTheme%22%3A%22dark%22%2C%22trendLineColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%201)%22%2C%22underLineColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200.3)%22%2C%22underLineBottomColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200)%22%2C%22isTransparent%22%3Afalse%2C%22autosize%22%3Afalse%2C%22largeChartUrl%22%3A%22%22%2C%22utm_source%22%3A%22crypo.netlify.app%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22mini-symbol-overview%22%7D" style="box-sizing: border-box; height: 220px; width: 100%;"></iframe>
-            
-          <style>
-	.tradingview-widget-copyright {
-		font-size: 13px !important;
-		line-height: 32px !important;
-		text-align: center !important;
-		vertical-align: middle !important;
-		font-family: 'Trebuchet MS', Arial, sans-serif !important;
-		color: #9db2bd !important;
-	}
-
-	.tradingview-widget-copyright .blue-text {
-		color: #2962FF !important;
-	}
-
-	.tradingview-widget-copyright a {
-		text-decoration: none !important;
-		color: #9db2bd !important;
-	}
-
-	.tradingview-widget-copyright a:visited {
-		color: #9db2bd !important;
-	}
-
-	.tradingview-widget-copyright a:hover .blue-text {
-		color: #1E53E5 !important;
-	}
-
-	.tradingview-widget-copyright a:active .blue-text {
-		color: #1848CC !important;
-	}
-
-	.tradingview-widget-copyright a:visited .blue-text {
-		color: #2962FF !important;
-	}
-	</style></div>
-          <!-- TradingView Widget END -->
-        </div>
-        <div class="col-md-3 mb30">
-          <!-- TradingView Widget BEGIN -->
-          <div class="tradingview-widget-container" style="width: 100%; height: 220px;">
-            <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://s.tradingview.com/embed-widget/mini-symbol-overview/?locale=en#%7B%22symbol%22%3A%22BINANCE%3ADOTUSDT%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A220%2C%22dateRange%22%3A%2212M%22%2C%22colorTheme%22%3A%22dark%22%2C%22trendLineColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%201)%22%2C%22underLineColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200.3)%22%2C%22underLineBottomColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200)%22%2C%22isTransparent%22%3Afalse%2C%22autosize%22%3Afalse%2C%22largeChartUrl%22%3A%22%22%2C%22utm_source%22%3A%22crypo.netlify.app%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22mini-symbol-overview%22%7D" style="box-sizing: border-box; height: 220px; width: 100%;"></iframe>
-            
-          <style>
-	.tradingview-widget-copyright {
-		font-size: 13px !important;
-		line-height: 32px !important;
-		text-align: center !important;
-		vertical-align: middle !important;
-		font-family: 'Trebuchet MS', Arial, sans-serif !important;
-		color: #9db2bd !important;
-	}
-
-	.tradingview-widget-copyright .blue-text {
-		color: #2962FF !important;
-	}
-
-	.tradingview-widget-copyright a {
-		text-decoration: none !important;
-		color: #9db2bd !important;
-	}
-
-	.tradingview-widget-copyright a:visited {
-		color: #9db2bd !important;
-	}
-
-	.tradingview-widget-copyright a:hover .blue-text {
-		color: #1E53E5 !important;
-	}
-
-	.tradingview-widget-copyright a:active .blue-text {
-		color: #1848CC !important;
-	}
-
-	.tradingview-widget-copyright a:visited .blue-text {
-		color: #2962FF !important;
-	}
-	</style></div>
-          <!-- TradingView Widget END -->
-        </div>
-        <div class="col-md-3 mb30">
-          <!-- TradingView Widget BEGIN -->
-          <div class="tradingview-widget-container" style="width: 100%; height: 220px;">
-            <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://s.tradingview.com/embed-widget/mini-symbol-overview/?locale=en#%7B%22symbol%22%3A%22BINANCE%3ASOLUSDT%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A220%2C%22dateRange%22%3A%2212M%22%2C%22colorTheme%22%3A%22dark%22%2C%22trendLineColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%201)%22%2C%22underLineColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200.3)%22%2C%22underLineBottomColor%22%3A%22rgba(41%2C%2098%2C%20255%2C%200)%22%2C%22isTransparent%22%3Afalse%2C%22autosize%22%3Afalse%2C%22largeChartUrl%22%3A%22%22%2C%22utm_source%22%3A%22crypo.netlify.app%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22mini-symbol-overview%22%7D" style="box-sizing: border-box; height: 220px; width: 100%;"></iframe>
-            
-          <style>
-	.tradingview-widget-copyright {
-		font-size: 13px !important;
-		line-height: 32px !important;
-		text-align: center !important;
-		vertical-align: middle !important;
-		font-family: 'Trebuchet MS', Arial, sans-serif !important;
-		color: #9db2bd !important;
-	}
-
-	.tradingview-widget-copyright .blue-text {
-		color: #2962FF !important;
-	}
-
-	.tradingview-widget-copyright a {
-		text-decoration: none !important;
-		color: #9db2bd !important;
-	}
-
-	.tradingview-widget-copyright a:visited {
-		color: #9db2bd !important;
-	}
-
-	.tradingview-widget-copyright a:hover .blue-text {
-		color: #1E53E5 !important;
-	}
-
-	.tradingview-widget-copyright a:active .blue-text {
-		color: #1848CC !important;
-	}
-
-	.tradingview-widget-copyright a:visited .blue-text {
-		color: #2962FF !important;
-	}
-	</style></div>
-          <!-- TradingView Widget END -->
-        </div>
-      </div>    </div>
-  </div>
-  
-  
     <div class="landing-number">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <h2>$356B</h2>
-          <p>Quarterly volume traded</p>
-        </div>
-        <div class="col-md-4">
-          <h2>24+</h2>
-          <p>Countries supported
-          </p>
-        </div>
-        <div class="col-md-4">
-          <h2>3+M</h2>
-          <p>Verified users
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-  <div class="landing-feature">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h2>Check fiat currency / forex cross rates <br> within a second</h2>
-        </div>
-        <div class="col-md-12">
-          <!-- TradingView Widget BEGIN -->
-<div class="tradingview-widget-container">
-  <div class="tradingview-widget-container__widget"></div>
-  <script type="text/javascript" src="../s3.tradingview.com/external-embedding/embed-widget-forex-cross-rates.js" async>
-  {
-  "width": "100%",
-  "height": "450",
-  "currencies": [
-    "EUR",
-    "USD",
-    "JPY",
-    "GBP",
-    "CHF",
-    "AUD",
-    "CAD",
-    "NZD",
-    "CNY"
-  ],
-  "isTransparent": true,
-  "colorTheme": "dark",
-  "locale": "en"
-}
-  </script>
-</div>
-<!-- TradingView Widget END -->
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h2>$356B</h2>
+            <p>Quarterly volume traded</p>
+          </div>
+          <div class="col-md-4">
+            <h2>24+</h2>
+            <p>Countries supported</p>
+          </div>
+          <div class="col-md-4">
+            <h2>3+M</h2>
+            <p>Verified users</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  
-  
-  
+
+    <div class="landing-feature">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2>
+              Check fiat currency / forex cross rates <br />
+              within a second
+            </h2>
+          </div>
+          <div class="col-md-12">
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+              <div class="tradingview-widget-container__widget"></div>
+              <script
+                type="text/javascript"
+                src="../s3.tradingview.com/external-embedding/embed-widget-forex-cross-rates.js"
+                async
+              >
+                  {
+                  "width": "100%",
+                  "height": "450",
+                  "currencies": [
+                    "EUR",
+                    "USD",
+                    "JPY",
+                    "GBP",
+                    "CHF",
+                    "AUD",
+                    "CAD",
+                    "NZD",
+                    "CNY"
+                  ],
+                  "isTransparent": true,
+                  "colorTheme": "dark",
+                  "locale": "en"
+                }
+              </script>
+            </div>
+            <!-- TradingView Widget END -->
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="landing-feature landing-start">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h2>Get started in a few steps</h2>
-        </div>
-        <div class="col-md-4">
-          <div class="landing-feature-item">
-            <img src="assets/img/landing/user.svg" alt="">
-            <span>1</span>
-            <h3>Create an account </h3>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2>Get started in a few steps</h2>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="landing-feature-item">
-            <img src="assets/img/landing/bank.svg" alt="">
-            <span>
-              2
-            </span>
-            <h3>Get Verified</h3>
+          <div class="col-md-4">
+            <div class="landing-feature-item">
+              <img src="assets/img/landing/user.svg" alt="" />
+              <span>1</span>
+              <h3>Create an account</h3>
+            </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="landing-feature-item">
-            <img src="assets/img/landing/trade.svg" alt="">
-            <span>3</span>
-            <h3>Start trading | Withdraw Anytime</h3>
+          <div class="col-md-4">
+            <div class="landing-feature-item">
+              <img src="assets/img/landing/bank.svg" alt="" />
+              <span> 2 </span>
+              <h3>Get Verified</h3>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="landing-feature-item">
+              <img src="assets/img/landing/trade.svg" alt="" />
+              <span>3</span>
+              <h3>Start trading | Withdraw Anytime</h3>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
+    <div class="landing-feature">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2>
+              Check real-time heat map find opportunities <br />
+              and trade with confidence
+            </h2>
+          </div>
+          <div class="col-md-12">
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+              <div class="tradingview-widget-container__widget"></div>
+              <script
+                type="text/javascript"
+                src="../s3.tradingview.com/external-embedding/embed-widget-forex-heat-map.js"
+                async
+              >
+                  {
+                  "width": "100%",
+                  "height": "500",
+                  "currencies": [
+                    "EUR",
+                    "USD",
+                    "JPY",
+                    "GBP",
+                    "CHF",
+                    "AUD",
+                    "CAD",
+                    "NZD",
+                    "CNY"
+                  ],
+                  "isTransparent": true,
+                  "colorTheme": "dark",
+                  "locale": "en"
+                }
+              </script>
+            </div>
+            <!-- TradingView Widget END -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="landing-feature">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2>
+              Check latest news and key events of popular <br />
+              companies and cryptocurrencies
+            </h2>
+          </div>
+          <div class="col-md-12">
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+              <div class="tradingview-widget-container__widget"></div>
+              <script
+                type="text/javascript"
+                src="../s3.tradingview.com/external-embedding/embed-widget-timeline.js"
+                async
+              >
+                  {
+                  "colorTheme": "dark",
+                  "isTransparent": true,
+                  "displayMode": "compact",
+                  "width": "100%",
+                  "height": "450",
+                  "locale": "en"
+                }
+              </script>
+            </div>
+            <!-- TradingView Widget END -->
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <div class="landing-feature">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h2>Check real-time heat map find opportunities <br> and trade with confidence</h2>
-        </div>
-        <div class="col-md-12">
-          <!-- TradingView Widget BEGIN -->
-<div class="tradingview-widget-container">
-  <div class="tradingview-widget-container__widget"></div>
-  <script type="text/javascript" src="../s3.tradingview.com/external-embedding/embed-widget-forex-heat-map.js" async>
-  {
-  "width": "100%",
-  "height": "500",
-  "currencies": [
-    "EUR",
-    "USD",
-    "JPY",
-    "GBP",
-    "CHF",
-    "AUD",
-    "CAD",
-    "NZD",
-    "CNY"
-  ],
-  "isTransparent": true,
-  "colorTheme": "dark",
-  "locale": "en"
-}
-  </script>
-</div>
-<!-- TradingView Widget END -->
+    <div class="col-md-" style="margin-top: -8em">
+      <div class="container">
+        <div class="row">
+          <img src="assets/img/forex.jpg" alt="" />
         </div>
       </div>
     </div>
-  </div>
-  <div class="landing-feature">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h2>Check latest news and key events of popular <br> companies and cryptocurrencies</h2>
-        </div>
-        <div class="col-md-12">
-          <!-- TradingView Widget BEGIN -->
-<div class="tradingview-widget-container">
-  <div class="tradingview-widget-container__widget"></div>
-  <script type="text/javascript" src="../s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
-  {
-  "colorTheme": "dark",
-  "isTransparent": true,
-  "displayMode": "compact",
-  "width": "100%",
-  "height": "450",
-  "locale": "en"
-}
-  </script>
-</div>
-<!-- TradingView Widget END -->
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  
-  <div class="col-md-" style="margin-top: -8em">
-    <div class="container">
-      <div class="row">
-       <img src="assets/img/forex.jpg" alt="">
-      </div>
-    </div>
-  </div>
-  
+
     <div class="landing-sub">
-    <div class="container">
-      <div class="row">
-        <div class="offset-md-1 col-md-10">
-          <div class="landing-sub-content">
-            <h2>Become part of a global community of people who have found their path to the crypto world with Bit Markets            </h2>
-            <a href="signup.html">Get Started</a>
+      <div class="container">
+        <div class="row">
+          <div class="offset-md-1 col-md-10">
+            <div class="landing-sub-content">
+              <h2>
+                Become part of a global community of people who have found their
+                path to the crypto world with coinpecko Markets
+              </h2>
+              <a href="signup.html">Get Started</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  
-  
-  
-  <div class="col-md-4" id="disclaimer">
-          <div class="landing-feature-item">
-            <h3 style="color: red">Disclaimer</h3>
-            <p style="color: white">This material on this website is intended for illustrative purposes and general information only. It does not constitute financial advice nor does it take into account your investment objectives, financial situation or particular needs. Commission, interest, platform fees, dividends, variation margin and other fees and charges may apply to financial products or services available from Bit Markets. The information in this website has been prepared without taking into account your personal objectives, financial situation or needs. You should consider the information in light of your objectives, financial situation and needs before making any decision about whether to acquire or dispose of any financial product. Contracts for Difference (CFDs) are derivatives and can be risky; losses can exceed your initial payment and you must be able to meet all margin calls as soon as they are made. When trading CFDs you do not own or have any rights to the CFDs underlying assets.</p>
-            <p  style="color: white">Bit Markets recommends that you seek independent advice from an appropriately qualified person before deciding to invest in or dispose of a derivative. A Product Disclosure Statement for each of the financial products available from Bit Markets can be obtained either from this website or on request from our offices and should be considered before entering into transactions with us..</p>
+
+    <div class="col-md-4" id="disclaimer">
+      <div class="landing-feature-item">
+        <h3 style="color: red">Disclaimer</h3>
+        <p style="color: white">
+          This material on this website is intended for illustrative purposes
+          and general information only. It does not constitute financial advice
+          nor does it take into account your investment objectives, financial
+          situation or particular needs. Commission, interest, platform fees,
+          dividends, variation margin and other fees and charges may apply to
+          financial products or services available from coinpecko Markets. The
+          information in this website has been prepared without taking into
+          account your personal objectives, financial situation or needs. You
+          should consider the information in light of your objectives, financial
+          situation and needs before making any decision about whether to
+          acquire or dispose of any financial product. Contracts for Difference
+          (CFDs) are derivatives and can be risky; losses can exceed your
+          initial payment and you must be able to meet all margin calls as soon
+          as they are made. When trading CFDs you do not own or have any rights
+          to the CFDs underlying assets.
+        </p>
+        <p style="color: white">
+          coinpecko Markets recommends that you seek independent advice from an
+          appropriately qualified person before deciding to invest in or dispose
+          of a derivative. A Product Disclosure Statement for each of the
+          financial products available from coinpecko Markets can be obtained
+          either from this website or on request from our offices and should be
+          considered before entering into transactions with us..
+        </p>
+      </div>
+    </div>
+
+    <div class="col-md-">
+      <div class="container">
+        <div class="row">
+          <img src="assets/img/cert.html" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <footer class="landing-footer-two">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="assets/img/logo-dark.png" alt="" />
+            <p>
+              On coinpecko Markets you can trade over 5,000+ products with
+              flexible leverage. Forex, Indices, commodities, coinpeckocoin and
+              Equity CFDs from one account. Small starting deposits mean you can
+              trade Forex with as little as $250.
+            </p>
+            <ul class="social-icon">
+              <li>
+                <a href="#"><i class="icon ion-logo-facebook"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="icon ion-logo-twitter"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="icon ion-logo-linkedin"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="icon ion-logo-pinterest"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="icon ion-logo-github"></i></a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-2">
+            <h3>Company</h3>
+            <ul>
+              <li><a href="faqs.html">FAQs</a></li>
+              <li><a href="terms.html">Terms and Conditions</a></li>
+              <li><a href="#">Why coinpecko Markets</a></li>
+              <li><a href="#disclaimer">Disclaimer</a></li>
+              <li><a href="#">Cookie policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-2">
+            <h3>Your Account</h3>
+            <ul>
+              <li><a href="signin.html">Client Login</a></li>
+              <li><a href="signin.html">Fund Your Account</a></li>
+              <li><a href="trade">Trade</a></li>
+              <li><a href="wallet">Wallets</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-2">
+            <h3>Contact Info</h3>
+            <p>
+              Head Office Address:<br />
+              575 Madison Ave, New York, NY 10022, United States
+            </p>
+            <br />
+            <ul>
+              <li>
+                <a href="mailto:support@coinpecko.online"
+                  >Email: support@coinpecko.online</a
+                >
+              </li>
+            </ul>
+            <br />
+            <ul>
+              <li>Phone: <a href="tel:+12044804590">+12044804590</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-2">
+            <h3>Copyright &copy; 2016 - 2023 coinpecko Markets</h3>
           </div>
         </div>
-
-
- <div class="col-md-">
-    <div class="container">
-      <div class="row">
-       <img src="assets/img/cert.html" alt="">
       </div>
-    </div>
-  </div>
+    </footer>
 
-
-  <footer class="landing-footer-two">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <img src="assets/img/logo-dark.png" alt="">
-          <p>On Bit Markets you can trade over 5,000+ products with flexible leverage. Forex, Indices, commodities, Bitcoin and Equity CFDs from one account. Small starting deposits mean you can trade Forex with as little as $250.</p>
-          <ul class="social-icon">
-            <li><a href="#"><i class="icon ion-logo-facebook"></i></a></li>
-            <li><a href="#"><i class="icon ion-logo-twitter"></i></a></li>
-            <li><a href="#"><i class="icon ion-logo-linkedin"></i></a></li>
-            <li><a href="#"><i class="icon ion-logo-pinterest"></i></a></li>
-            <li><a href="#"><i class="icon ion-logo-github"></i></a></li>
-          </ul>
-        </div>
-        <div class="col-md-2">
-          <h3>Company</h3>
-          <ul>
-            <li><a href="faqs.html">FAQs</a></li>
-            <li><a href="terms.html">Terms and Conditions</a></li>
-            <li><a href="#">Why Bit Markets</a></li>
-            <li><a href="#disclaimer">Disclaimer</a></li>
-            <li><a href="#">Cookie policy</a></li>
-          </ul>
-        </div>
-        
-        <div class="col-md-2">
-          <h3>Your Account</h3>
-          <ul>
-            <li><a href="signin.html">Client Login</a></li>
-            <li><a href="signin.html">Fund Your Account</a></li>
-            <li><a href="trade">Trade</a></li>
-            <li><a href="wallet">Wallets</a></li>
-          </ul>
-        </div>
-        
-        <div class="col-md-2">
-          <h3>Contact Info</h3>
-          <p>Head Office Address:<br>
-          575 Madison Ave, New York, NY 10022, United States
-          </p><br>
-          <ul>
-            <li><a href="mailto:admin@bitmarkets.ca">Email: admin@bitmarkets.ca</a></li>
-          </ul>
-          <br>
-          <ul>
-            <li>Phone: <a href="tel:+12044804590">+12044804590</a></li>
-          </ul>
-        </div>
-        
-        <div class="col-md-2">
-          <h3>Copyright &copy; 2016 - 2023 Bit Markets</h3>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-
-
-  <script src="assets/js/jquery-3.4.1.min.js"></script>
-  <script src="assets/js/popper.min.js"></script>
-  <script src="assets/js/bootstrap.min.js"></script>
-  <script src="assets/js/amcharts-core.min.js"></script>
-  <script src="assets/js/amcharts.min.js"></script>
-  <script src="assets/js/custom.js"></script>
-  
-  
-
-</body>
-
-
-
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/amcharts-core.min.js"></script>
+    <script src="assets/js/amcharts.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+  </body>
 </html>
