@@ -100,7 +100,9 @@ document.getElementById("confirmCryptoSubmit").onclick = async (e) => {
 
     const result = await response.json();
     showNotification(true, "Withdraw Successful");
-    setInterval(function () {window.location.href= "./withdraw-history.html"}, 1000);
+    setInterval(function () {
+      window.location.href = "./withdraw-history.html";
+    }, 1000);
   } catch (error) {
     showNotification(false, error);
   }
@@ -156,12 +158,3 @@ function setAmount(class_holder, data_holder) {
     elements[i].textContent += data_holder;
   }
 }
-
-// document.getElementById("payform").onsubmit = (e) => {
-//   e.preventDefault();
-//   window.location.href = "./deposit-history.html";
-// };
-
-// document.getElementById("pay").onclick = () => {
-//   window.location.href = "/deposit-history.html";
-// };
