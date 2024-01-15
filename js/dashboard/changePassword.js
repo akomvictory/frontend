@@ -1,7 +1,7 @@
 const user = JSON.parse(localStorage.getItem("user"));
 const _amount = document.getElementById("amount");
 let amount = 0;
-const api = "http://127.0.0.1:8000/api";
+const api = "http://admin.coinpecko.online/api";
 let _token = user.access_token.original.access_token;
 
 document.getElementById("sbmt").addEventListener("click", async function (e) {
