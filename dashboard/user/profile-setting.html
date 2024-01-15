@@ -112,14 +112,10 @@ Our goal is to provide our investors with a reliable source of high income, whil
     cursor: pointer;
 }
 </style>
+
+<script src="../../js/dashboard/profileSetting.js" defer></script>
 </head>
   <body>
-      
-      
-      
-    
-  
-   
 
   <div class="full-wh">
     <!-- STAR ANIMATION -->
@@ -204,8 +200,8 @@ Our goal is to provide our investors with a reliable source of high income, whil
     <!-- inner hero end --><section class="cmn-section">
     <div class="container">
             <div class="card">
-                <form action="" method="post" enctype="multipart/form-data">
-                        <input type="hidden" name="_token" value="TZ9wYJKXDZLMZiIPSiyK8DmZwwqxKrU43PyHfzC6">                <div class="card-body">
+                <form id="form" enctype="multipart/form-data">
+                      
                     <div class="row">
                         <div class="col-md-4">
                             <div class="avatar-upload">
@@ -221,28 +217,17 @@ Our goal is to provide our investors with a reliable source of high income, whil
                         </div>
                         <div class="col-md-8">
                             <div class="row">
+                                
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>First Name</label>
-                                        <input type="text" name="firstname" class="form-control form-control-lg" placeholder="First Name" value="Stud">        
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Last Name</label>
-                                        <input type="text" name="lastname" class="form-control form-control-lg" placeholder="Last Name" value="Muffin">        
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Username</label>
-                                        <input type="text" name="username" class="form-control form-control-lg" placeholder="Username" value="studmuffin" readonly>        
+                                        <label>Name</label>
+                                        <input type="text" id="name" name="username" class="form-control form-control-lg" placeholder="Name" value="" readonly>        
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Email</label>
-                                        <input type="text" name="email" class="form-control form-control-lg" placeholder="Email" value="golfbaysambassador@gmail.com" readonly>        
+                                        <input type="text" id="email" name="email" class="form-control form-control-lg" placeholder="Email" value="" readonly>        
                                     </div>
                                 </div>
                             </div>
@@ -252,37 +237,32 @@ Our goal is to provide our investors with a reliable source of high income, whil
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Mobile</label>
-                                        <input type="text" name="mobile" class="form-control form-control-lg" placeholder="Mobile" value="17188419332" disabled>        
+                                        <input type="text" id="mobile" name="mobile" class="form-control form-control-lg" placeholder="Mobile" value="" disabled>        
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Country</label>
-                                        <input type="text" class="form-control" value="United States" disabled>    
+                                        <input type="text" id="country" class="form-control" value="" disabled>    
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Address</label>
-                                        <input type="text" name="address" class="form-control form-control-lg" placeholder="Address" value="">        
-                                    </div>
-                                </div>
+                               
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>State</label>
-                                        <input type="text" name="state" class="form-control form-control-lg" placeholder="State" value="">        
+                                        <input type="text" id="state" name="state" class="form-control form-control-lg" placeholder="State" value="">        
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Zip</label>
-                                        <input type="text" name="zip" class="form-control form-control-lg" placeholder="Zip" value="">        
+                                        <input type="text" id="zip" name="zip" class="form-control form-control-lg" placeholder="Zip" value="">        
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>City</label>
-                                        <input type="text" name="city" class="form-control form-control-lg" placeholder="City" value="">        
+                                        <input type="text" id="city" name="city" class="form-control form-control-lg" placeholder="City" value="">        
                                     </div>
                                 </div>
                             </div>
@@ -290,7 +270,7 @@ Our goal is to provide our investors with a reliable source of high income, whil
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-md w-100 cmn-btn">Update</button>
+                    <button type="submit" id="smt" class="btn btn-md w-100 cmn-btn">Update</button>
                 </div>
                 </form>
             </div>
