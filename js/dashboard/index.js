@@ -18,6 +18,7 @@ function calculateTotalAmount(array) {
   return totalAmount.toFixed(2); // Ensure the result is formatted as a string with two decimal places
 }
 
+
 (async function getAccountDetails() {
   try {
     const response = await fetch(`${api}/user/${user.user.id}`, {
@@ -30,7 +31,7 @@ function calculateTotalAmount(array) {
     });
 
     const result = await response.json();
-    console.log(result);
+ 
 
     document.getElementById("balance").textContent += result.account.balance;
     document.getElementById("bonus").textContent += result.account.bonus;

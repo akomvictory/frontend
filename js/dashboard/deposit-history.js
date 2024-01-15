@@ -46,6 +46,12 @@ function addTableRow(data) {
 // Example usage for deposit
 let depositData = [];
 
+function sortDepositByDate(depositArray) {
+  // Use the sort function to sort the array by the created_at property
+  depositArray.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+  return depositArray;
+}
+
 (async function getAccountDetails() {
   try {
     const response = await fetch(`${api}/user/${user.user.id}`, {
@@ -58,7 +64,7 @@ let depositData = [];
     });
 
     const result = await response.json();
-    depositData = result.deposit;
+    depositData = sortDepositByDate(result.deposit);
 
     // Loop through deposit data and add rows to the table
     depositData.forEach((data) => {

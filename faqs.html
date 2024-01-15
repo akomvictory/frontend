@@ -1,270 +1,382 @@
-
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="msapplication-TileImage"
+      content="https://bitmarkets.ca/assets/img/favicon.png"
+    />
+    <title>Coinpecko | FAQs</title>
+    <link rel="icon" href="assets/img/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      rel="icon"
+      href="https://bitmarkets.ca/assets/img/favicon.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      href="https://bitmarkets.ca/assets/img/favicon.png"
+      sizes="192x192"
+    />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="msapplication-TileImage" content="https://bitmarkets.ca/assets/img/favicon.png" />
-  <title>Coinpecko | FAQs</title>
-  <link rel="icon" href="assets/img/favicon.png" type="image/x-icon">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="icon" href="https://bitmarkets.ca/assets/img/favicon.png" sizes="32x32" />
-<link rel="icon" href="https://bitmarkets.ca/assets/img/favicon.png" sizes="192x192" />
-  
-    
-        <link rel="stylesheet" href="assets-plans/templates/bit_gold/css/main.css">
-  <link rel="stylesheet" href="assets-plans/templates/bit_gold/css/custom.css">
-  <link rel="stylesheet" href="assets-plans/templates/bit_gold/css/color9bce.css?color=CCA354&amp;secondColor=000000">
-    
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  
-   <style>
-    #loader{
-      position: fixed;
-      text-align:center;
-      width: 100%;
-      height: 60%;
-      top: 20%;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 10000;
-      cursor: pointer;
-      justify-content: center;
-      margin-top:-50px;
-      display: none;
-    }
-    
-     #overlay{
-      position: fixed;
-      text-align:center;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: white;
-      opacity: 0.9;
-      z-index: 1000;
-      cursor: pointer;
-      justify-content: center;
-      display:none;
-    }
+    <link
+      rel="stylesheet"
+      href="assets-plans/templates/bit_gold/css/main.css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets-plans/templates/bit_gold/css/custom.css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets-plans/templates/bit_gold/css/color9bce.css?color=CCA354&amp;secondColor=000000"
+    />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+      #loader {
+        position: fixed;
+        text-align: center;
+        width: 100%;
+        height: 60%;
+        top: 20%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 10000;
+        cursor: pointer;
+        justify-content: center;
+        margin-top: -50px;
+        display: none;
+      }
+
+      #overlay {
+        position: fixed;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: white;
+        opacity: 0.9;
+        z-index: 1000;
+        cursor: pointer;
+        justify-content: center;
+        display: none;
+      }
     </style>
-  
-  <script>
-      $(window).on('load', function() {
-         $("#overlay").css('display', 'none')
-         $("#loader").css('display', 'none')
-        });
-  </script>
-  
-  
-</head>
 
-<body id="dark">
+    <script>
+      $(window).on("load", function () {
+        $("#overlay").css("display", "none");
+        $("#loader").css("display", "none");
+      });
+    </script>
+  </head>
+
+  <body id="dark">
     <div id="overlay"></div>
-    <img id="loader" src="assets/img/loader.sv">
-    
-    
-  <header class="dark-bb">
-    <nav class="navbar navbar-expand-lg">
-      <a class="navbar-brand" href="exchange"><img src="assets/img/logocoinpecko.png" alt="logo"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#headerMenu"
-        aria-controls="headerMenu" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="icon ion-md-menu"></i>
-      </button>
+    <img id="loader" src="assets/img/loader.sv" />
 
-      <div class="collapse navbar-collapse" id="headerMenu">
-         <ul class="navbar-nav mr-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">
-              Home
-            </a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="index">Home Page</a>
-              <a class="dropdown-item" href="faqs">FAQs</a>
-              <a class="dropdown-item" href="terms">Terms & Conditions</a>
-            </div>
-          </li>
-          
-           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">
-              Dashboard
-            </a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="profile">Profile</a>
-              <a class="dropdown-item" href="wallet">Wallet</a>
-              <a class="dropdown-item" href="settings">Settings</a>
-            </div>
-          </li>
-          
-           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">
-              Trade
-            </a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="trade">Trade Now</a>
-            </div>
-          </li>
-          
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">
-              Markets
-            </a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="markets">Total Markets</a>
-              
-            </div>
-          </li>
+    <header class="dark-bb">
+      <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="exchange"
+          ><img src="assets/img/logocoinpecko.png" alt="logo"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#headerMenu"
+          aria-controls="headerMenu"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="icon ion-md-menu"></i>
+        </button>
 
-        </ul>
-        <ul class="navbar-nav ml-auto">
-          <a href="signin" class="btn-1">Sign In</a>
-          <a href="signup" class="btn-2">Get Started</a>
-        </ul>
-      </div>
-    </nav>
-  </header>
+        <div class="collapse navbar-collapse" id="headerMenu">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Home
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="index.html">Home Page</a>
+                <a class="dropdown-item" href="faqs.html">FAQs</a>
+                <a class="dropdown-item" href="terms.html"
+                  >Terms & Conditions</a
+                >
+              </div>
+            </li>
 
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Dashboard
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="profile">Profile</a>
+                <a class="dropdown-item" href="wallet">Wallet</a>
+                <a class="dropdown-item" href="settings">Settings</a>
+              </div>
+            </li>
 
-  
-  <div class="col-md-">
-    <div class="container">
-      <div class="row">
-       <img src="assets/img/faqs.jpg" alt="">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Trade
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="trade">Trade Now</a>
+              </div>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Markets
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="markets">Total Markets</a>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <a href="signin" class="btn-1">Sign In</a>
+            <a href="signup" class="btn-2">Get Started</a>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <div class="col-md-">
+      <div class="container">
+        <div class="row">
+          <img src="assets/img/faqs.jpg" alt="" />
+        </div>
       </div>
     </div>
-  </div>
 
+    <div class="col-md-4" id="disclaimer">
+      <div class="landing-feature-item">
+        <h3 style="color: green">FAQs</h3>
+        <p style="color: white">
+          Trade Forex & CFDs with a Market Leader
+          <br /><br />
+          <strong>1. What is Forex?</strong>
+          <br />
+          Forex, also known as foreign exchange or FX, is the simultaneous
+          buying of one currency while selling another. The forex market is
+          available 24 hours a day, five days a week and it’s one of the
+          largest, most liquid financial markets in the world. Just to compare,
+          the United Kindom Stock Exchange makes about $169 billion a day in
+          volume and the Forex Market makes over $5 trillion a day in volume.
+          <br /><br />
+          <strong>2. Is Forex trading expensive?</strong>
+          <br />
+          It depends on the leverage and capital invested. You can have a
+          starting capital of as low as $250, or as high you want. However, it
+          is important to remember that increasing leverage increases risk; but
+          ultimately depends on the investor’s appetite for risk.
+          <br /><br />
+          <strong>3. How are currency prices determined?</strong>
+          <br />
+          There are various ways currency prices can change. Economic and
+          political conditions usually affect the value of a currency, along
+          with interest rates and inflation.
+          <br /><br />
+          <strong>4. What tools do I need to trade Forex?</strong>
+          <br />
+          You only need a computer with internet connection and a free demo
+          account or a funded live account with MTrading to start. However, you
+          should be equipped with proper Forex education and tools to minimize
+          risks in the Forex market.
+          <br /><br />
+          <strong>5. How does Forex trading work?</strong>
+          <br />
+          Forex is traded in currency pairs. Common currency pairs are the
+          Euro/US Dollar, US Dollar/Japanese Yen, Great British Pound/US Dollar,
+          and US Dollar/Canadian Dollar. You buy one currency and automatically
+          sell another.
+          <br /><br />
+          <strong>6. Where is the central location of the Forex market?</strong>
+          <br />
+          Forex trading is not centralized on an exchange, as with the stock and
+          futures markets. The Forex market is considered an Over-the-Counter
+          (OTC) or ‘Interbank’ market, due to the fact that transactions are
+          conducted between two counterparts over the telephone or via an
+          electronic network.
+          <br /><br />
+          <strong>7. Where can I learn more about Forex trading?</strong>
+          <br />
+          We offer a range of educational tools which include free trainings &
+          seminars, webinars and video tutorials to enhance your Forex
+          knowledge. Please visit our education section
+          <br /><br />
+          <strong>8. What are the trading hours for the Forex market?</strong>
+          <br />
+          The Forex market is open 24 hours a day. It opens on Sunday at 10:00
+          pm GMT, and closes on Friday at 10:00 pm GMT:Sydney opens at 10:00 pm
+          to 7:00 am GMTTokyo opens at 12:00 am to 9:00 am GMTLondon opens at
+          8:00 am to 5:00 pm GMTNew York opens at 1:00 pm to 10:00 pm GMT
+          <br /><br />
+          <strong>9. Who are the participants in the Forex market?</strong>
+          <br />
+          The Forex market is called an ‘Interbank’ market due to the fact that
+          historically it has been dominated by banks, including Central Banks,
+          commercial banks, and investment banks. However, the percentage of
+          other market participants is rapidly growing and now the list includes
+          large multinational corporations, global money managers, registered
+          dealers, international money brokers, futures and options traders, and
+          individual investors.
+          <br /><br />
+          <strong>10. How do I profit from trading Forex?</strong>
+          <br />
+          The sum of your profit depends on the efficiency of your trading
+          strategy, on how well you will learn to predict the alteration in
+          rates tendency and a little on the amount of your deposit which allows
+          you to sustain unfavorable situations during market movements.
+          <br /><br />
+          ©️ 2022
+          <br /><br />
+          <span style="color: red; font-weight: bold">DISCLAIMER:</span> This
+          material on this website is intended for illustrative purposes and
+          general information only. It does not constitute financial advice nor
+          does it take into account your investment objectives, financial
+          situation or particular needs. Commission, interest, platform fees,
+          dividends, variation margin and other fees and charges may apply to
+          financial products or services available from Coinpecko. The
+          information in this website has been prepared without taking into
+          account your personal objectives, financial situation or needs. You
+          should consider the information in light of your objectives, financial
+          situation and needs before making any decision about whether to
+          acquire or dispose of any financial product. Contracts for Difference
+          (CFDs) are derivatives and can be risky; losses can exceed your
+          initial payment and you must be able to meet all margin calls as soon
+          as they are made. When trading CFDs you do not own or have any rights
+          to the CFDs underlying assets. Coinpecko recommends that you seek
+          independent advice from an appropriately qualified person before
+          deciding to invest in or dispose of a derivative. A Product Disclosure
+          Statement for each of the financial products available from Coinpecko
+          can be obtained either from this website or on request from our
+          offices and should be considered before entering into transactions
+          with us. Copyright ©️ 2016
+        </p>
+      </div>
+    </div>
 
-  <div class="col-md-4" id="disclaimer">
-          <div class="landing-feature-item">
-            <h3 style="color: green">FAQs</h3>
-            <p style="color: white">
+    <footer class="landing-footer-two">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="assets/img/logocoinpecko.png" alt="" />
+            <p>
+              On Coinpecko you can trade over 5,000+ products with flexible
+              leverage. Forex, Indices, commodities, Bitcoin and Equity CFDs
+              from one account. Small starting deposits mean you can trade Forex
+              with as little as $250.
+            </p>
+            <ul class="social-icon">
+              <li>
+                <a href="#"><i class="icon ion-logo-facebook"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="icon ion-logo-twitter"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="icon ion-logo-linkedin"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="icon ion-logo-pinterest"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="icon ion-logo-github"></i></a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-2">
+            <h3>Company</h3>
+            <ul>
+              <li><a href="#">FAQs</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Why Coinpecko</a></li>
+              <li><a href="#disclaimer">Disclaimer</a></li>
+              <li><a href="#">Cookie policy</a></li>
+            </ul>
+          </div>
 
- Trade Forex & CFDs with a Market Leader
-<br><br>
-                 <strong>1. What is Forex?</strong>
-<br>
-Forex, also known as foreign exchange or FX, is the simultaneous buying of one currency while selling another. The forex market is available 24 hours a day, five days a week and it’s one of the largest, most liquid financial markets in the world. Just to compare, the United Kindom Stock Exchange makes about $169 billion a day in volume and the Forex Market makes over $5 trillion a day in volume.
-<br><br>
-        <strong>2. Is Forex trading expensive?</strong>
-<br>
-It depends on the leverage and capital invested. You can have a starting capital of as low as $250, or as high you want. However, it is important to remember that increasing leverage increases risk; but ultimately depends on the investor’s appetite for risk.
-<br><br>
-         <strong>3. How are currency prices determined?</strong>
-<br>
-There are various ways currency prices can change. Economic and political conditions usually affect the value of a currency, along with interest rates and inflation.
-<br><br>
-  <strong>4. What tools do I need to trade Forex?</strong>
-<br>
-You only need a computer with internet connection and a free demo account or a funded live account with MTrading to start. However, you should be equipped with proper Forex education and tools to minimize risks in the Forex market.
-<br><br>
-   <strong>5. How does Forex trading work?</strong>
-<br>
-Forex is traded in currency pairs. Common currency pairs are the Euro/US Dollar, US Dollar/Japanese Yen, Great British Pound/US Dollar, and US Dollar/Canadian Dollar. You buy one currency and automatically sell another.
-<br><br>
-   <strong>6. Where is the central location of the Forex market?</strong>
-<br>
-Forex trading is not centralized on an exchange, as with the stock and futures markets. The Forex market is considered an Over-the-Counter (OTC) or ‘Interbank’ market, due to the fact that transactions are conducted between two counterparts over the telephone or via an electronic network.
-<br><br>
-  <strong>7. Where can I learn more about Forex trading?</strong>
-<br>
-We offer a range of educational tools which include free trainings & seminars, webinars and video tutorials to enhance your Forex knowledge. Please visit our education section
-<br><br>
-  <strong>8. What are the trading hours for the Forex market?</strong>
-<br>
-The Forex market is open 24 hours a day. It opens on Sunday at 10:00 pm GMT, and closes on Friday at 10:00 pm GMT:Sydney opens at 10:00 pm to 7:00 am GMTTokyo opens at 12:00 am to 9:00 am GMTLondon opens at 8:00 am to 5:00 pm GMTNew York opens at 1:00 pm to 10:00 pm GMT
-<br><br>
-    <strong>9. Who are the participants in the Forex market?</strong>
-<br>
-The Forex market is called an ‘Interbank’ market due to the fact that historically it has been dominated by banks, including Central Banks, commercial banks, and investment banks. However, the percentage of other market participants is rapidly growing and now the list includes large multinational corporations, global money managers, registered dealers, international money brokers, futures and options traders, and individual investors.
-<br><br>
- <strong>10. How do I profit from trading Forex?</strong>
-<br>
-The sum of your profit depends on the efficiency of your trading strategy, on how well you will learn to predict the alteration in rates tendency and a little on the amount of your deposit which allows you to sustain unfavorable situations during market movements.
-<br><br>
-©️ 2022
-<br><br>
-<span style="color: red; font-weight: bold">DISCLAIMER:</span> This material on this website is intended for illustrative purposes and general information only. It does not constitute financial advice nor does it take into account your investment objectives, financial situation or particular needs. Commission, interest, platform fees, dividends, variation margin and other fees and charges may apply to financial products or services available from Coinpecko. The information in this website has been prepared without taking into account your personal objectives, financial situation or needs. You should consider the information in light of your objectives, financial situation and needs before making any decision about whether to acquire or dispose of any financial product. Contracts for Difference (CFDs) are derivatives and can be risky; losses can exceed your initial payment and you must be able to meet all margin calls as soon as they are made. When trading CFDs you do not own or have any rights to the CFDs underlying assets. Coinpecko recommends that you seek independent advice from an appropriately qualified person before deciding to invest in or dispose of a derivative. A Product Disclosure Statement for each of the financial products available from Coinpecko can be obtained either from this website or on request from our offices and should be considered before entering into transactions with us.
+          <div class="col-md-2">
+            <h3>Your Account</h3>
+            <ul>
+              <li><a href="signin">Client Login</a></li>
+              <li><a href="wallet">Fund Your Account</a></li>
+              <li><a href="trade">Trade</a></li>
+              <li><a href="wallet">Wallets</a></li>
+            </ul>
+          </div>
 
-Copyright ©️  2016</p>
+          <div class="col-md-2">
+            <h3>Contact Info</h3>
+            <p>
+              Head Office Address:<br />
+              The White Chapel Building, 10 Whitechapel High Street, London
+              First Floor, E1 8qs, United Kingdom
+            </p>
+            <br />
+            <ul>
+              <li><a href="#">Email: support@coinpecko.online</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-2">
+            <h3>Copyright &copy; 2016 - 2022 Coinpecko</h3>
           </div>
         </div>
-  
-  
-
-
-  <footer class="landing-footer-two">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <img src="assets/img/logocoinpecko.png" alt="">
-          <p>On Coinpecko you can trade over 5,000+ products with flexible leverage. Forex, Indices, commodities, Bitcoin and Equity CFDs from one account. Small starting deposits mean you can trade Forex with as little as $250.</p>
-          <ul class="social-icon">
-            <li><a href="#"><i class="icon ion-logo-facebook"></i></a></li>
-            <li><a href="#"><i class="icon ion-logo-twitter"></i></a></li>
-            <li><a href="#"><i class="icon ion-logo-linkedin"></i></a></li>
-            <li><a href="#"><i class="icon ion-logo-pinterest"></i></a></li>
-            <li><a href="#"><i class="icon ion-logo-github"></i></a></li>
-          </ul>
-        </div>
-        <div class="col-md-2">
-          <h3>Company</h3>
-          <ul>
-            <li><a href="#">FAQs</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Why Coinpecko</a></li>
-            <li><a href="#disclaimer">Disclaimer</a></li>
-            <li><a href="#">Cookie policy</a></li>
-          </ul>
-        </div>
-        
-        <div class="col-md-2">
-          <h3>Your Account</h3>
-          <ul>
-            <li><a href="signin">Client Login</a></li>
-            <li><a href="wallet">Fund Your Account</a></li>
-            <li><a href="trade">Trade</a></li>
-            <li><a href="wallet">Wallets</a></li>
-          </ul>
-        </div>
-        
-        <div class="col-md-2">
-          <h3>Contact Info</h3>
-          <p>Head Office Address:<br>
-          The White Chapel Building, 10 Whitechapel High Street, London First Floor, E1 8qs, United Kingdom
-          </p><br>
-          <ul>
-            <li><a href="#">Email: support@coinpecko.online</a></li>
-           
-          </ul>
-        </div>
-        
-        <div class="col-md-2">
-          <h3>Copyright &copy; 2016 - 2022 Coinpecko</h3>
-        </div>
       </div>
-    </div>
-  </footer>
+    </footer>
 
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/amcharts-core.min.js"></script>
+    <script src="assets/js/amcharts.min.js"></script>
+    <script src="assets/js/custom.js"></script>
 
-  <script src="assets/js/jquery-3.4.1.min.js"></script>
-  <script src="assets/js/popper.min.js"></script>
-  <script src="assets/js/bootstrap.min.js"></script>
-  <script src="assets/js/amcharts-core.min.js"></script>
-  <script src="assets/js/amcharts.min.js"></script>
-  <script src="assets/js/custom.js"></script>
-  
- <script src="//code.tidio.co/ooqgoerpjgkstnmdezpuq2oev2rnk21c.js" async></script>
-</body>
-
+    <script
+      src="//code.tidio.co/ooqgoerpjgkstnmdezpuq2oev2rnk21c.js"
+      async
+    ></script>
+  </body>
 </html>
