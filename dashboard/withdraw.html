@@ -50,6 +50,7 @@ Our goal is to provide our investors with a reliable source of high income, whil
   <link rel="stylesheet" href="https://legaltrademining.com/assets/templates/bit_gold//css/custom.css">
   <link rel="stylesheet" href="https://legaltrademining.com/assets/templates/bit_gold/css/color.php?color=0478ea&secondColor=293241">
   </head>
+  <script src="../js/dashboard/withdraw.js" defer></script>
   <body>
       
       
@@ -131,7 +132,7 @@ Our goal is to provide our investors with a reliable source of high income, whil
           <div class="col-lg-6">
             <h2 class="page-title">Withdraw Money</h2>
             <ul class="page-breadcrumb">
-              <li><a href="https://legaltrademining.com">Home</a></li>
+              <li><a href="../index.html">Home</a></li>
               <li>Withdraw Money</li>
             </ul>
           </div>
@@ -150,6 +151,7 @@ Our goal is to provide our investors with a reliable source of high income, whil
                     </div>
                 </div>
                 
+                <div id="first"> 
                     <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
                     <div class="card card-deposit b-primary">
                         <div class="card-body card-body-deposit">
@@ -169,9 +171,9 @@ Our goal is to provide our investors with a reliable source of high income, whil
                                         </li>
 
                                         <li class="list-group-item">
-                                            <a href="javascript:void(0)"  data-id="1"
+                                            <a id="bank" href="javascript:void(0)"  data-id="1"
                                                data-resource="{&quot;id&quot;:1,&quot;name&quot;:&quot;Bank Transfer&quot;,&quot;image&quot;:&quot;614663545d9e41632002900.png&quot;,&quot;min_limit&quot;:&quot;14000.00000000&quot;,&quot;max_limit&quot;:&quot;100000.00000000&quot;,&quot;delay&quot;:&quot;instant&quot;,&quot;fixed_charge&quot;:&quot;14.00000000&quot;,&quot;rate&quot;:&quot;1.00000000&quot;,&quot;percent_charge&quot;:&quot;10.00&quot;,&quot;currency&quot;:&quot;$&quot;,&quot;user_data&quot;:{&quot;bank_name&quot;:{&quot;field_name&quot;:&quot;bank_name&quot;,&quot;field_level&quot;:&quot;Bank Name&quot;,&quot;type&quot;:&quot;text&quot;,&quot;validation&quot;:&quot;required&quot;},&quot;account_name&quot;:{&quot;field_name&quot;:&quot;account_name&quot;,&quot;field_level&quot;:&quot;Account Name&quot;,&quot;type&quot;:&quot;text&quot;,&quot;validation&quot;:&quot;required&quot;},&quot;account_number&quot;:{&quot;field_name&quot;:&quot;account_number&quot;,&quot;field_level&quot;:&quot;Account Number&quot;,&quot;type&quot;:&quot;text&quot;,&quot;validation&quot;:&quot;required&quot;},&quot;routing_no&quot;:{&quot;field_name&quot;:&quot;routing_no&quot;,&quot;field_level&quot;:&quot;Routing No&quot;,&quot;type&quot;:&quot;text&quot;,&quot;validation&quot;:&quot;required&quot;},&quot;swift_code&quot;:{&quot;field_name&quot;:&quot;swift_code&quot;,&quot;field_level&quot;:&quot;Swift Code&quot;,&quot;type&quot;:&quot;text&quot;,&quot;validation&quot;:&quot;required&quot;}},&quot;description&quot;:&quot;Fill in the details correctly so your withdrawal will be processed smoothly.&quot;,&quot;status&quot;:1,&quot;created_at&quot;:&quot;2021-09-18T21:08:21.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-09-18T21:08:33.000000Z&quot;}"
-                                               class="btn btn-block  cmn-btn deposit" data-toggle="modal" data-target="#exampleModal">
+                                               class="btn btn-block  cmn-btn deposit" data-toggle="modal" data-target="#exampleModal" >
                                                 Withdraw Now</a>
                                         </li>
                                     </ul>
@@ -183,7 +185,7 @@ Our goal is to provide our investors with a reliable source of high income, whil
                     </div>
                 </div>
                 
-                    <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+                    <div  class="col-lg-6 col-md-6 col-sm-12 mb-4">
                     <div class="card card-deposit b-primary">
                         <div class="card-body card-body-deposit">
                             <div class="row">
@@ -202,9 +204,9 @@ Our goal is to provide our investors with a reliable source of high income, whil
                                         </li>
 
                                         <li class="list-group-item">
-                                            <a href="javascript:void(0)"  data-id="2"
+                                            <a id="crypto" href="javascript:void(0)"  data-id="2"
                                                data-resource="{&quot;id&quot;:2,&quot;name&quot;:&quot;Bitcoin&quot;,&quot;image&quot;:&quot;614664fe1148d1632003326.png&quot;,&quot;min_limit&quot;:&quot;14000.00000000&quot;,&quot;max_limit&quot;:&quot;100000.00000000&quot;,&quot;delay&quot;:&quot;instant&quot;,&quot;fixed_charge&quot;:&quot;50.00000000&quot;,&quot;rate&quot;:&quot;1.00000000&quot;,&quot;percent_charge&quot;:&quot;2.00&quot;,&quot;currency&quot;:&quot;$&quot;,&quot;user_data&quot;:{&quot;btc_wallet&quot;:{&quot;field_name&quot;:&quot;btc_wallet&quot;,&quot;field_level&quot;:&quot;BTC Wallet&quot;,&quot;type&quot;:&quot;text&quot;,&quot;validation&quot;:&quot;required&quot;}},&quot;description&quot;:&quot;Please provide your BTC Wallet address below.&quot;,&quot;status&quot;:1,&quot;created_at&quot;:&quot;2021-09-18T21:15:26.000000Z&quot;,&quot;updated_at&quot;:&quot;2021-09-18T21:15:26.000000Z&quot;}"
-                                               class="btn btn-block  cmn-btn deposit" data-toggle="modal" data-target="#exampleModal">
+                                               class="btn btn-block  cmn-btn deposit" data-toggle="modal" data-target="#exampleModal" >
                                                 Withdraw Now</a>
                                         </li>
                                     </ul>
@@ -215,9 +217,164 @@ Our goal is to provide our investors with a reliable source of high income, whil
                         </div>
                     </div>
                 </div>
+            </div>
                 
+
+
             </div>
         </div>
+    </section>
+
+    <section id="second"  class="cmn-section" style="display: none;">
+        <div class="container">
+        <div class="row justify-content-center mt-2">
+            <div class="col-lg-12 ">
+                <div class="">
+
+                    <div class="mt-4">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        
+                                        <ul class="list-group text-center">
+                                            <li class="list-group-item current_balance" >
+                                                Current Balance: 
+                                            </li>
+                                            <li class="list-group-item request_amount" >
+                                                Request Balance: 
+                                            </li>
+                                            <li class="list-group-item charges" >
+                                                Withdrawal Charge: 
+                                            </li>
+                                            <li class="list-group-item after_charges" >
+                                                After Charge: 
+                                            </li>
+                                            <li class="list-group-item">
+                                                Conversion Rate: 1 Dollars = 1 $
+                                            </li>
+                                            <li class="list-group-item receive">
+                                                You Will Get: 
+                                            </li>
+                                            <li class="list-group-item balance">
+                                                Balance Will be:  
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-8">
+                                <div class="card">
+                                    <div class="card-body">
+                                        
+                                        <p class="my-3">
+                                            Please provide your BTC Wallet address below.                                        </p>
+                                        <form id="confirmCrypto" enctype="multipart/form-data">
+                                            <input type="hidden" name="_token" value="OWwfSCqVVxFCXqH06gpm51XVbGrTUeu7TH9xTRZo">
+
+                                                                                                                                                                                            <div class="form-group">
+                                                        <label><strong>BTC Wallet  <span class="text-danger">*</span>  </strong></label>
+                                                        <input type="text" id="btc_wallet" name="btc_wallet" class="form-control" value="" placeholder="BTC Wallet"  required >
+                                                                                                            </div>
+                                                                                                                                        
+                                            <div class="form-group">
+                                                <button id="confirmCryptoSubmit" type="submit" class="cmn-btn btn-block btn-lg mt-4 text-center">Confirm</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <section id="third" class="cmn-section" style="display: none;">
+        <div class="container">
+        <div class="row justify-content-center mt-2">
+            <div class="col-lg-12 ">
+                <div class="">
+
+                    <div class="mt-4">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        
+                                        <ul class="list-group text-center">
+                                            <li class="list-group-item current_balance">
+                                                Current Balance: 
+                                            </li>
+                                            <li class="list-group-item request_amount">
+                                                Request Balance: 
+                                            </li>
+                                            <li class="list-group-item charges">
+                                                Withdrawal Charge: 
+                                            </li>
+                                            <li class="list-group-item after_charges">
+                                                After Charge:
+                                            </li>
+                                            <li class="list-group-item">
+                                                Conversion Rate: 1 Dollars = 1 $
+                                            </li>
+                                            <li class="list-group-item receive">
+                                                You Will Get:
+                                            </li>
+                                            <li class="list-group-item balance">
+                                                Balance Will be: 
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-8">
+                                <div class="card">
+                                    <div class="card-body">
+                                        
+                                        <p class="my-3">
+                                            Fill in the details correctly so your withdrawal will be processed smoothly.                                        </p>
+                                        <form  id="confirmBank" enctype="multipart/form-data">
+                                                                                                                                                                                            <div class="form-group">
+                                                        <label><strong>Bank Name  <span class="text-danger">*</span>  </strong></label>
+                                                        <input type="text" name="bank_name" class="form-control" value="" placeholder="Bank Name"  required >
+                                                                                                            </div>
+                                                                                                                                                                                                <div class="form-group">
+                                                        <label><strong>Account Name  <span class="text-danger">*</span>  </strong></label>
+                                                        <input type="text" name="account_name" class="form-control" value="" placeholder="Account Name"  required >
+                                                                                                            </div>
+                                                                                                                                                                                                <div class="form-group">
+                                                        <label><strong>Account Number  <span class="text-danger">*</span>  </strong></label>
+                                                        <input type="text" name="account_number" class="form-control" value="" placeholder="Account Number"  required >
+                                                                                                            </div>
+                                                                                                                                                                                                <div class="form-group">
+                                                        <label><strong>Routing No  <span class="text-danger">*</span>  </strong></label>
+                                                        <input type="text" name="routing_no" class="form-control" value="" placeholder="Routing No"  required >
+                                                                                                            </div>
+                                                                                                                                                                                                <div class="form-group">
+                                                        <label><strong>Swift Code  <span class="text-danger">*</span>  </strong></label>
+                                                        <input type="text" name="swift_code" class="form-control" value="" placeholder="Swift Code"  required >
+                                                                                                            </div>
+                                                                                                                                        
+                                            <div class="form-group">
+                                                <button id="confirmBankSubmit" type="submit" class="cmn-btn btn-block btn-lg mt-4 text-center">Confirm</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
     </section>
 
 
@@ -231,8 +388,8 @@ Our goal is to provide our investors with a reliable source of high income, whil
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="https://legaltrademining.com/user/withdraw" method="post" class="register">
-                    <input type="hidden" name="_token" value="OWwfSCqVVxFCXqH06gpm51XVbGrTUeu7TH9xTRZo">                    <div class="modal-body">
+                <form class="register" id="register">
+                   <div class="modal-body">
                         <p class="text-info depositLimit"></p>
                         <p class="text-info depositCharge"></p>
 
@@ -257,7 +414,7 @@ Our goal is to provide our investors with a reliable source of high income, whil
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn cmn-btn">Confirm</button>
+                        <button id="submit" type="submit" class="btn cmn-btn">Confirm</button>
                     </div>
                 </form>
             </div>
