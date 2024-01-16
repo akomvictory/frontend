@@ -40,7 +40,7 @@ form.addEventListener("click", async function (e) {
     const result = await response.json();
     console.log("Success:", result);
     if (result.message == "User successfully registered") {
-      window.location.href = "login.html";
+      window.location.href = "signin.html";
       localStorage.setItem("user", JSON.stringify(result));
     } else {
       alert("Error: " + result.message);
