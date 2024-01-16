@@ -1,8 +1,32 @@
-const submit = document.getElementById("register");
-const api = "http://admin.coinpecko.online/api";
+const register = document.getElementById("register");
+const api = "https://admin.coinpecko.online/api";
+//const api = "http://127.0.0.1:8000/api";
 const user = JSON.parse(localStorage.getItem("user"));
 let _token = user.access_token.original.access_token;
-let _result;
+let _result = { data: JSON.parse(localStorage.getItem("user")).account };
+let plan = "";
+let check = false;
+
+document.getElementById("premium").onclick = () => {
+  plan = "premium";
+  document.getElementById("submit").setAttribute("data-dismiss", "modal");
+};
+
+document.getElementById("gold").onclick = () => {
+  plan = "gold";
+  document.getElementById("submit").setAttribute("data-dismiss", "modal");
+};
+
+document.getElementById("silver").onclick = () => {
+  plan = "silver";
+  document.getElementById("submit").setAttribute("data-dismiss", "modal");
+};
+
+document.getElementById("bronze").onclick = () => {
+  plan = "bronze";
+  document.getElementById("submit").setAttribute("data-dismiss", "modal");
+};
+
 (async function getAccountDetails() {
   try {
     const response = await fetch(`${api}/account/${user.user.id}`, {
@@ -16,28 +40,90 @@ let _result;
 
     const result = await response.json();
     _result = result;
-    console.log(result);
 
     document.getElementById("balance").textContent += result.data.balance;
     document.getElementById("bonus").textContent += result.data.bonus;
   } catch (error) {
     window.location.href = "../signin.html";
   }
-})();
+})().then(() => {
+  check = true;
+});
 
-submit.onsubmit = (e) => {
-  e.preventDefault();
+document.getElementById("submit").onclick = async () => {
+  if (check == false) return;
   let fixedAmount = document.getElementById("fixedAmount").value;
-  if (fixedAmount < _result.data.balance && fixedAmount <= 500) {
-    return showNotification(
-      false,
-      "check wallet balance -> Amount must be greater than $500"
-    );
+
+  if (
+    parseInt(_result.data.balance) >= parseInt(fixedAmount) &&
+    500 <= parseInt(fixedAmount) &&
+    fixedAmount !== ""
+  ) {
+    //remove fixedamount from balance
+    //change user account plan
+
+    const withdraw_data = {
+      user_id: user.user.id,
+      amount: fixedAmount,
+      withdrawal_type: "crypto",
+      currency: "bitcoin",
+      destination: "invest",
+      name: "coinpecko",
+    };
+
+    try {
+      const response = await fetch(`${api}/withdraw`, {
+        method: "POST", // or 'PUT'
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          Authorization: `Bearer ${_token}`,
+        },
+        body: JSON.stringify(withdraw_data),
+      });
+      updateAccount();
+    } catch (error) {
+      showNotification(false, error);
+    }
+    return showNotification(true, "successful");
   }
-  //remove fixedamount from balance
-  //change user account plan
-  return showNotification(true, "successful");
+
+  return showNotification(
+    false,
+    "check wallet balance -> Amount must be greater than $500"
+  );
+
+  async function updateAccount() {
+    const currentAmount = _result.data.balance - fixedAmount;
+    const data = {
+      user_id: user.user.id,
+      balance: `${currentAmount}`,
+      earning: _result.data.earning,
+      bonus: _result.data.bonus,
+      account_type: "margin",
+      account_stage: "plan",
+      trade: 1,
+    };
+
+    try {
+      const response = await fetch(`${api}/account/${user.user.id}`, {
+        method: "PUT", // or 'PUT'
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          Authorization: `Bearer ${_token}`,
+        },
+        body: JSON.stringify(data),
+      });
+    } catch (error) {
+      showNotification(false, "Unsuccessful");
+    }
+  }
 };
+
+register.addEventListener("submit", function (e) {
+  e.preventDefault();
+});
 
 function showNotification(status, message) {
   const notificationContainer = document.createElement("div");

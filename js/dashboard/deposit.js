@@ -1,12 +1,36 @@
 const user = JSON.parse(localStorage.getItem("user"));
 const _amount = document.getElementById("amount");
 let amount = 0;
-const api = "http://admin.coinpecko.online/api";
+const api = "https://admin.coinpecko.online/api";
+//const api = "http://127.0.0.1:8000/api";
 let _token = user.access_token.original.access_token;
-let wallet_address = "s423423fdsf";
+let wallet_address = "bc1qytwvayz74lsw40z66agk2q33kssup9z7726akk";
 _amount.onchange = (e) => {
   amount = e.currentTarget.value;
 };
+
+// Function to preview the selected image
+document.addEventListener("DOMContentLoaded", function () {
+  // Get elements
+  const fileInput = document.getElementById("fileInput");
+  const previewImage = document.getElementById("previewImage");
+
+  // Add event listener to file input
+  fileInput.addEventListener("change", function (event) {
+    const file = event.target.files[0];
+    if (file) {
+      previewImage.src = URL.createObjectURL(file);
+    }
+  });
+
+  // Function to remove the image preview
+  function removePreview() {
+    previewImage.src = "https://legaltrademining.com/assets/images/default.png";
+
+    // Optional: Clear the file input value
+    fileInput.value = "";
+  }
+});
 
 document.getElementById("register").addEventListener("submit", function (e) {
   e.preventDefault();
@@ -29,7 +53,6 @@ document.getElementById("submit").onclick = (e) => {
 
 document.getElementById("confirm").onclick = async (e) => {
   e.preventDefault();
-  setAmount();
   document.getElementById("second").style.display = "none";
   document.getElementById("third").style.display = "block";
 
@@ -110,9 +133,53 @@ function setAmount() {
 
 document.getElementById("payform").onsubmit = (e) => {
   e.preventDefault();
-  window.location.href = "./deposit-history.html";
+
+  showNotification(true, "Withdraw Successful");
+
+  setInterval(() => {
+    window.location.href = "./deposit-history.html";
+  }, 1000);
 };
 
-// document.getElementById("pay").onclick = () => {
-//   window.location.href = "/deposit-history.html";
-// };
+function showNotification(status, message) {
+  const notificationContainer = document.createElement("div");
+  const notificationMessage = document.createElement("p");
+
+  // Set the background color based on the status
+  notificationContainer.style.backgroundColor = status ? "green" : "red";
+
+  // Set the message text
+  notificationMessage.textContent = message;
+
+  // Style the notification container
+  notificationContainer.style.position = "fixed";
+  notificationContainer.style.bottom = "0";
+  notificationContainer.style.left = "50%";
+  notificationContainer.style.transform = "translateX(-50%)";
+  notificationContainer.style.padding = "10px";
+  notificationContainer.style.color = "white";
+  notificationContainer.style.width = "100%";
+  notificationContainer.style.textAlign = "center";
+  notificationContainer.style.zIndex = "9999"; // Ensure the z-index takes effect
+
+  // Append the message to the container
+  notificationContainer.appendChild(notificationMessage);
+
+  // Append the container to the body
+  document.body.appendChild(notificationContainer);
+
+  // Move the notification from bottom to top over half a minute
+  const interval = 5000; // milliseconds
+  const steps = 30; // half a minute
+
+  let step = 0;
+  const moveNotification = setInterval(() => {
+    if (step >= steps) {
+      clearInterval(moveNotification);
+      document.body.removeChild(notificationContainer);
+    } else {
+      notificationContainer.style.bottom = `${(step / steps) * 100}%`;
+      step++;
+    }
+  }, interval / steps);
+}

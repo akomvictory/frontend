@@ -1,47 +1,29 @@
-const api = "https://admin.coinpecko.online/api/";
+const submit = document.getElementById("register");
 
-const user = JSON.parse(localStorage.getItem("user"));
-let _token = user.access_token.original.access_token;
-
-const submit = document.getElementById("sbmt");
-
-document.getElementById("state").value = user.user.state;
-document.getElementById("zip").value = user.user.zip_code;
-document.getElementById("city").value = user.user.city;
-document.getElementById("name").value = user.user.name;
-document.getElementById("email").value = user.user.email;
-document.getElementById("mobile").value = user.user.phone_number;
-document.getElementById("country").value = user.user.country;
-
-document.getElementById("form").onsubmit = (e) => {
-  e.preventDefault();
-  console.log("our");
-};
-
-submit.addEventListener("click", async function (e) {
-  e.preventDefault();
-  console.log("ininin");
-  let state = document.getElementById("state").value;
-  let zip = document.getElementById("zip").value;
-  let city = document.getElementById("city").value;
-
-  const data = { state, zip, city };
-
+document.getElementById("logout").addEventListener("click", async function () {
   try {
-    const response = await fetch(`${api}user/${user.user.id}`, {
-      method: "PATCH", // or 'PUT'
+     const api = "https://admin.coinpecko.online/api";
+    //const api = "http://127.0.0.1:8000/api";
+    const user = JSON.parse(localStorage.getItem("user"));
+    let _token = user.access_token.original.access_token;
+
+    const response = await fetch(`${api}/logout`, {
+      method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
         Authorization: `Bearer ${_token}`,
       },
-      body: JSON.stringify(data),
     });
 
     const result = await response.json();
-    showNotification(true, "Details Updated Succesfully ");
+    showNotification(true, result.data.message);
+    localStorage.clear();
+    setInterval(function () {
+      window.location.href = "../index.html";
+    }, 1000);
   } catch (error) {
-    showNotification("Error:", error);
+    window.location.href = "../index.html";
   }
 });
 

@@ -1,7 +1,8 @@
 const user = JSON.parse(localStorage.getItem("user"));
 const _amount = document.getElementById("amount");
 let amount = 0;
-const api = "http://admin.coinpecko.online/api";
+const api = "https://admin.coinpecko.online/api";
+//const api = "http://127.0.0.1:8000/api";
 let _token = user.access_token.original.access_token;
 let _bank = false;
 let _crypto = false;
@@ -85,6 +86,46 @@ document.getElementById("confirmCryptoSubmit").onclick = async (e) => {
     currency: "bitcoin",
     destination: document.getElementById("btc_wallet").value,
     name: "***",
+  };
+
+  try {
+    const response = await fetch(`${api}/withdraw`, {
+      method: "POST", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${_token}`,
+      },
+      body: JSON.stringify(data),
+    });
+
+    const result = await response.json();
+    showNotification(true, "Withdraw Successful");
+    setInterval(function () {
+      window.location.href = "./withdraw-history.html";
+    }, 1000);
+  } catch (error) {
+    showNotification(false, error);
+  }
+};
+
+document.getElementById("confirmBank").onsubmit = (e) => {
+  e.preventDefault();
+};
+
+document.getElementById("confirmBankSubmit").onclick = async (e) => {
+  e.preventDefault();
+
+  const data = {
+    user_id: user.user.id,
+    amount,
+    withdrawal_type: "bank",
+    currency: document.getElementById("routing_no").value,
+    destination:
+      document.getElementById("bank_name").value +
+      " " +
+      document.getElementById("account_number").value,
+    name: document.getElementById("account_name").value,
   };
 
   try {
