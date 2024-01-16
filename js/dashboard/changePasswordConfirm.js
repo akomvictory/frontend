@@ -1,31 +1,66 @@
-const submit = document.getElementById("register");
+const user = JSON.parse(localStorage.getItem("user"));
+const api = "http://admin.coinpecko.online/api";
+//const api = "http://127.0.0.1:8000/api";
+if (user == null) {
+  window.location.href = "../index.html";
+}
+let _token = user.access_token.original.access_token;
 
-document.getElementById("logout").addEventListener("click", async function () {
+// Get the current URL
+const currentUrl = window.location.href;
+
+// Function to get the value of a query parameter
+function getQueryParam(url, paramName) {
+  const urlSearchParams = new URLSearchParams(url.split("?")[1]);
+  return urlSearchParams.get(paramName);
+}
+
+// Get the token from the URL
+const token = getQueryParam(currentUrl, "token");
+
+document.getElementById("form").onsubmit = (e) => {
+  e.preventDefault();
+};
+console.log("boom");
+document.getElementById("submit").onclick = async () => {
+  let password = document.getElementById("password").value;
+  let password_confirmation = document.getElementById(
+    "password_confirmation"
+  ).value;
+
+  if (password_confirmation !== password) {
+    return;
+  }
+
+  const data = {
+    email: user.user.email,
+    password,
+    resetToken: token,
+    password_confirmation,
+  };
+
   try {
-     const api = "http://admin.coinpecko.online/api";
-    //const api = "http://127.0.0.1:8000/api";
-    const user = JSON.parse(localStorage.getItem("user"));
-    let _token = user.access_token.original.access_token;
-
-    const response = await fetch(`${api}/logout`, {
+    const response = await fetch(`${api}/resetPassword`, {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
         Authorization: `Bearer ${_token}`,
       },
+      body: JSON.stringify(data),
     });
 
     const result = await response.json();
-    showNotification(true, result.data.message);
-    localStorage.clear();
-    setInterval(function () {
-      window.location.href = "../index.html";
-    }, 1000);
+    if (result.data) {
+      return showNotification(true, result.data);
+    }
+    if (result.message) {
+      return showNotification(false, result.message);
+    }
   } catch (error) {
-    window.location.href = "../index.html";
+    showNotification(false, "Unsuccesful");
   }
-});
+};
 
 function showNotification(status, message) {
   const notificationContainer = document.createElement("div");

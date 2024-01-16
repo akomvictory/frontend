@@ -1,8 +1,8 @@
 const id = JSON.parse(localStorage.getItem("user"));
 const referralURL = document.getElementById("referralURL");
 
-//const api = "http://admin.coinpecko.online/api";
-const api = "http://127.0.0.1:8000/api";
+const api = "http://admin.coinpecko.online/api";
+//const api = "http://127.0.0.1:8000/api";
 const user = JSON.parse(localStorage.getItem("user"));
 let _token = user.access_token.original.access_token;
 
