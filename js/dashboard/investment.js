@@ -1,5 +1,5 @@
 const register = document.getElementById("register");
-const api = "http://admin.coinpecko.online/api";
+const api = "https://admin.coinpecko.online/api";
 //const api = "http://127.0.0.1:8000/api";
 const user = JSON.parse(localStorage.getItem("user"));
 let _token = user.access_token.original.access_token;

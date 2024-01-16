@@ -1,4 +1,4 @@
-const api = "http://admin.coinpecko.online/api/";
+const api = "https://admin.coinpecko.online/api/";
 
 const user = JSON.parse(localStorage.getItem("user"));
 let _token = user.access_token.original.access_token;
