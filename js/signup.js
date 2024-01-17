@@ -1,4 +1,4 @@
-//const api = "https://127.0.0.1:8000/api/";
+//const api = "http://127.0.0.1:8000/api/";
 const api = "https://admin.coinpecko.online/api/";
 const sbmt = document.getElementById("sbmt");
 
@@ -7,7 +7,6 @@ document.getElementById("form").onsubmit = (e) => {
 };
 
 sbmt.addEventListener("click", async function (e) {
-  e.preventDefault();
   let name = document.getElementById("name").value;
   let email = document.getElementById("email").value;
   let password = document.getElementById("password").value;
@@ -42,15 +41,17 @@ sbmt.addEventListener("click", async function (e) {
     const result = await response.json();
 
     if (result.message == "User successfully registered") {
-      showNotification(true, result.message);
+      showNotification(true, "Account created Succesfully, over to Login now ");
       setInterval(() => {
         window.location.href = "signin.html";
-      }, 1000);
-      localStorage.setItem("user", JSON.stringify(result));
+      }, 2000);
     } else {
-      showNotification(false + result.message);
-      window.location.href = "signup.html";
+      showNotification(false, result.message);
+      setInterval(() => {
+        window.location.href = "signup.html";
+      }, 2000);
     }
+    console.log(result);
   } catch (error) {
     console.error("Error:", error);
   }

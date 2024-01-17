@@ -1,4 +1,7 @@
 const user = JSON.parse(localStorage.getItem("user"));
+if (user == null) {
+  window.location.href = "../signin.html";
+}
 const _amount = document.getElementById("amount");
 let amount = 0;
 const api = "https://admin.coinpecko.online/api";

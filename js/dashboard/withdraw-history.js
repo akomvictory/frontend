@@ -1,5 +1,9 @@
 const api = "https://admin.coinpecko.online/api";
+//const api = "http://localhost:8000/api";
 const user = JSON.parse(localStorage.getItem("user"));
+if (user == null) {
+  window.location.href = "../signin.html";
+}
 let _token = user.access_token.original.access_token;
 
 // Function to add a new table row
@@ -55,7 +59,7 @@ function sortDepositByDate(depositArray) {
 
     const result = await response.json();
     withdrawData = sortDepositByDate(result.withdraws);
-    console.log(result.withdraws);
+
     // Loop through deposit data and add rows to the table
     withdrawData.forEach((data) => {
       // Modify data as needed to match the structure
