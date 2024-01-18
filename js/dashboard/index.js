@@ -43,9 +43,9 @@ function calculateTotalAmount(array) {
     if (result.account.account_stage === "bronze") {
       document.getElementById("invest").textContent += "15000";
     } else if (result.account.account_stage === "silver") {
-      document.getElementById("invest").textContent += "50,000";
+      document.getElementById("invest").textContent += "50000";
     } else if (result.account.account_stage === "gold") {
-      document.getElementById("invest").textContent += "100,000";
+      document.getElementById("invest").textContent += "100000";
     } else if (result.account.account_stage === "premium") {
       document.getElementById("invest").textContent = "unlimited";
     }

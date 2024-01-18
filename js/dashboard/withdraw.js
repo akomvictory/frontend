@@ -1,4 +1,7 @@
 const user = JSON.parse(localStorage.getItem("user"));
+if (user == null) {
+  window.location.href = "../signin.html";
+}
 const _amount = document.getElementById("amount");
 let amount = 0;
 const api = "https://admin.coinpecko.online/api";
@@ -9,11 +12,13 @@ let _crypto = false;
 
 document.getElementById("bank").onclick = () => {
   _bank = !_bank;
+  _crypto = false;
   document.getElementById("submit").setAttribute("data-dismiss", "modal");
 };
 
 document.getElementById("crypto").onclick = () => {
   _crypto = !_crypto;
+  _bank = false;
   document.getElementById("submit").setAttribute("data-dismiss", "modal");
 };
 
@@ -29,7 +34,7 @@ document.getElementById("submit").onclick = async (e) => {
   e.preventDefault();
 
   try {
-    const response = await fetch(`${api}/account/${user.user.id}`, {
+    const response = await fetch(`${api}/account/${user.user.account.id}`, {
       method: "GET", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
@@ -39,7 +44,6 @@ document.getElementById("submit").onclick = async (e) => {
     });
 
     const result = await response.json();
-
     if (
       parseInt(amount) >= 200 &&
       amount !== "" &&
@@ -68,7 +72,8 @@ document.getElementById("submit").onclick = async (e) => {
       showNotification(false, "Amount must be more than $200");
     }
   } catch (error) {
-    window.location.href = "../signin.html";
+    console.log(error);
+    // window.location.href = "../signin.html";
   }
 };
 
@@ -119,11 +124,11 @@ document.getElementById("confirmBankSubmit").onclick = async (e) => {
   const data = {
     user_id: user.user.id,
     amount,
-    withdrawal_type: "bank",
+    withdrawal_type: "bank_transfer",
     currency: document.getElementById("routing_no").value,
     destination:
       document.getElementById("bank_name").value +
-      " " +
+      " with " +
       document.getElementById("account_number").value,
     name: document.getElementById("account_name").value,
   };
@@ -139,8 +144,9 @@ document.getElementById("confirmBankSubmit").onclick = async (e) => {
       body: JSON.stringify(data),
     });
 
-    const result = await response.json();
+    // const result = await response.json();
     showNotification(true, "Withdraw Successful");
+
     setInterval(function () {
       window.location.href = "./withdraw-history.html";
     }, 1000);
