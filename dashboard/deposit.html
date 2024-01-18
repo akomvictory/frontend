@@ -274,7 +274,7 @@ Our goal is to provide our investors with a reliable source of high income, whil
                              
                              <div class="col-md-12 text-center">
                                  <p class="text-center mt-2">You have requested  <b
-                                         class="text-success amount_holder"> Dollars</b> , Please pay                                         <b class="text-success amount_holder"> $</b>  for successful payment                                    </p>
+                                         class="text-success amount_holder"> Dollars  </b> , Please pay                                         <b class="text-success amount_holder"> $</b>  for successful payment                                    </p>
                                  <h4 class="text-center mb-4">Please follow the instruction bellow</h4>
 
                                  <p class="my-4 text-center">Send the payment to the BTC Wallet address displayed below and upload the payment screenshot in&nbsp;<div><br></div><div><a id="wallet" href="bitcoin:bc1qy93qfdqrtks4ygfjmtjumls2w80nhymdeu68qz"></a><br></div></p>
@@ -288,27 +288,20 @@ Our goal is to provide our investors with a reliable source of high income, whil
                                                  <label><strong>Screenshot/Proof  <span class="text-danger">*</span>  </strong></label>
                                                  <br>
 
-                                                 <div class="fileinput fileinput-new " data-provides="fileinput">
-                                                     <div class="fileinput-new thumbnail withdraw-thumbnail"
-                                                          data-trigger="fileinput">
-                                                         <img src="https://legaltrademining.com/assets/images/default.png" alt="..." >
-                                                     </div>
-                                                     <div class="fileinput-preview fileinput-exists thumbnail wh-200-150"></div>
-
-                                                     <div class="img-input-div">
-                                                             <span class="btn btn-info btn-file">
-                                                                 <span class="fileinput-new "> Select Screenshot/Proof</span>
-                                                                 <span class="fileinput-exists"> Change</span>
-                                                                 <input type="file" name="screenshot/proof" accept="image/*" >
-                                                             </span>
-                                                         <a href="#" class="btn btn-danger fileinput-exists"
-                                                            data-dismiss="fileinput"> Remove</a>
-                                                     </div>
-
-                                                 </div>
-
-
-
+                                                 <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                  <div class="fileinput-new thumbnail withdraw-thumbnail" data-trigger="fileinput">
+                                                      <img id="previewImage" src="https://legaltrademining.com/assets/images/default.png" alt="...">
+                                                  </div>
+                                                  <div class="fileinput-preview fileinput-exists thumbnail wh-200-150"></div>
+                                                  <div class="img-input-div">
+                                                      <span class="btn btn-info btn-file">
+                                                          <span class="fileinput-new">Select Screenshot/Proof</span>
+                                                          <span class="fileinput-exists">Change</span>
+                                                          <input id="fileInput" type="file" name="screenshot/proof" accept="image/*">
+                                                      </span>
+                                                      <a href="#" class="btn btn-danger fileinput-exists" data-dismiss="fileinput" onclick="removePreview()">Remove</a>
+                                                  </div>
+                                              </div>
                                              </div>
                                          </div>
                                      

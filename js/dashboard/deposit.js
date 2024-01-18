@@ -1,12 +1,39 @@
 const user = JSON.parse(localStorage.getItem("user"));
+if (user == null) {
+  window.location.href = "../signin.html";
+}
 const _amount = document.getElementById("amount");
 let amount = 0;
-const api = "http://admin.coinpecko.online/api";
+const api = "https://admin.coinpecko.online/api";
+//const api = "http://127.0.0.1:8000/api";
 let _token = user.access_token.original.access_token;
-let wallet_address = "s423423fdsf";
+let wallet_address = "bc1qytwvayz74lsw40z66agk2q33kssup9z7726akk";
 _amount.onchange = (e) => {
   amount = e.currentTarget.value;
 };
+
+// Function to preview the selected image
+document.addEventListener("DOMContentLoaded", function () {
+  // Get elements
+  const fileInput = document.getElementById("fileInput");
+  const previewImage = document.getElementById("previewImage");
+
+  // Add event listener to file input
+  fileInput.addEventListener("change", function (event) {
+    const file = event.target.files[0];
+    if (file) {
+      previewImage.src = URL.createObjectURL(file);
+    }
+  });
+
+  // Function to remove the image preview
+  function removePreview() {
+    previewImage.src = "https://legaltrademining.com/assets/images/default.png";
+
+    // Optional: Clear the file input value
+    fileInput.value = "";
+  }
+});
 
 document.getElementById("register").addEventListener("submit", function (e) {
   e.preventDefault();
@@ -29,7 +56,6 @@ document.getElementById("submit").onclick = (e) => {
 
 document.getElementById("confirm").onclick = async (e) => {
   e.preventDefault();
-  setAmount();
   document.getElementById("second").style.display = "none";
   document.getElementById("third").style.display = "block";
 
@@ -55,6 +81,24 @@ document.getElementById("confirm").onclick = async (e) => {
   } catch (error) {
     showNotification(false, error);
   }
+};
+
+function setAmount() {
+  var elements = document.getElementsByClassName("amount_holder");
+
+  for (var i = 0; i < elements.length; i++) {
+    elements[i].textContent += amount;
+  }
+}
+
+document.getElementById("payform").onsubmit = (e) => {
+  e.preventDefault();
+
+  showNotification(true, "Deposit Successful");
+
+  setInterval(() => {
+    window.location.href = "./deposit-history.html";
+  }, 1000);
 };
 
 function showNotification(status, message) {
@@ -99,20 +143,3 @@ function showNotification(status, message) {
     }
   }, interval / steps);
 }
-
-function setAmount() {
-  var elements = document.getElementsByClassName("amount_holder");
-
-  for (var i = 0; i < elements.length; i++) {
-    elements[i].textContent += amount;
-  }
-}
-
-document.getElementById("payform").onsubmit = (e) => {
-  e.preventDefault();
-  window.location.href = "./deposit-history.html";
-};
-
-// document.getElementById("pay").onclick = () => {
-//   window.location.href = "/deposit-history.html";
-// };

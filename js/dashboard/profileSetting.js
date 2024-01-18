@@ -1,59 +1,50 @@
-//const api = "http://127.0.0.1:8000/api/";
 const api = "https://admin.coinpecko.online/api/";
-const sbmt = document.getElementById("sbmt");
+
+const user = JSON.parse(localStorage.getItem("user"));
+if (user == null) {
+  window.location.href = "../signin.html";
+}
+let _token = user.access_token.original.access_token;
+
+const submit = document.getElementById("sbmt");
+
+document.getElementById("state").value = user.user.state;
+document.getElementById("zip").value = user.user.zip_code;
+document.getElementById("city").value = user.user.city;
+document.getElementById("name").value = user.user.name;
+document.getElementById("email").value = user.user.email;
+document.getElementById("mobile").value = user.user.phone_number;
+document.getElementById("country").value = user.user.country;
 
 document.getElementById("form").onsubmit = (e) => {
   e.preventDefault();
+  console.log("our");
 };
 
-sbmt.addEventListener("click", async function (e) {
-  let name = document.getElementById("name").value;
-  let email = document.getElementById("email").value;
-  let password = document.getElementById("password").value;
-  let street = document.getElementById("street").value;
-  let city = document.getElementById("city").value;
+submit.addEventListener("click", async function (e) {
+  e.preventDefault();
+  console.log("ininin");
   let state = document.getElementById("state").value;
-  let zip_code = document.getElementById("zip_code").value;
-  let country = document.getElementById("country").value;
+  let zip = document.getElementById("zip").value;
+  let city = document.getElementById("city").value;
 
-  const data = {
-    email,
-    name,
-    street,
-    city,
-    state,
-    zip_code,
-    country,
-    password,
-    password_confirmation: password,
-  };
+  const data = { state, zip, city };
 
   try {
-    const response = await fetch(`${api}auth/register`, {
-      method: "POST", // or 'PUT'
+    const response = await fetch(`${api}user/${user.user.id}`, {
+      method: "PATCH", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${_token}`,
       },
       body: JSON.stringify(data),
     });
 
     const result = await response.json();
-
-    if (result.message == "User successfully registered") {
-      showNotification(true, "Account created Succesfully, over to Login now ");
-      setInterval(() => {
-        window.location.href = "signin.html";
-      }, 2000);
-    } else {
-      showNotification(false, result.message);
-      setInterval(() => {
-        window.location.href = "signup.html";
-      }, 2000);
-    }
-    console.log(result);
+    showNotification(true, "Details Updated Succesfully ");
   } catch (error) {
-    console.error("Error:", error);
+    showNotification("Error:", error);
   }
 });
 

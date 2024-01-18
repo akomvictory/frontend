@@ -1,61 +1,69 @@
-//const api = "http://127.0.0.1:8000/api/";
-const api = "https://admin.coinpecko.online/api/";
-const sbmt = document.getElementById("sbmt");
+const user = JSON.parse(localStorage.getItem("user"));
+if (user == null) {
+  window.location.href = "../signin.html";
+}
+const api = "https://admin.coinpecko.online/api";
+//const api = "http://127.0.0.1:8000/api";
+if (user == null) {
+  window.location.href = "../index.html";
+}
+let _token = user.access_token.original.access_token;
+
+// Get the current URL
+const currentUrl = window.location.href;
+
+// Function to get the value of a query parameter
+function getQueryParam(url, paramName) {
+  const urlSearchParams = new URLSearchParams(url.split("?")[1]);
+  return urlSearchParams.get(paramName);
+}
+
+// Get the token from the URL
+const token = getQueryParam(currentUrl, "token");
 
 document.getElementById("form").onsubmit = (e) => {
   e.preventDefault();
 };
-
-sbmt.addEventListener("click", async function (e) {
-  let name = document.getElementById("name").value;
-  let email = document.getElementById("email").value;
+console.log("boom");
+document.getElementById("submit").onclick = async () => {
   let password = document.getElementById("password").value;
-  let street = document.getElementById("street").value;
-  let city = document.getElementById("city").value;
-  let state = document.getElementById("state").value;
-  let zip_code = document.getElementById("zip_code").value;
-  let country = document.getElementById("country").value;
+  let password_confirmation = document.getElementById(
+    "password_confirmation"
+  ).value;
+
+  if (password_confirmation !== password) {
+    return;
+  }
 
   const data = {
-    email,
-    name,
-    street,
-    city,
-    state,
-    zip_code,
-    country,
+    email: user.user.email,
     password,
-    password_confirmation: password,
+    resetToken: token,
+    password_confirmation,
   };
 
   try {
-    const response = await fetch(`${api}auth/register`, {
+    const response = await fetch(`${api}/resetPassword`, {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${_token}`,
       },
       body: JSON.stringify(data),
     });
 
     const result = await response.json();
-
-    if (result.message == "User successfully registered") {
-      showNotification(true, "Account created Succesfully, over to Login now ");
-      setInterval(() => {
-        window.location.href = "signin.html";
-      }, 2000);
-    } else {
-      showNotification(false, result.message);
-      setInterval(() => {
-        window.location.href = "signup.html";
-      }, 2000);
+    if (result.data) {
+      return showNotification(true, result.data);
     }
-    console.log(result);
+    if (result.message) {
+      return showNotification(false, result.message);
+    }
   } catch (error) {
-    console.error("Error:", error);
+    showNotification(false, "Unsuccesful");
   }
-});
+};
 
 function showNotification(status, message) {
   const notificationContainer = document.createElement("div");

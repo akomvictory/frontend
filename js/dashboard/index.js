@@ -1,9 +1,14 @@
 const id = JSON.parse(localStorage.getItem("user"));
 const referralURL = document.getElementById("referralURL");
 
-const api = "http://admin.coinpecko.online/api";
-
+const api = "https://admin.coinpecko.online/api";
+//const api = "http://127.0.0.1:8000/api";
 const user = JSON.parse(localStorage.getItem("user"));
+if (user == null) {
+  window.location.href = "../signin.html";
+}
+if (user == null) {
+}
 let _token = user.access_token.original.access_token;
 
 referralURL.value += user.user.name;
@@ -18,7 +23,6 @@ function calculateTotalAmount(array) {
   return totalAmount.toFixed(2); // Ensure the result is formatted as a string with two decimal places
 }
 
-
 (async function getAccountDetails() {
   try {
     const response = await fetch(`${api}/user/${user.user.id}`, {
@@ -31,7 +35,6 @@ function calculateTotalAmount(array) {
     });
 
     const result = await response.json();
- 
 
     document.getElementById("balance").textContent += result.account.balance;
     document.getElementById("bonus").textContent += result.account.bonus;
@@ -40,9 +43,9 @@ function calculateTotalAmount(array) {
     if (result.account.account_stage === "bronze") {
       document.getElementById("invest").textContent += "15000";
     } else if (result.account.account_stage === "silver") {
-      document.getElementById("invest").textContent += "50,000";
+      document.getElementById("invest").textContent += "50000";
     } else if (result.account.account_stage === "gold") {
-      document.getElementById("invest").textContent += "100,000";
+      document.getElementById("invest").textContent += "100000";
     } else if (result.account.account_stage === "premium") {
       document.getElementById("invest").textContent = "unlimited";
     }
@@ -56,7 +59,7 @@ function calculateTotalAmount(array) {
     );
     displayTransactions(result.withdraws, result.deposit);
   } catch (error) {
-    // window.location.href = "../signin.html";
+    window.location.href = "../signin.html";
   }
 })();
 
