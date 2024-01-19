@@ -1,5 +1,5 @@
-const api = "http://127.0.0.1:8000/api/";
-//const api = "https://admin.coinpecko.online/api/";
+//const api = "http://127.0.0.1:8000/api/";
+const api = "https://admin.coinpecko.online/api/";
 const sbmt = document.getElementById("sbmt");
 
 document.getElementById("form").onsubmit = (e) => {
