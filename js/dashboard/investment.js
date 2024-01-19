@@ -1,6 +1,6 @@
 const register = document.getElementById("register");
-const api = "https://admin.coinpecko.online/api";
-//const api = "http://127.0.0.1:8000/api";
+//const api = "https://admin.coinpecko.online/api";
+const api = "http://127.0.0.1:8000/api";
 const user = JSON.parse(localStorage.getItem("user"));
 if (user == null) {
   window.location.href = "../signin.html";
@@ -32,7 +32,7 @@ document.getElementById("bronze").onclick = () => {
 
 (async function getAccountDetails() {
   try {
-    const response = await fetch(`${api}/account/${user.user.id}`, {
+    const response = await fetch(`${api}/account/${user.user.account.id}`, {
       method: "GET", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
