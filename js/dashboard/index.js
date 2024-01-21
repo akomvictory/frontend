@@ -46,16 +46,10 @@ function formatNumberWithCommas(number) {
     document.getElementById("bonus").textContent += result.account.bonus;
 
     //invest
-    if (result.account.account_stage === "bronze") {
-      document.getElementById("invest").textContent += "15000.00 (Bronze Plan)";
-    } else if (result.account.account_stage === "silver") {
-      document.getElementById("invest").textContent += "50000.00 (Silver Plan)";
-    } else if (result.account.account_stage === "gold") {
-      document.getElementById("invest").textContent += "100000.00 (Gold Plan)";
-    } else if (result.account.account_stage === "premium") {
-      document.getElementById("invest").textContent =
-        "unlimited (Premium Plan)";
-    }
+
+    document.getElementById("invest").textContent += result.account.earning;
+
+  
 
     document.getElementById("deposit").textContent = calculateTotalAmount(
       result.deposit
