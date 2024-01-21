@@ -50,6 +50,7 @@ sbmt.addEventListener("click", async function (e) {
       setInterval(() => {
         window.location.href = "signup.html";
       }, 2000);
+      console.log(result);
     }
     console.log(result);
   } catch (error) {

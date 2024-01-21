@@ -72,8 +72,8 @@ document.getElementById("submit").onclick = async (e) => {
       showNotification(false, "Amount must be more than $200");
     }
   } catch (error) {
-    console.log(error);
-    // window.location.href = "../signin.html";
+   
+     window.location.href = "../signin.html";
   }
 };
 

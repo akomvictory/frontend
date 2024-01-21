@@ -23,6 +23,10 @@ function calculateTotalAmount(array) {
   return totalAmount.toFixed(2); // Ensure the result is formatted as a string with two decimal places
 }
 
+function formatNumberWithCommas(number) {
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 (async function getAccountDetails() {
   try {
     const response = await fetch(`${api}/user/${user.user.id}`, {
@@ -36,18 +40,21 @@ function calculateTotalAmount(array) {
 
     const result = await response.json();
 
-    document.getElementById("balance").textContent += result.account.balance;
+    document.getElementById("balance").textContent += formatNumberWithCommas(
+      parseInt(result.account.balance) + parseInt(result.account.earning)
+    );
     document.getElementById("bonus").textContent += result.account.bonus;
 
     //invest
     if (result.account.account_stage === "bronze") {
-      document.getElementById("invest").textContent += "15000";
+      document.getElementById("invest").textContent += "15000.00 (Bronze Plan)";
     } else if (result.account.account_stage === "silver") {
-      document.getElementById("invest").textContent += "50000";
+      document.getElementById("invest").textContent += "50000.00 (Silver Plan)";
     } else if (result.account.account_stage === "gold") {
-      document.getElementById("invest").textContent += "100000";
+      document.getElementById("invest").textContent += "100000.00 (Gold Plan)";
     } else if (result.account.account_stage === "premium") {
-      document.getElementById("invest").textContent = "unlimited";
+      document.getElementById("invest").textContent =
+        "unlimited (Premium Plan)";
     }
 
     document.getElementById("deposit").textContent = calculateTotalAmount(

@@ -9,7 +9,6 @@ form.addEventListener("click", async function (e) {
 
   const data = { email, password };
 
-  console.log(data);
   try {
     const response = await fetch(`${api}auth/login`, {
       method: "POST", // or 'PUT'
@@ -21,12 +20,12 @@ form.addEventListener("click", async function (e) {
     });
 
     const result = await response.json();
-    console.log("Success:", result);
+   
     if (result.message == "Login successful") {
       window.location.href = "dashboard/index.html";
       localStorage.setItem("user", JSON.stringify(result));
 
-      console.log(JSON.stringify(result));
+     
     } else {
       alert("Error: " + result.message);
       window.location.href = "signin.html";

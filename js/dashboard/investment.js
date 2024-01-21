@@ -32,7 +32,7 @@ document.getElementById("bronze").onclick = () => {
 
 (async function getAccountDetails() {
   try {
-    const response = await fetch(`${api}/account/${user.user.id}`, {
+    const response = await fetch(`${api}/account/${user.user.account.id}`, {
       method: "GET", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
