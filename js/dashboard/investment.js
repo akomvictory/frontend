@@ -133,7 +133,6 @@ document.getElementById("beginner").onclick = () => {
 });
 
 function getAccountDetails() {
-  console.log(finder("percent", plan, allPlan));
   document.getElementById("planName").textContent = plan;
   document.getElementById("investAmountRenge").textContent =
     "invest: " + formInvestAmount;
