@@ -93,11 +93,10 @@ document.getElementById("beginner").onclick = () => {
 
     return result;
   } catch (error) {
-    // window.location.href = "../signin.html";
-    console.log(error);
+    window.location.href = "../signin.html";
   }
 })().then((res) => {
-  console.log(res);
+  if (!res) return;
   check = true;
   AddsbmtAtt("premium");
   AddsbmtAtt("silver");
@@ -128,8 +127,7 @@ document.getElementById("beginner").onclick = () => {
       document.getElementById("interestValidaty").textContent =
         "per 1 day, .... times";
     } catch (error) {
-      // window.location.href = "../signin.html";
-      console.log(error);
+      window.location.href = "../signin.html";
     }
   })();
 });
