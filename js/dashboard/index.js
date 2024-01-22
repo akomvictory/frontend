@@ -1,8 +1,8 @@
 const id = JSON.parse(localStorage.getItem("user"));
 const referralURL = document.getElementById("referralURL");
 
-const api = "https://admin.coinpecko.online/api";
-//const api = "http://127.0.0.1:8000/api";
+//const api = "https://admin.coinpecko.online/api";
+const api = "http://127.0.0.1:8000/api";
 const user = JSON.parse(localStorage.getItem("user"));
 if (user == null) {
   window.location.href = "../signin.html";
@@ -49,8 +49,6 @@ function formatNumberWithCommas(number) {
 
     document.getElementById("invest").textContent += result.account.earning;
 
-  
-
     document.getElementById("deposit").textContent = calculateTotalAmount(
       result.deposit
     );
@@ -90,14 +88,18 @@ function displayTransactions(withdraws, deposits) {
 
     // Determine the color based on transaction type and status
     let textColor;
-    if (item.amount.startsWith("-")) {
-      textColor = item.status === 0 ? "text-blue" : "text-danger"; // Withdraw
+    let statusText;
+    if (item && item.hasOwnProperty("image_url") ) {
+    
+      item.status === "pending"
+        ? ((textColor = "text-blue"), (statusText = "incomplete"))
+        : ((textColor = "text-success"), (statusText = "complete")); // Deposit
     } else {
-      textColor = item.status === "pending" ? "text-blue" : "text-success"; // Deposit
+     
+      item.status === 0
+        ? ((textColor = "text-blue"), (statusText = "incomplete"))
+        : ((textColor = "text-success"), (statusText = "complete")); // Withdraw
     }
-
-    // Determine the status text
-    const statusText = item.status === 0 ? "Incomplete" : "Complete";
 
     // Create table cells and set their content
     row.innerHTML = `
@@ -106,13 +108,15 @@ function displayTransactions(withdraws, deposits) {
       item.id
     }</span></td>
       <td data-label="Amount"><span class="${textColor}">${formattedAmount}</span></td>
-      <td data-label="Wallet"><span class="badge badge-primary">${
+      <td data-label="Account"><span class="badge badge-primary">${
         item.currency
       } Wallet</span></td>
       <td data-label="Details">${item.amount} ${item.currency} ${
-      item.withdrawal_type === "crypto" ? "Withdraw" : "Deposit"
-    } ${
-      item.withdrawal_type === "crypto" ? "Via Crypto" : "Via Bank Transfer"
+      item.withdrawal_type === undefined
+        ? "Deposit Via Crypto"
+        : item.withdrawal_type === "crypto"
+        ? "withdraw Via Crypto"
+        : " withdraw Via Bank Transfer"
     }</td>
       <td data-label="Status"><span class="${textColor}">${statusText}</span></td>
     `;

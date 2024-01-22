@@ -4,8 +4,8 @@ if (user == null) {
 }
 const _amount = document.getElementById("amount");
 let amount = 0;
-const api = "https://admin.coinpecko.online/api";
-//const api = "http://127.0.0.1:8000/api";
+//const api = "https://admin.coinpecko.online/api";
+const api = "http://127.0.0.1:8000/api";
 let _token = user.access_token.original.access_token;
 let _bank = false;
 let _crypto = false;
@@ -44,10 +44,11 @@ document.getElementById("submit").onclick = async (e) => {
     });
 
     const result = await response.json();
+
     if (
       parseInt(amount) >= 200 &&
       amount !== "" &&
-      result.data.balance >= amount
+      parseInt(result.data.balance) >= parseInt(amount)
     ) {
       setAmount("current_balance", result.data.balance);
       setAmount("request_amount", amount);
@@ -69,11 +70,13 @@ document.getElementById("submit").onclick = async (e) => {
         document.getElementById("second").style.display = "block";
       }
     } else {
-      showNotification(false, "Amount must be more than $200");
+      showNotification(
+        false,
+        "Amount must be more than $200 and higher than balance"
+      );
     }
   } catch (error) {
-   
-     window.location.href = "../signin.html";
+    window.location.href = "../signin.html";
   }
 };
 
@@ -144,7 +147,8 @@ document.getElementById("confirmBankSubmit").onclick = async (e) => {
       body: JSON.stringify(data),
     });
 
-    // const result = await response.json();
+    const result = await response.json();
+    
     showNotification(true, "Withdraw Successful");
 
     setInterval(function () {
