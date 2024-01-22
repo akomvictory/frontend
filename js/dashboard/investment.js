@@ -30,6 +30,55 @@ document.getElementById("bronze").onclick = () => {
   document.getElementById("submit").setAttribute("data-dismiss", "modal");
 };
 
+(async function getPlanDetails() {
+  try {
+    const response = await fetch(`${api}/plan`, {
+      method: "GET", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${_token}`,
+      },
+    });
+
+    const result = await response.json();
+
+    document.querySelectorAll(".premuium_percent").forEach((item) => {
+      return (item.textContent += result[4].percent + "%");
+    });
+    document.getElementById("premium_duration").textContent +=
+      result[4].duration + " " + "Days";
+
+    document.querySelectorAll(".gold_percent").forEach((item) => {
+      return (item.textContent += result[3].percent + "%");
+    });
+    document.getElementById("gold_duration").textContent +=
+      result[3].duration + " " + "Days";
+
+    document.querySelectorAll(".silver_percent").forEach((item) => {
+      return (item.textContent += result[2].percent + "%");
+    });
+    document.getElementById("silver_duration").textContent +=
+      result[2].duration + " " + "Days";
+
+    document.querySelectorAll(".bronze_percent").forEach((item) => {
+      return (item.textContent += result[1].percent + "%");
+    });
+    document.getElementById("bronze_duration").textContent +=
+      result[1].duration + " " + "Days";
+
+    document.querySelectorAll(".beginner_percent").forEach((item) => {
+      return (item.textContent += result[0].percent + "%");
+    });
+    document.getElementById("beginner_duration").textContent +=
+      result[0].duration + " " + "Days";
+  } catch (error) {
+    window.location.href = "../signin.html";
+  }
+})().then(() => {
+  check = true;
+});
+
 (async function getAccountDetails() {
   try {
     const response = await fetch(`${api}/account/${user.user.account.id}`, {

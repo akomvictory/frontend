@@ -14,10 +14,15 @@ let _token = user.access_token.original.access_token;
 referralURL.value += user.user.name;
 
 function calculateTotalAmount(array) {
-  // Use the reduce function to sum up all amounts
+  // Use the reduce function to sum up amounts with status "complete" or status 1
   const totalAmount = array.reduce((sum, item) => {
-    // Parse the amount from string to float and add it to the sum
-    return sum + parseFloat(item.amount);
+    // Check if the status is "complete" or 1
+    if (item.status == 1 || item.status === "completed") {
+      // Parse the amount from string to float and add it to the sum
+      return sum + parseFloat(item.amount);
+    }
+    // If the status is not "complete" or 1, return the current sum
+    return sum;
   }, 0);
 
   return totalAmount.toFixed(2); // Ensure the result is formatted as a string with two decimal places
@@ -58,7 +63,8 @@ function formatNumberWithCommas(number) {
     );
     displayTransactions(result.withdraws, result.deposit);
   } catch (error) {
-    window.location.href = "../signin.html";
+    // window.location.href = "../signin.html";
+    console.log(error);
   }
 })();
 
@@ -89,13 +95,11 @@ function displayTransactions(withdraws, deposits) {
     // Determine the color based on transaction type and status
     let textColor;
     let statusText;
-    if (item && item.hasOwnProperty("image_url") ) {
-    
+    if (item && item.hasOwnProperty("image_url")) {
       item.status === "pending"
         ? ((textColor = "text-blue"), (statusText = "incomplete"))
         : ((textColor = "text-success"), (statusText = "complete")); // Deposit
     } else {
-     
       item.status === 0
         ? ((textColor = "text-blue"), (statusText = "incomplete"))
         : ((textColor = "text-success"), (statusText = "complete")); // Withdraw
