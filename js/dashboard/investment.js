@@ -9,25 +9,42 @@ let _token = user.access_token.original.access_token;
 let _result = { data: JSON.parse(localStorage.getItem("user")).account };
 let plan = "";
 let check = false;
+let allPlan;
+let formInvestAmount;
 
 document.getElementById("premium").onclick = () => {
   plan = "premium";
+  formInvestAmount = "$200,000 - $1,000,000";
   document.getElementById("submit").setAttribute("data-dismiss", "modal");
+  getAccountDetails();
 };
 
 document.getElementById("gold").onclick = () => {
   plan = "gold";
+  formInvestAmount = "$150,000 - $750,000";
   document.getElementById("submit").setAttribute("data-dismiss", "modal");
+  getAccountDetails();
 };
 
 document.getElementById("silver").onclick = () => {
   plan = "silver";
+  formInvestAmount = "$75,000 - $500,000";
   document.getElementById("submit").setAttribute("data-dismiss", "modal");
+  getAccountDetails();
 };
 
 document.getElementById("bronze").onclick = () => {
   plan = "bronze";
+  formInvestAmount = "$20,000 - $250,000";
   document.getElementById("submit").setAttribute("data-dismiss", "modal");
+  getAccountDetails();
+};
+
+document.getElementById("beginner").onclick = () => {
+  plan = "beginner";
+  formInvestAmount = "$5,000 - $75,000";
+  document.getElementById("submit").setAttribute("data-dismiss", "modal");
+  getAccountDetails();
 };
 
 (async function getPlanDetails() {
@@ -42,6 +59,7 @@ document.getElementById("bronze").onclick = () => {
     });
 
     const result = await response.json();
+    allPlan = result;
 
     document.querySelectorAll(".premuium_percent").forEach((item) => {
       return (item.textContent += result[4].percent + "%");
@@ -72,35 +90,60 @@ document.getElementById("bronze").onclick = () => {
     });
     document.getElementById("beginner_duration").textContent +=
       result[0].duration + " " + "Days";
+
+    return result;
   } catch (error) {
-    window.location.href = "../signin.html";
+    // window.location.href = "../signin.html";
+    console.log(error);
   }
-})().then(() => {
+})().then((res) => {
+  console.log(res);
   check = true;
+  AddsbmtAtt("premium");
+  AddsbmtAtt("silver");
+  AddsbmtAtt("gold");
+  AddsbmtAtt("bronze");
+  AddsbmtAtt("beginner");
+  (async function () {
+    try {
+      const response = await fetch(`${api}/account/${user.user.account.id}`, {
+        method: "GET", // or 'PUT'
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          Authorization: `Bearer ${_token}`,
+        },
+      });
+
+      const result = await response.json();
+      _result = result;
+
+      document.getElementById("balance").textContent =
+        "Deposit Wallet - $" + result.data.balance;
+      document.getElementById("bonus").textContent += result.data.bonus;
+      document.getElementById("investAmountRenge").textContent =
+        "invest: " + "......";
+      document.getElementById("interestDetails").textContent =
+        "intrest : " + "...." + "%";
+      document.getElementById("interestValidaty").textContent =
+        "per 1 day, .... times";
+    } catch (error) {
+      // window.location.href = "../signin.html";
+      console.log(error);
+    }
+  })();
 });
 
-(async function getAccountDetails() {
-  try {
-    const response = await fetch(`${api}/account/${user.user.account.id}`, {
-      method: "GET", // or 'PUT'
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        Authorization: `Bearer ${_token}`,
-      },
-    });
-
-    const result = await response.json();
-    _result = result;
-
-    document.getElementById("balance").textContent += result.data.balance;
-    document.getElementById("bonus").textContent += result.data.bonus;
-  } catch (error) {
-    window.location.href = "../signin.html";
-  }
-})().then(() => {
-  check = true;
-});
+function getAccountDetails() {
+  console.log(finder("percent", plan, allPlan));
+  document.getElementById("planName").textContent = plan;
+  document.getElementById("investAmountRenge").textContent =
+    "invest: " + formInvestAmount;
+  document.getElementById("interestDetails").textContent =
+    "intrest : " + finder("percent", plan, allPlan) + "%";
+  document.getElementById("interestValidaty").textContent =
+    "per 1 day, " + finder("duration", plan, allPlan) + " days";
+}
 
 document.getElementById("submit").onclick = async () => {
   if (check == false) return;
@@ -218,4 +261,18 @@ function showNotification(status, message) {
       step++;
     }
   }, interval / steps);
+}
+
+function finder(field, plan, allPlan) {
+  // Find the object with the matching plan
+  const matchingPlan = allPlan.find((obj) => obj.plan === plan);
+
+  // If a matching plan is found, return the specified field value; otherwise, return null
+  return matchingPlan ? matchingPlan[field] : null;
+}
+
+function AddsbmtAtt(plan) {
+  document.getElementById(plan).textContent = "Invest Now";
+  document.getElementById(plan).setAttribute("data-toggle", "modal");
+  document.getElementById(plan).setAttribute("href", "javascript:void(0)");
 }
