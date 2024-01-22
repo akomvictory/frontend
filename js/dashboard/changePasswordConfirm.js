@@ -24,7 +24,7 @@ const token = getQueryParam(currentUrl, "token");
 document.getElementById("form").onsubmit = (e) => {
   e.preventDefault();
 };
-console.log("boom");
+
 document.getElementById("submit").onclick = async () => {
   let password = document.getElementById("password").value;
   let password_confirmation = document.getElementById(
