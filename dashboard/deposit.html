@@ -49,7 +49,16 @@ Our goal is to provide our investors with a reliable source of high income, whil
   <link rel="stylesheet" href="https://legaltrademining.com/assets/templates/bit_gold//css/main.css">
   <link rel="stylesheet" href="https://legaltrademining.com/assets/templates/bit_gold//css/custom.css">
   <link rel="stylesheet" href="https://legaltrademining.com/assets/templates/bit_gold/css/color.php?color=0478ea&secondColor=293241">
-<script src="../js/dashboard/deposit.js" defer></script>  
+  <script>
+    function cloudinaryScriptLoaded() {
+      console.log('Cloudinary script has loaded');
+    }
+  </script>
+  
+  <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript" onload="cloudinaryScriptLoaded()"></script>
+  
+
+  <script src="../js/dashboard/deposit.js" defer></script>  
 </head>
   <body id="body">
       
@@ -299,8 +308,12 @@ Our goal is to provide our investors with a reliable source of high income, whil
                                                       <span class="btn btn-info btn-file">
                                                           <span class="fileinput-new">Select Screenshot/Proof</span>
                                                           <span class="fileinput-exists">Change</span>
-                                                          <input id="fileInput" type="file" name="screenshot/proof" accept="image/*">
+                                                
+                                                          <div  id="fileInput"  style="border:1px solid #0478ea73;">
+                                                            <button > CLick Me </button>  <span id="fileInput_name"></span>
+                                                         </div>
                                                       </span>
+
                                                       <a href="#" class="btn btn-danger fileinput-exists" data-dismiss="fileinput" onclick="removePreview()">Remove</a>
                                                   </div>
                                               </div>

@@ -11,28 +11,58 @@ let wallet_address = "bc1qytwvayz74lsw40z66agk2q33kssup9z7726akk";
 _amount.onchange = (e) => {
   amount = e.currentTarget.value;
 };
+let deposit_id;
+let deposit_url;
 
-// Function to preview the selected image
+// Function to remove the image preview
+function removePreview() {
+  previewImage.src = "https://legaltrademining.com/assets/images/default.png";
+
+  // Optional: Clear the file input value
+  fileInput.value = "";
+}
+
 document.addEventListener("DOMContentLoaded", function () {
-  // Get elements
-  const fileInput = document.getElementById("fileInput");
-  const previewImage = document.getElementById("previewImage");
+  // Cloudinary configuration
+  cloudinary.setCloudName("dxr49fy98");
+  cloudinary.setAPIKey("849642262735529");
 
-  // Add event listener to file input
-  fileInput.addEventListener("change", function (event) {
-    const file = event.target.files[0];
-    if (file) {
-      previewImage.src = URL.createObjectURL(file);
+  // Upload widget for driver's license back
+  let uploadWidgetDeposit = cloudinary.createUploadWidget(
+    {
+      cloudName: "dxr49fy98",
+      uploadPreset: "coinpecko",
+      sources: [
+        "local",
+        "url",
+        "camera",
+        "image_search",
+        "dropbox",
+        "google_drive",
+      ],
+      cropping: true,
+      croppingAspectRatio: 16 / 9,
+      folder: "driver_licence_back",
+    },
+    (error, result) => {
+      if (!error && result && result.event === "success") {
+        // Handle successful upload for driver's license back
+        deposit_id = result.info.public_id;
+        deposit_url = result.info.secure_url;
+
+        // Update the preview image with the uploaded image
+        document.getElementById("previewImage").src = deposit_url;
+
+        document.getElementById("fileInput_name").textContent =
+          result.info.original_filename + "." + result.info.format;
+      }
     }
+  );
+
+  // Attach click event listeners to trigger Cloudinary upload widgets
+  document.getElementById("fileInput").addEventListener("click", () => {
+    uploadWidgetDeposit.open();
   });
-
-  // Function to remove the image preview
-  function removePreview() {
-    previewImage.src = "https://legaltrademining.com/assets/images/default.png";
-
-    // Optional: Clear the file input value
-    fileInput.value = "";
-  }
 });
 
 document.getElementById("register").addEventListener("submit", function (e) {
@@ -58,12 +88,32 @@ document.getElementById("confirm").onclick = async (e) => {
   e.preventDefault();
   document.getElementById("second").style.display = "none";
   document.getElementById("third").style.display = "block";
+};
+
+function setAmount() {
+  var elements = document.getElementsByClassName("amount_holder");
+
+  for (var i = 0; i < elements.length; i++) {
+    elements[i].textContent += amount;
+  }
+}
+
+document.getElementById("payform").onsubmit = (e) => {
+  e.preventDefault();
+};
+
+document.getElementById("pay").onclick = async () => {
+  if (document.getElementById("fileInput_name").textContent == "") {
+    return showNotification(false, "please add deposit schreenshot");
+  }
 
   const data = {
     user_id: user.user.id,
     amount,
     wallet_address,
     currency: "bitcoin",
+    image_url: deposit_url,
+    image_id: deposit_id,
   };
 
   try {
@@ -78,27 +128,17 @@ document.getElementById("confirm").onclick = async (e) => {
     });
 
     const result = await response.json();
+    if (result.data) {
+      showNotification(true, "Deposit Successful");
+      setInterval(() => {
+        window.location.href = "./deposit-history.html";
+      }, 2000);
+      return;
+    }
+    showNotification(false, "Error on Deposit");
   } catch (error) {
     showNotification(false, error);
   }
-};
-
-function setAmount() {
-  var elements = document.getElementsByClassName("amount_holder");
-
-  for (var i = 0; i < elements.length; i++) {
-    elements[i].textContent += amount;
-  }
-}
-
-document.getElementById("payform").onsubmit = (e) => {
-  e.preventDefault();
-
-  showNotification(true, "Deposit Successful");
-
-  setInterval(() => {
-    window.location.href = "./deposit-history.html";
-  }, 1000);
 };
 
 function showNotification(status, message) {
