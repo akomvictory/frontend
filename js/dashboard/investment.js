@@ -11,9 +11,11 @@ let plan = "";
 let check = false;
 let allPlan;
 let formInvestAmount;
+let returned;
 
 document.getElementById("premium").onclick = () => {
   plan = "premium";
+  returned = `${allPlan[4].percent}% daily for ${allPlan[4].duration} Days`;
   formInvestAmount = "$200,000 - $1,000,000";
   document.getElementById("submit").setAttribute("data-dismiss", "modal");
   getAccountDetails();
@@ -21,6 +23,7 @@ document.getElementById("premium").onclick = () => {
 
 document.getElementById("gold").onclick = () => {
   plan = "gold";
+  returned = `${allPlan[3].percent}% daily for ${allPlan[3].duration} Days`;
   formInvestAmount = "$150,000 - $750,000";
   document.getElementById("submit").setAttribute("data-dismiss", "modal");
   getAccountDetails();
@@ -28,6 +31,7 @@ document.getElementById("gold").onclick = () => {
 
 document.getElementById("silver").onclick = () => {
   plan = "silver";
+  returned = `${allPlan[2].percent}% daily for ${allPlan[2].duration} Days`;
   formInvestAmount = "$75,000 - $500,000";
   document.getElementById("submit").setAttribute("data-dismiss", "modal");
   getAccountDetails();
@@ -35,6 +39,7 @@ document.getElementById("silver").onclick = () => {
 
 document.getElementById("bronze").onclick = () => {
   plan = "bronze";
+  returned = `${allPlan[1].percent}% daily for ${allPlan[1].duration} Days`;
   formInvestAmount = "$20,000 - $250,000";
   document.getElementById("submit").setAttribute("data-dismiss", "modal");
   getAccountDetails();
@@ -42,6 +47,7 @@ document.getElementById("bronze").onclick = () => {
 
 document.getElementById("beginner").onclick = () => {
   plan = "beginner";
+  returned = `${allPlan[0].percent}% daily for ${allPlan[0].duration} Days`;
   formInvestAmount = "$5,000 - $75,000";
   document.getElementById("submit").setAttribute("data-dismiss", "modal");
   getAccountDetails();
@@ -159,7 +165,7 @@ document.getElementById("submit").onclick = async () => {
       amount: fixedAmount,
       withdrawal_type: "crypto",
       currency: "bitcoin",
-      destination: "invest",
+      destination: "**invest** " + plan + "  " + returned,
       name: "coinpecko",
     };
 
@@ -173,11 +179,10 @@ document.getElementById("submit").onclick = async () => {
         },
         body: JSON.stringify(withdraw_data),
       });
-      updateAccount();
+      return updateAccount();
     } catch (error) {
       showNotification(false, error);
     }
-    return showNotification(true, "successful");
   }
 
   return showNotification(
@@ -193,7 +198,7 @@ document.getElementById("submit").onclick = async () => {
       earning: _result.data.earning,
       bonus: _result.data.bonus,
       account_type: "margin",
-      account_stage: "plan",
+      account_stage: plan,
       trade: 1,
     };
 
@@ -207,6 +212,11 @@ document.getElementById("submit").onclick = async () => {
         },
         body: JSON.stringify(data),
       });
+      showNotification(true, "successful");
+      setInterval(() => {
+        window.location.href = "./investment-log.html";
+      }, 1000);
+      return;
     } catch (error) {
       showNotification(false, "Unsuccessful");
     }
