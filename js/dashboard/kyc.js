@@ -41,6 +41,9 @@ document.addEventListener("DOMContentLoaded", function () {
         // Handle successful upload for driver's license front
         DLF_ID = result.info.public_id;
         DLF_URL = result.info.secure_url;
+        // driver_licence_back_name
+        document.getElementById("driver_licence_front_name").textContent =
+          result.info.original_filename + "." + result.info.format;
       }
     }
   );
@@ -68,6 +71,9 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(result.info);
         DLB_ID = result.info.public_id;
         DLB_URL = result.info.secure_url;
+
+        document.getElementById("driver_licence_back_name").textContent =
+          result.info.original_filename + "." + result.info.format;
       }
     }
   );
@@ -123,28 +129,18 @@ form.addEventListener("click", async function (e) {
   const data = {
     user_id: user.user.id,
 
-    DLB_image_id:
-      driver_licence_back.files.length > 0 ? DLB_ID : _result.data.DLB_image_id,
+    DLB_image_id: DLB_ID ? DLB_ID : _result.data.DLB_image_id,
 
-    DLB_image_url:
-      driver_licence_back.files.length > 0
-        ? DLB_URL
-        : _result.data.DLB_image_url,
+    DLB_image_url: DLB_URL ? DLB_URL : _result.data.DLB_image_url,
 
-    DLF_image_id:
-      driver_licence_front.files.length > 0
-        ? DLF_ID
-        : _result.data.DLF_image_id,
+    DLF_image_id: DLF_ID ? DLF_ID : _result.data.DLF_image_id,
 
-    DLF_image_url:
-      driver_licence_front.files.length > 0
-        ? DLF_URL
-        : _result.data.DLF_image_url,
+    DLF_image_url: DLF_URL ? DLF_URL : _result.data.DLF_image_url,
 
     ssn,
     number: phone,
   };
-  console.log(data);
+ 
   try {
     const response = await fetch(`${api}kyc_info/${id}`, {
       method: "PUT", // or 'PUT'
@@ -157,7 +153,7 @@ form.addEventListener("click", async function (e) {
     });
 
     const result = await response.json();
-    console.log(result);
+
     if (result.data) {
       showNotification(true, "upload Succesful");
       setInterval(() => {
