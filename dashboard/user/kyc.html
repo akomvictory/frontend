@@ -6,25 +6,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="csrf-token" content="TZ9wYJKXDZLMZiIPSiyK8DmZwwqxKrU43PyHfzC6">
-    <title>CoinPecko - CHANGE PASSWORD</title>
+    <title>CoinPecko - Profile Setting</title>
     <meta name="description" content="We are an international financial company engaged in investment activities, which are related to trading on financial markets and cryptocurrency exchanges performed by qualified professional traders.
 
 Our goal is to provide our investors with a reliable source of high income, while minimizing any possible risks and offering a high-quality service, allowing us to automate and simplify the relations between the investors and the trustees. We work towards increasing your profit margin by profitable investment. We look forward to you being part of our community.">
     <meta name="keywords" content="investment">
-    <script src="/cdn-cgi/apps/head/O-czAZtJ84YbcDanv2JFyHWse6k.js"></script><link rel="shortcut icon" href="https://legaltrademining.com/assets/images/logoIcon/favicon.png" type="image/x-icon">
+    <script src="/cdn-cgi/apps/head/O-czAZtJ84YbcDanv2JFyHWse6k.js"></script><link rel="shortcut icon" href="assets/img/logocoinpecko.png" type="image/x-icon">
 
     
-    <link rel="apple-touch-icon" href="https://legaltrademining.com/assets/images/logoIcon/logo.png">
+    <link rel="apple-touch-icon" href="assets/img/logocoinpecko.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="CoinPecko - CHANGE PASSWORD">
+    <meta name="apple-mobile-web-app-title" content="CoinPecko - Profile Setting">
     
-    <meta itemprop="name" content="LegalTradeMining - CHANGE PASSWORD">
+    <meta itemprop="name" content="CoinPecko - Profile Setting">
     <meta itemprop="description" content="">
     <meta itemprop="image" content="https://legaltrademining.com/assets/images/seo/6352fc87aecb01666382983.png">
     
     <meta property="og:type" content="website">
-    <meta property="og:title" content="CoinPecko">
+    <meta property="og:title" content="LegalTradeMining">
     <meta property="og:description" content="We are an international financial company engaged in investment activities, which are related to trading on financial markets and cryptocurrency exchanges performed by qualified professional traders.
 
 Our goal is to provide our investors with a reliable source of high income, while minimizing any possible risks and offering a high-quality service, allowing us to automate and simplify the relations between the investors and the trustees. We work towards increasing your profit margin by profitable investment. We look forward to you being part of our community.">
@@ -32,9 +32,9 @@ Our goal is to provide our investors with a reliable source of high income, whil
     <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="600" />
     <meta property="og:image:height" content="315" />
-    <meta property="og:url" content="https://legaltrademining.com/user/change-password">
-    
-    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:url" content="https://legaltrademining.com/user/profile-setting">
+     
+      <meta name="twitter:card" content="summary_large_image">
   <!-- bootstrap 4  -->
   <link rel="stylesheet" href="https://legaltrademining.com/assets/templates/bit_gold//css/vendor/bootstrap.min.css">
   <!-- fontawesome 5  -->
@@ -49,15 +49,84 @@ Our goal is to provide our investors with a reliable source of high income, whil
   <link rel="stylesheet" href="https://legaltrademining.com/assets/templates/bit_gold//css/main.css">
   <link rel="stylesheet" href="https://legaltrademining.com/assets/templates/bit_gold//css/custom.css">
   <link rel="stylesheet" href="https://legaltrademining.com/assets/templates/bit_gold/css/color.php?color=0478ea&secondColor=293241">
-  </head>
-  <script src="../../js/dashboard/changePasswordConfirm.js" defer></script>
+  <style type="text/css">
+.avatar-upload {
+    position: relative;
+    max-width: 205px;
+    margin: 20px auto;
+}
+.avatar-upload .avatar-edit {
+    position: absolute;
+    z-index: 1;
+    bottom: 0px;
+    right: 31px;
+}
+.avatar-upload .avatar-edit input {
+    display: none;
+}
+.avatar-upload .avatar-edit label {
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    margin-bottom: 0;
+    border-radius: 100%;
+    background: #FFFFFF;
+    border: 1px solid transparent;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    font-weight: normal;
+    transition: all .2s ease-in-out;
+}
+.avatar-upload .avatar-edit label:hover {
+    background: #F1F1F1;
+    border-color: #D6D6D6;
+}
+.avatar-upload .avatar-edit label:after {
+    content: "\f044";
+    font-family: 'Font Awesome 5 Free';
+    color: #757575;
+    position: absolute;
+    top: 5px;
+    left: 1px;
+    right: 0;
+    text-align: center;
+    margin: auto;
+}
+.avatar-preview {
+    width: 192px;
+    height: 192px;
+    position: relative;
+    border-radius: 50%;
+    border: 6px solid #e4e4e4;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+}
+.avatar-preview div {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.copytextDiv{
+    cursor: pointer;
+}
+</style>
+
+<script>
+  function cloudinaryScriptLoaded() {
+    console.log('Cloudinary script has loaded');
+  }
+</script>
+
+<script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript" onload="cloudinaryScriptLoaded()"></script>
+
+
+
+
+<script src="../../js/dashboard/kyc.js" defer></script>
+</head>
   <body>
-      
-      
-      
-    
-  
-   
 
   <div class="full-wh">
     <!-- STAR ANIMATION -->
@@ -124,15 +193,16 @@ Our goal is to provide our investors with a reliable source of high income, whil
       </header>
   <!-- header-section end  -->
 
-        <!-- inner hero start -->
+    
+    <!-- inner hero start -->
     <section class="inner-hero bg_img" data-background="https://legaltrademining.com/assets/images/frontend/breadcrumb/5fce3837032a51607350327.jpg">
       <div class="container">
         <div class="row">
           <div class="col-lg-6">
-            <h2 class="page-title">CHANGE PASSWORD</h2>
+            <h2 class="page-title">KYC INFO</h2>
             <ul class="page-breadcrumb">
               <li><a href="../index.html">Home</a></li>
-              <li>CHANGE PASSWORD</li>
+              <li>KYC info</li>
             </ul>
           </div>
         </div>
@@ -140,31 +210,62 @@ Our goal is to provide our investors with a reliable source of high income, whil
     </section>
     <!-- inner hero end -->
     <section class="cmn-section">
-        <div class="container">
-            <div class="card">
-                <form id="form" enctype="multipart/form-data">
-                        <input type="hidden" name="_token" value="TZ9wYJKXDZLMZiIPSiyK8DmZwwqxKrU43PyHfzC6">                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            
-                            <div class="form-group">
-                                <label>Enter New Password</label>
-                                <input type="password" id="password" name="password" class="form-control form-control-lg">
-                            </div>
-                            <div class="form-group">
-                                <label>Re-type Password</label>
-                                <input type="password" id="password_confirmation" name="password_confirmation" class="form-control form-control-lg">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <button type="submit" id="submit" class="btn btn-md w-100 cmn-btn">Update</button>
-                </div>
-                </form>
+    <div class="container">
+      <div style="height: auto; width: auto; padding: 30px;" class="card">
+      
+          <form action="/upload" method="post" id="form" style="z-index: 499; " enctype="multipart/form-data">
+            <span>KYC </span>
+            <div class="form-group">
+              <label for="">Driver Licence Front</label>
+              <div  id="driver_licence_front"  style="border:1px solid #0478ea73;">
+                 <button > CLick Me </button>  <span id="driver_licence_front_name"></span>
+              </div>
             </div>
+  
+            <div class="form-group">
+              <label for="">Driver Licence Back</label>
+              <div  id="driver_licence_back" style="border:1px solid #0478ea73;">
+                <button > CLick Me  </button> <span id="driver_licence_back_name"></span>
+             </div>
+            </div>
+
+            <div class="form-group">
+              <label for="">SSN</label>
+              <input
+                id="ssn"
+                type="text"
+                required
+                class="form-control"
+                placeholder="SSN"
+              />
+            </div>
+  
+            <div class="form-group">
+              <label for="">Phone Number</label>
+              <input
+                id="phone"
+                type="number"
+                required
+                class="form-control"
+                placeholder="Phone Number"
+              />
+            </div>
+  
+            <button style="z-index: 299; cursor: pointer;" id="sbmt" type="submit" class="btn btn-primary">
+              Submit
+            </button>
+          </form>
+     
+      </div>
         </div>
-    </section>
+</section>
+
+<style>
+  /* Hide the default file input */
+  input[type="file"] {
+    display: none;
+  }
+</style>
 
     
 
@@ -174,7 +275,7 @@ Our goal is to provide our investors with a reliable source of high income, whil
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-12 text-center">
-          <a href="../index.html"><img src="assets/img/logocoinpecko.png" alt="image"></a>
+          <a href="https://legaltrademining.com"><img src="assets/img/logocoinpecko.png" alt="image"></a>
           <ul class="footer-short-menu d-flex flex-wrap justify-content-center mt-3">
                         <li><a href="#">Privacy &amp; Policy</a></li>
                         <li><a href="#">Terms &amp; Condition</a></li>
@@ -188,10 +289,10 @@ Our goal is to provide our investors with a reliable source of high income, whil
       <div class="row">
         <div class="col-md-6 text-md-left text-center">
           
-          </p></p>Address: <font color="lightblue">66 Great suffolk st, London SE1 0BL,UK</font></p></p>
-          </p></p> Email: <font color="lightblue"><a>support@coinpecko.online</a></font></p></p>
-          <p>© 2016 - 2024 <a href="../index.html" class="base--color">CoinPecko</a>. All rights reserved</p>
-        </div>
+        </p></p>Address: <font color="lightblue">66 Great suffolk st, London SE1 0BL, UK</font></p></p>
+        </p></p> Email: <font color="lightblue"><a>support@coinpecko.online</a></font></p></p>
+        <p>© 2016 - 2024 <a href="https://coinpecko.online" class="base--color">CoinPecko</a>. All rights reserved</p>
+      </div>
         <div class="col-lg-6">
           <ul class="social-link-list d-flex flex-wrap justify-content-md-end justify-content-center">
                         <li><a href="https://facebook.com"><i class="lab la-facebook-f"></i></a></li>
@@ -234,7 +335,34 @@ Our goal is to provide our investors with a reliable source of high income, whil
 
   
   
+<script>
+    (function ($) {
+        "use strict";
+        $('.imgUp').click(function(){
+            upload();
+        });
+        function upload(){
+            $(".upload").change(function() {
+                readURL(this);
+            });
+        }
 
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    var preview = $(input).parents('.avatar-upload').find('.imagePreview');
+                    $(preview).css('background-image', 'url('+e.target.result +')');
+                    $(preview).hide();
+                    $(preview).fadeIn(650);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $('select[name=country]').val('United States');
+    })(jQuery);
+</script>
 
 
 <!-- GetButton.io widget -->
