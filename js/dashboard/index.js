@@ -63,8 +63,8 @@ function formatNumberWithCommas(number) {
     );
     displayTransactions(result.withdraws, result.deposit);
   } catch (error) {
-    // window.location.href = "../signin.html";
-    console.log(error);
+    window.location.href = "../signin.html";
+    // console.log(error);
   }
 })();
 

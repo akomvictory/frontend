@@ -1,6 +1,6 @@
 const register = document.getElementById("register");
 const api = "https://admin.coinpecko.online/api";
-//const api = "http://127.0.0.1:8000/api";
+// const api = "http://127.0.0.1:8000/api";
 const user = JSON.parse(localStorage.getItem("user"));
 if (user == null) {
   window.location.href = "../signin.html";
@@ -167,6 +167,7 @@ document.getElementById("submit").onclick = async () => {
       currency: "bitcoin",
       destination: "**invest** " + plan + "  " + returned,
       name: "coinpecko",
+      status:"1"
     };
 
     try {
@@ -179,9 +180,16 @@ document.getElementById("submit").onclick = async () => {
         },
         body: JSON.stringify(withdraw_data),
       });
+
+      let result = await response.json();
+
+      if (result.message) {
+        return showNotification(false, result.message);
+      }
+
       return updateAccount();
     } catch (error) {
-      showNotification(false, error);
+      return showNotification(false, error);
     }
   }
 
@@ -191,7 +199,8 @@ document.getElementById("submit").onclick = async () => {
   );
 
   async function updateAccount() {
-    const currentAmount = _result.data.balance - fixedAmount;
+    const currentAmount =
+      parseInt(_result.data.balance) - parseInt(fixedAmount);
     const data = {
       user_id: user.user.id,
       balance: `${currentAmount}`,
@@ -203,7 +212,7 @@ document.getElementById("submit").onclick = async () => {
     };
 
     try {
-      const response = await fetch(`${api}/account/${user.user.id}`, {
+      const response = await fetch(`${api}/account/${user.user.account.id}`, {
         method: "PUT", // or 'PUT'
         headers: {
           "Content-Type": "application/json",

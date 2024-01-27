@@ -69,29 +69,31 @@ function filterInvestWithdrawals(withdrawals) {
   const filteredResults = [];
 
   for (const item of withdrawals) {
-      const description = item.destination || "";
-      if (description.startsWith("**invest**")) {
-          const parts = description.split(/\*\*invest\*\*\s+/);
-          const planAndReturn = parts[1] || null;
+    const description = item.destination || "";
+    if (description.startsWith("**invest**")) {
+      const parts = description.split(/\*\*invest\*\*\s+/);
+      const planAndReturn = parts[1] || null;
 
-          // Extract plan and return values
-          const match = planAndReturn.match(/(\S+)\s+(.*)/);
-          const plan = match ? match[1] : null;
-          const returnDetails = match ? match[2] : null;
+      // Extract plan and return values
+      const match = planAndReturn.match(/(\S+)\s+(.*)/);
+      const plan = match ? match[1] : null;
+      const returnDetails = match ? match[2] : null;
 
-          filteredResults.push({
-              plan: plan,
-              return: returnDetails,
-              status: item.status,
-              amount: item.amount,
-              created_at: item.created_at, // Include created_at property
-              updated_at: item.updated_at
-          });
-      }
+      filteredResults.push({
+        plan: plan,
+        return: returnDetails,
+        status: item.status,
+        amount: item.amount,
+        created_at: item.created_at, // Include created_at property
+        updated_at: item.updated_at,
+      });
+    }
   }
 
   // Sort the filtered results based on created_at in ascending order
-  filteredResults.sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
+  filteredResults.sort(
+    (a, b) => new Date(a.created_at) - new Date(b.created_at)
+  );
 
   return filteredResults;
 }

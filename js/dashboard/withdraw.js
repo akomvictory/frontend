@@ -108,6 +108,9 @@ document.getElementById("confirmCryptoSubmit").onclick = async (e) => {
     });
 
     const result = await response.json();
+    if (result.message) {
+      return showNotification(false, result.message);
+    }
     showNotification(true, "Withdraw Successful");
     setInterval(function () {
       window.location.href = "./withdraw-history.html";
@@ -148,7 +151,11 @@ document.getElementById("confirmBankSubmit").onclick = async (e) => {
     });
 
     const result = await response.json();
-    
+
+    if (result.message) {
+      return showNotification(false, result.message);
+    }
+
     showNotification(true, "Withdraw Successful");
 
     setInterval(function () {
