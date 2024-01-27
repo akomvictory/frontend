@@ -35,22 +35,26 @@ Our goal is to provide our investors with a reliable source of high income, whil
     <meta property="og:url" content="https://legaltrademining.com/user/withdraw">
     
     <meta name="twitter:card" content="summary_large_image">
-  <!-- bootstrap 4  -->
-  <link rel="stylesheet" href="https://legaltrademining.com/assets/templates/bit_gold//css/vendor/bootstrap.min.css">
-  <!-- fontawesome 5  -->
-  <link rel="stylesheet" href="https://legaltrademining.com/assets/templates/bit_gold//css/all.min.css">
-  <!-- line-awesome webfont -->
-  <link rel="stylesheet" href="https://legaltrademining.com/assets/templates/bit_gold//css/line-awesome.min.css">
-  <link rel="stylesheet" href="https://legaltrademining.com/assets/templates/bit_gold//css/vendor/animate.min.css">
-  <!-- slick slider css -->
-  <link rel="stylesheet" href="https://legaltrademining.com/assets/templates/bit_gold//css/vendor/slick.css">
-  <link rel="stylesheet" href="https://legaltrademining.com/assets/templates/bit_gold//css/vendor/dots.css">
-    <!-- dashdoard main css -->
-  <link rel="stylesheet" href="https://legaltrademining.com/assets/templates/bit_gold//css/main.css">
-  <link rel="stylesheet" href="https://legaltrademining.com/assets/templates/bit_gold//css/custom.css">
-  <link rel="stylesheet" href="https://legaltrademining.com/assets/templates/bit_gold/css/color.php?color=0478ea&secondColor=293241">
+      <!-- dashdoard main css -->
+      <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../assets/css/ionicons.min.css">
+      <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+      <link rel="stylesheet" href="../assets-plans/templates/bit_gold//css/main.css">
+      <link rel="stylesheet" href="../assets-plans/templates/bit_gold//css/custom.css">
+      <link rel="stylesheet" href="../assets-plans/templates/bit_gold//css/color9bce9bce.css">
+    
+        <!-- js -->
+      <script src="../assets/js/jquery-3.4.1.min.js"></script>
+      <script src="../assets/js/custom.js"></script>
+      <script src="../assets/js/bootstrap.min.js"></script>
+      <script src="../assets/js/popper.min.js"></script>
+      <script src="../assets/js/toastr.min.js"></script>
+    
+      <!-- custom js -->
+    <script src="/js/dashboard/pop.js" defer></script>
+    <script src="../js/dashboard/withdraw.js" defer></script>
   </head>
-  <script src="../js/dashboard/withdraw.js" defer></script>
+
   <body>
       
       
@@ -74,11 +78,11 @@ Our goal is to provide our investors with a reliable source of high income, whil
     <div class="header__bottom">
       <div class="container">
         <nav class="navbar navbar-expand-xl p-0 align-items-center">
-            <a class="navbar-brand" href="index.html"
+            <a class="navbar-brand" href="../index.html"
             ><img src="../assets/img/logocoinpecko.png" style="width: 90px !important; height: 45px !important;" alt="logo"
           /></a>
             <ul class="account-menu responsive-account-menu ml-3">
-                          <li class="icon"><a href="/dashboard/index.html"><i class="las la-user"></i></a></li>
+                          <li class="icon"><a href="../index.html"><i class="las la-user"></i></a></li>
                         </ul> 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="menu-toggle"></span>
@@ -90,19 +94,21 @@ Our goal is to provide our investors with a reliable source of high income, whil
                 <li><a href="/dashboard/deposit.html">Deposit</a></li>
                 <li><a href="/dashboard/withdraw.html">Withdraw</a></li>
                 <li><a href="/dashboard/transactions.html">Transactions</a></li>
-                <li class="menu_has_children"><a href="#0">Referrals</a>
-                  <ul class="sub-menu">
+                <li class="menu_has_children">
+                    <a id="referral_parent" href="#0">Referrals</a>
+                  <ul class="sub-menu" id="referral_child">
                     <li><a href="/dashboard/referral/index.html">Referred Users</a></li>
                     <li><a href="/dashboard/referral/commission.html">Referral Commissions</a></li>
                   </ul>
                 </li>
-                <li class="menu_has_children"><a href="#0">Account</a>
-                  <ul class="sub-menu">
-                    <li><a href="../kyc.html">Profile Setting</a></li>
+                <li class="menu_has_children">
+                    <a id="user_parent" href="#0">Account</a>
+                  <ul class="sub-menu" id="user_child">
+                    <li><a href="../dashboard/user/profile-setting.html">Profile Setting</a></li>
                                       <li><a href="/dashboard/user/change-password.html">Change Password</a></li>
                     <li><a href="/dashboard/user/ticket.html">
                       Support Ticket</a></li>
-                    <li><a href="/dashboard/user/promotional-tool.html">Promotional Tool</a></li>
+                  
                     <!-- <li><a href="/dashboard/user/twofactor.html">2FA Security</a></li> -->
                     <li><a href="/dashboard/user/logout.html"> Logout</a></li>
                   </ul>
@@ -128,13 +134,13 @@ Our goal is to provide our investors with a reliable source of high income, whil
 
     
     <!-- inner hero start -->
-    <section class="inner-hero bg_img" data-background="https://legaltrademining.com/assets/images/frontend/breadcrumb/5fce3837032a51607350327.jpg">
+    <section class="inner-hero bg_img" data-background="../assets/img/background.jpeg">
       <div class="container">
         <div class="row">
           <div class="col-lg-6">
             <h2 class="page-title">Withdraw Money</h2>
             <ul class="page-breadcrumb">
-              <li><a href="../index.html">Home</a></li>
+              <li><a href="./index.html">Home</a></li>
               <li>Withdraw Money</li>
             </ul>
           </div>
@@ -159,7 +165,7 @@ Our goal is to provide our investors with a reliable source of high income, whil
                         <div class="card-body card-body-deposit">
                             <div class="row">
                                 <div class="col-md-5 col-sm-12">
-                                    <img src="https://legaltrademining.com/assets/images/withdraw/method/614663545d9e41632002900.png" class="card-img-top w-100" alt="Bank Transfer">
+                                    <img src="../assets/img/bank.png" class="card-img-top w-100" alt="Bank Transfer">
                                 </div>
                                 <div class="col-md-7 col-sm-12">
                                     <ul class="list-group text-center">
@@ -192,7 +198,7 @@ Our goal is to provide our investors with a reliable source of high income, whil
                         <div class="card-body card-body-deposit">
                             <div class="row">
                                 <div class="col-md-5 col-sm-12">
-                                    <img src="https://legaltrademining.com/assets/images/withdraw/method/614664fe1148d1632003326.png" class="card-img-top w-100" alt="Bitcoin">
+                                    <img src="../assets/img/bitcoin.jpeg" class="card-img-top w-100" alt="Bitcoin">
                                 </div>
                                 <div class="col-md-7 col-sm-12">
                                     <ul class="list-group text-center">
@@ -461,23 +467,6 @@ Our goal is to provide our investors with a reliable source of high income, whil
     </div>
   </div>
 </footer>
-<!-- footer section end -->
-  </div> <!-- page-wrapper end -->
-    <!-- jQuery library -->
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://legaltrademining.com/assets/templates/bit_gold//js/vendor/jquery-3.5.1.min.js"></script>
-  <!-- bootstrap js -->
-  <script src="https://legaltrademining.com/assets/templates/bit_gold//js/vendor/bootstrap.bundle.min.js"></script>
-
-    <!-- slick slider js -->
-  <script src="https://legaltrademining.com/assets/templates/bit_gold//js/vendor/slick.min.js"></script>
-  <script src="https://legaltrademining.com/assets/templates/bit_gold//js/vendor/wow.min.js"></script>
-  <!-- dashboard custom js -->
-  <script src="https://legaltrademining.com/assets/templates/bit_gold//js/app.js"></script>
-
-
-  <link rel="stylesheet" href="https://legaltrademining.com/assets/templates/bit_gold/css/iziToast.min.css">
-<script src="https://legaltrademining.com/assets/templates/bit_gold/js/iziToast.min.js"></script>
-
 
 <script>
 "use strict";
