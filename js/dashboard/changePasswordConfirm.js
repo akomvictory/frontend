@@ -3,7 +3,7 @@ if (user == null) {
   window.location.href = "../signin.html";
 }
 const api = "https://admin.coinpecko.online/api";
-//const api = "http://127.0.0.1:8000/api";
+// const api = "http://127.0.0.1:8000/api";
 if (user == null) {
   window.location.href = "../index.html";
 }
