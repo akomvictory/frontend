@@ -140,7 +140,7 @@ form.addEventListener("click", async function (e) {
     ssn,
     number: phone,
   };
- 
+
   try {
     const response = await fetch(`${api}kyc_info/${id}`, {
       method: "PUT", // or 'PUT'
