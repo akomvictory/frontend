@@ -1,5 +1,5 @@
 const api = "https://admin.coinpecko.online/api/";
-//const api = "http://127.0.0.1:8000/api/";
+// const api = "http://127.0.0.1:8000/api/";
 const form = document.getElementById("sbmt");
 
 form.addEventListener("click", async function (e) {
@@ -20,12 +20,10 @@ form.addEventListener("click", async function (e) {
     });
 
     const result = await response.json();
-   
+
     if (result.message == "Login successful") {
       window.location.href = "dashboard/index.html";
       localStorage.setItem("user", JSON.stringify(result));
-
-     
     } else {
       alert("Error: " + result.message);
       window.location.href = "signin.html";

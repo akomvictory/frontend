@@ -62,7 +62,6 @@ function sortDepositByDate(depositArray) {
 
     // Loop through deposit data and add rows to the table
     withdrawData.forEach((data) => {
-   
       // Modify data as needed to match the structure
       const rowData = {
         Description: data.destination,
