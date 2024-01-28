@@ -167,7 +167,7 @@ document.getElementById("submit").onclick = async () => {
       currency: "bitcoin",
       destination: "**invest** " + plan + "  " + returned,
       name: "coinpecko",
-      status:"1"
+      status: "1",
     };
 
     try {

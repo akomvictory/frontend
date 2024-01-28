@@ -222,7 +222,6 @@ a:hover {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("../../../../assets/img/background.jpeg") !important;
 }
 
 .background-position-y-top {
